@@ -40,7 +40,7 @@ function! UpdateStatus(id)
   elseif (mode() ==# 'i')
 		set statusline+=INSERT
   else
-		set statusline+=\ Command
+		set statusline+=COMMAND
 		echo mode()
   endif
   set statusline+=\ %*\ %<%f%m\ %=%1*\ %c%V\ \ %l\ %2*%*%1*\ %P\ 
