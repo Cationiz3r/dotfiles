@@ -1,0 +1,25 @@
+[user]
+	name = Martin C.
+	email = martincation@protonmail.com
+[core]
+	pager = less -FRx2
+[init]
+	defaultBranch = main
+[color "diff"]
+	meta = blue
+	new = white
+[alias]
+	root = rev-parse --show-toplevel
+
+[url "https://github.com/"]
+	insteadOf = gh:
+[url "git@github.com:"]
+	pushInsteadOf = gh:
+[url "https://gitlab.com/"]
+	insteadOf = gl:
+[url "git@gitlab.com:"]
+	pushInsteadOf = gl:
+[url "https://aur.archlinux.org/"]
+	insteadOf = aur:
+[url "aur@aur.archlinux.org:"]
+	pushInsteadOf = aur:

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_config xmlns="http://openbox.org/3.6/rc">
+	<resistance>
+		<padding>10</padding>
+		<strength>100</strength>
+		<screen_edge_strength>200</screen_edge_strength>
+	</resistance>
+	<focus>
+		<focusNew>yes</focusNew>
+		<followMouse>no</followMouse>
+		<focusLast>yes</focusLast>
+		<underMouse>no</underMouse>
+		<focusDelay>200</focusDelay>
+		<raiseOnFocus>no</raiseOnFocus>
+	</focus>
+	<placement><policy>Smart</policy><center>yes</center></placement>
+	<theme>
+		<name>VoidOpenbox</name>
+		<titleLayout>SLIMC</titleLayout>
+		<keepBorder>yes</keepBorder>
+		<animateIconify>no</animateIconify>
+		<font place="ActiveWindow">           <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="InactiveWindow">         <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="MenuHeader">             <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="MenuItem">               <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="OnScreenDisplay">        <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="ActiveOnScreenDisplay">  <name>Source Code Variable Medium</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="InactiveOnScreenDisplay"><name>Source Code Variable Medium</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
+	</theme>
+	<desktops>
+		<number>1</number>
+		<firstdesk>1</firstdesk>
+		<maximum>4</maximum>
+		<popupTime>0</popupTime>
+	</desktops>
+	<resize>
+		<drawContents>yes</drawContents>
+		<popupShow>Never</popupShow>
+	</resize>
+	<margins><top>40</top><bottom>10</bottom><left>10</left><right>10</right></margins>
+	<keyboard>
+		<chainQuitKey>C-g</chainQuitKey>
+
+	<!-- Desktop control -->
+		<keybind key="W-F1"><action name="GotoDesktop"><to>1</to></action></keybind>
+		<keybind key="W-F2"><action name="GotoDesktop"><to>2</to></action></keybind>
+		<keybind key="W-F3"><action name="GotoDesktop"><to>3</to></action></keybind>
+		<keybind key="W-F4"><action name="GotoDesktop"><to>4</to></action></keybind>
+
+	<!-- Window/Desktop control -->
+		<keybind key="S-W-Left"> <action name="SendToDesktop"><wrap>no</wrap><to>previous</to></action></keybind>
+		<keybind key="S-W-Right"><action name="SendToDesktop"><wrap>no</wrap><to>next</to></action></keybind>
+		<keybind key="S-W-F1"><action name="SendToDesktop"><to>1</to></action></keybind>
+		<keybind key="S-W-F2"><action name="SendToDesktop"><to>2</to></action></keybind>
+		<keybind key="S-W-F3"><action name="SendToDesktop"><to>3</to></action></keybind>
+		<keybind key="S-W-F4"><action name="SendToDesktop"><to>4</to></action></keybind>
+
+	<!-- Window control -->
+		<keybind key="W-F5"><action name="Restart"/></keybind>
+		<keybind key="A-F4"><action name="Close"/></keybind>
+		<keybind key="C-A-d"><action name="ToggleShowDesktop"/></keybind>
+		<keybind key="S-A-f"><action name="ToggleDecorations"/></keybind>
+		<keybind key="C-A-p"><action name="ToggleAlwaysOnTop"/></keybind>
+		<keybind key="C-A-o"><action name="ToggleOmnipresent"/></keybind>
+		<keybind key="A-F11"><action name="ToggleFullscreen"/></keybind>
+		<keybind key="A-space"><action name="ShowMenu"><menu>client-menu</menu></action></keybind>
+		<keybind key="A-Tab">  <action name="NextWindow">    <dialog>none</dialog><raise>yes</raise></action></keybind>
+		<keybind key="A-S-Tab"><action name="PreviousWindow"><dialog>none</dialog><raise>yes</raise></action></keybind>
+		<keybind key="W-Up">   <action name="ToggleMaximize"/></keybind>
+		<keybind key="W-Down"> <action name="Iconify"/></keybind>
+		<keybind key="W-Left"> <action name="Snap"><direction>west</direction></action></keybind>
+		<keybind key="W-Right"><action name="Snap"><direction>east</direction></action></keybind>
+		<keybind key="W-equal"><action name="AddDesktop"/></keybind>
+		<keybind key="W-minus"><action name="RemoveDesktop"><where>last</where></action></keybind>
+
+<!-- Commands -->
+	<!-- Launcher -->
+		<keybind key="W-e"><action name="Execute"><command>thunar</command></action></keybind>
+		<keybind key="W-1"><action name="Execute"><command>sakura</command></action></keybind>
+		<keybind key="W-2"><action name="Execute"><command>librewolf</command></action></keybind>
+		<keybind key="W-3"><action name="Execute"><command>pavucontrol</command></action></keybind>
+		<keybind key="W-4"><action name="Execute"><command>lmms -c /home/cationiz3r/.config/lmms/lmmsrc.xml</command></action></keybind>
+		<keybind key="W-5"><action name="Execute"><command>discord</command></action></keybind>
+		<keybind key="W-6"><action name="Execute"><command>steam</command></action></keybind>
+		<keybind key="S-W-2"><action name="Execute"><command>torb</command></action></keybind>
+	<!-- Function keys -->
+		<keybind key="XF86AudioMute         C-Insert">   <action name="Execute"><command>pavol -m</command></action></keybind>
+		<keybind key="XF86AudioLowerVolume  C-End">      <action name="Execute"><command>pavol -5%</command></action></keybind>
+		<keybind key="XF86AudioRaiseVolume  C-Home">     <action name="Execute"><command>pavol +5%</command></action></keybind>
+		<keybind key="XF86MonBrightnessDown C-Page_Down"><action name="Execute"><command>snaplight -d</command></action></keybind>
+		<keybind key="XF86MonBrightnessUp   C-Page_Up">  <action name="Execute"><command>snaplight -u</command></action></keybind>
+		<keybind key="XF86Display"><action name="Execute"><command>sh -c 'pgrep arandr || arandr'</command></action></keybind>
+		<keybind key="F9"> <action name="Execute"><command>dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause</command></action></keybind>
+		<keybind key="F10"><action name="Execute"><command>dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next</command></action></keybind>
+		<keybind key="S-F9"><action name="Execute"><command>pkill vlc</command></action></keybind>
+		<keybind key="Print">  <action name="Execute"><command>shoot</command></action></keybind>
+		<keybind key="S-Print"><action name="Execute"><command>shoot -a</command></action></keybind>
+		<keybind key="C-Print"><action name="Execute"><command>shoot -w</command></action></keybind>
+	<!-- Misc. -->
+		<keybind key="C-A-Delete"><action name="Execute"><prompt>Logout?</prompt><command>sh -c 'pkill -15 -t tty"$XDG_VTNR" Xorg'</command></action></keybind>
+		<keybind key="Scroll_Lock"><action name="Execute"><command>keylight -t</command></action></keybind>
+		<keybind key="A-F2 W-r"><action name="Execute"><command>rofi -show run</command></action></keybind>
+		<keybind key="C-Escape"><action name="Execute"><command>keylight -f</command></action></keybind>
+		<keybind key="W-grave"><action name="Execute"><command>lbr</command></action></keybind>
+		<keybind key="Pause">  <action name="Execute"><prompt>Suspend?</prompt><command>sh -c 'slock &amp; sleep 2s; systemctl suspend'</command></action></keybind>
+		<keybind key="S-Pause"><action name="Execute"><prompt>JUST suspend?</prompt><command>systemctl suspend</command></action></keybind>
+		<keybind key="Help"><action name="Execute"><command>dunstify -r 182 'No.'</command></action></keybind>
+		<keybind key="W-l"><action name="Execute"><command>slock</command></action></keybind>
+	</keyboard>
+	<mouse>
+		<dragThreshold>10</dragThreshold>
+		<doubleClickTime>200</doubleClickTime>
+		<screenEdgeWarpTime>200</screenEdgeWarpTime>
+
+	<!-- Window content actions -->
+		<context name="Frame">
+			<mousebind button="W-Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="W-Left" action="Click"><action name="Unshade"/></mousebind>
+			<mousebind button="W-Left" action="Drag"><action name="Unsnap"/><action name="Move"/></mousebind>
+			<mousebind button="W-Right" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
+			<mousebind button="W-Right" action="Drag"><action name="Unsnap"/><action name="Resize"/></mousebind>
+			<mousebind button="  W-Up"   action="Click"><action name="GotoDesktop"><wrap>no</wrap><to>previous</to></action></mousebind>
+			<mousebind button="  W-Down" action="Click"><action name="GotoDesktop"><wrap>no</wrap><to>next</to></action></mousebind>
+			<mousebind button="S-W-Up"   action="Click"><action name="SendToDesktop"><wrap>no</wrap><to>previous</to></action></mousebind>
+			<mousebind button="S-W-Down" action="Click"><action name="SendToDesktop"><wrap>no</wrap><to>next</to></action></mousebind>
+		</context>
+		<context name="Client">
+			<mousebind button="Left"   action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="Middle" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="Right"  action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+		</context>
+
+	<!-- Titlebar & its icons actions -->
+		<context name="Titlebar">
+			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="Left" action="Drag"><action name="Move"/></mousebind>
+			<mousebind button="Left" action="DoubleClick"><action name="ToggleMaximizeFull"/></mousebind>
+			<mousebind button="Up"    action="Click"><action name="Shade"/><action name="FocusToBottom"/><action name="Unfocus"/><action name="Lower"/></mousebind>
+			<mousebind button="Down"  action="Click"><action name="Unshade"/><action name="Raise"/></mousebind>
+			<mousebind button="Right" action="Press"><action name="Focus"/><action name="Raise"/><action name="ShowMenu"><menu>client-menu</menu></action></mousebind>
+		</context>
+		<context name="Icon">
+			<mousebind button="Left"  action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/><action name="ShowMenu"><menu>client-menu</menu></action></mousebind>
+			<mousebind button="Right" action="Press"><action name="Focus"/><action name="Raise"/><action name="ShowMenu"><menu>client-menu</menu></action></mousebind>
+		</context>
+		<context name="AllDesktops"> <!-- Omnipresent -->
+			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
+			<mousebind button="Left" action="Click"><action name="ToggleOmnipresent"/></mousebind>
+		</context>
+		<context name="Shade">
+			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="Left" action="Click"><action name="ToggleShade"/></mousebind>
+		</context>
+		<context name="Iconify">
+			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="Left" action="Click"><action name="Iconify"/></mousebind>
+		</context>
+		<context name="Maximize">
+			<mousebind button="Left"   action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
+			<mousebind button="Middle" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
+			<mousebind button="Right"  action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
+			<mousebind button="Left"   action="Click"><action name="ToggleMaximizeFull"/></mousebind>
+			<mousebind button="Middle" action="Click"><action name="ToggleMaximizeVert"/></mousebind>
+			<mousebind button="Right"  action="Click"><action name="ToggleMaximizeHorz"/></mousebind>
+		</context>
+		<context name="Close">
+			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
+			<mousebind button="Left" action="Click"><action name="Close"/></mousebind>
+		</context>
+
+	<!-- Non-window actions -->
+		<context name="Desktop">
+			<mousebind button="W-Up"   action="Click"><action name="GotoDesktop"><wrap>no</wrap><to>previous</to></action></mousebind>
+			<mousebind button="W-Down" action="Click"><action name="GotoDesktop"><wrap>no</wrap><to>next</to></action></mousebind>
+			<mousebind button="Left"  action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			<mousebind button="Right" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
+			</context>
+		<context name="Root"/>
+	</mouse>
+	<menu><file>/etc/xdg/openbox/menu.xml</file></menu>
+	<applications>
+		<application class="*"><decor>no</decor><focus>yes</focus></application>
+		<application class="Vlc" title="VLC (TopWindow)"><layer>above</layer><iconic>yes</iconic></application>
+		<application class="mpv"><!--maximized>true</maximized><desktop>2</desktop--></application>
+		<application class="Leafpad" type="normal"><layer>above</layer><size><width>400</width><height>300</height></size></application>
+		<application class="Wrapper-2.0" type="normal"><position><x>835</x><y>0</y></position></application>
+	</applications>
+</openbox_config>

@@ -1,0 +1,11 @@
+#!/bin/zsh
+N=$((XDG_VTNR-1))
+alias xinit="xinit -- :$N &>\$XDG_RUNTIME_DIR/Xorg/:$N"
+unset N
+alias \
+	lp='spawn leafpad' \
+	gp='spawn gpicview' \
+	gn='spawn geany' \
+	fr='spawn file-roller' \
+	kr='spawn krita' \
+	za='spawn zathura' \

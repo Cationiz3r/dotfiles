@@ -1,0 +1,8 @@
+@theme "/home/cationiz3r/.config/rofi/hueless.rasi"
+configuration {
+	modi: "run";
+	font: "Source Code Pro 10";
+	kb-row-select: "Tab";
+	kb-row-tab: "";
+	sorting-method: "fzf";
+}

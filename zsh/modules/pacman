@@ -1,0 +1,47 @@
+#!/bin/zsh
+alias \
+	pY='doas pacman -Syu' \
+	pU='doas pacman -U' \
+
+pS() {
+	local pkgs=("$@") fzf=false
+	[ $#pkgs -eq 0 ] && fzf=true && pkgs=($(pacman -Sl \
+		| awk '{print ($4=="" ? "" : "│ ")$2 " " $3}' \
+		| fzf --layout=reverse-list -m --marker='❯ ' \
+			--preview 'bash -c "[ {1} = │ ] && pacman -Si {2} || pacman -Si {1}"' \
+		| while read line; do local pos=1
+			[ "${line:0:1}" = │ ] && pos=2
+		cut -d' ' -f$pos <<< "$line"; done
+	))
+	[ $#pkgs -eq 0 ] && return
+	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
+	doas pacman -S $pkgs
+}
+pR() {
+	local pkgs=("$@") fzf=false
+	[ $#pkgs -eq 0 ] && fzf=true && pkgs=($((pacman -Qen; pacman -Qem) \
+		| fzf --layout=reverse-list -m --marker='❯ ' \
+			--preview 'pacman -Qi {1}' \
+		| cut -d' ' -f1
+	))
+	[ $#pkgs -eq 0 ] && return
+	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
+	doas pacman -Rns $pkgs
+}
+pRO() {
+	local pkgs=($(pacman -Qdtq))
+	[ $#pkgs -eq 0 ] && return
+	echo "packages: $(tput bold)$pkgs$(tput sgr0)"
+	doas pacman -Rns $pkgs
+}
+
+_pS() {
+	local state line packages=(--needed --asdeps)
+	_arguments '*:: :->args'
+	[[ "$line[$#line[@]]" =~ ^- ]] || packages=($(pacman -Slq))
+	compadd "$@" -a packages
+}
+_pR() { local packages=($(pacman -Qq)); compadd "$@" -a packages }
+compdef '_files -g *.pkg.tar.(zst|xz)' pU
+compdef _pS pS
+compdef _pR pR

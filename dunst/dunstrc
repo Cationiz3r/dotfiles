@@ -1,0 +1,92 @@
+[global]
+monitor = 0
+follow = mouse
+
+## Geometry
+width = (100, 300)
+height = 100
+origin = bottom-right
+offset = 15x15
+scale = 0
+notification_limit = 0
+
+## Progress bar
+progress_bar = true
+progress_bar_height = 4
+progress_bar_frame_width = 0
+progress_bar_min_width = 100
+progress_bar_max_width = 300
+
+indicate_hidden = yes
+transparency = 25
+separator_height = 1
+padding = 4
+horizontal_padding = 8
+text_icon_padding = 0
+frame_width = 1
+frame_color = "#222222"
+separator_color = frame
+sort = yes
+idle_threshold = 120
+
+## Text
+font = Source Code Variable 9
+line_height = 0
+markup = full
+format = "<b>%s</b>\n%b"
+alignment = left
+vertical_alignment = center
+show_age_threshold = -1
+ellipsize = end
+ignore_newline = no
+stack_duplicates = true
+hide_duplicate_count = false
+show_indicators = no
+
+## Icons
+#icon_path =
+icon_position = left
+min_icon_size = 0
+max_icon_size = 32
+
+## History
+history_ignore = yes
+
+## Misc
+dmenu = /usr/bin/dmenu -p dunst:
+browser = /usr/bin/xdg-open
+always_run_script = true
+title = Dunst
+class = Dunst
+corner_radius = 8
+ignore_dbusclose = true
+
+## Legacy
+force_xinerama = false
+
+## Mouse
+mouse_left_click = close_current
+mouse_middle_click = do_action, close_current
+mouse_right_click = close_all
+
+[experimental]
+per_monitor_dpi = false
+
+[urgency_low]
+background = "#222222"
+foreground = "#ffffff"
+timeout = 10
+highlight = "#eeeeee"
+
+[urgency_normal]
+background = "#222222"
+foreground = "#ffffff"
+timeout = 10
+highlight = "#eeeeee"
+
+[urgency_critical]
+background = "#222222"
+foreground = "#ffffff"
+frame_color = "#dd3322"
+timeout = 0
+highlight = "#ee0000"

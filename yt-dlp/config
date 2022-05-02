@@ -1,0 +1,5 @@
+-o "[%(id)s]%(title)s.%(ext)s"
+--no-mtime
+--sub-lang en
+--write-sub
+--write-auto-sub

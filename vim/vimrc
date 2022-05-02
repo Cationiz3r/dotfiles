@@ -1,0 +1,73 @@
+" General settings
+function! SourceExists(file)
+	if filereadable(expand(a:file))
+		exe 'source' a:file
+	endif
+endfunction
+
+call SourceExists("/usr/share/vim/vimfiles/archlinux.vim")
+call SourceExists("$VIMRUNTIME/vimrc_example.vim")
+
+map <c-q> :x<CR>
+map <c-d> :q!<CR>
+map <c-s> :up<CR>
+filetype plugin on
+syntax on
+colorscheme pablo
+set tabstop=2
+set shiftwidth=2
+set number
+set viminfo=
+set autoindent
+set smartindent
+set scrolloff=5
+let g:python_recommended_style = 0
+
+set nobackup
+set ignorecase
+silent
+
+" Powerline-esque Status line
+set noshowmode
+set laststatus=2
+
+function! UpdateStatus(id)
+	set statusline=%1*\ 
+	if (mode() =~# '\v(n|no)')
+		set statusline+=NORMAL
+  elseif (mode() =~# '\v(v|V)')
+		set statusline+=VISUAL
+  elseif (mode() ==# 'i')
+		set statusline+=INSERT
+  else
+		set statusline+=\ Command
+		echo mode()
+  endif
+  set statusline+=\ %*\ %<%f%m\ %=%1*\ %c%V\ \ %l\ %2*%*%1*\ %P\ 
+endfunction
+call timer_start(100, function('UpdateStatus'), {'repeat': -1})
+
+set cursorline
+hi LineNr       cterm=bold ctermbg=0   ctermfg=12
+hi CursorLine   cterm=bold ctermbg=8
+hi CursorLineNr cterm=bold ctermbg=9   ctermfg=15
+hi StatusLine   cterm=bold ctermbg=233 ctermfg=15
+hi StatusLineNc cterm=bold ctermbg=233 ctermfg=15
+hi User1        cterm=bold ctermbg=15  ctermfg=0
+hi User2        cterm=bold ctermbg=15  ctermfg=233
+if $TERM == 'linux-16color'
+	hi StatusLine   cterm=bold ctermbg=0  ctermfg=15
+	hi StatusLineNc cterm=bold ctermbg=0  ctermfg=15
+	hi User2        cterm=bold ctermbg=15 ctermfg=0
+endif
+
+
+" Command line text
+"augroup cmdlinemsg
+"	let g:cmdmsg="Awaiting disasters to happen..."
+"	autocmd!
+"	au CursorMoved  * :echo g:cmdmsg
+"	au CursorHold   * :echo g:cmdmsg
+"	au TextChanged  * :echo g:cmdmsg
+"	au TextChangedI * :echo g:cmdmsg
+"augroup END

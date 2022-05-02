@@ -1,0 +1,77 @@
+* {
+	highlight: bold #fff;
+	text-color: #eee;
+	background-color: #00000000;
+	background-true:  #222;
+	border: 0; padding: 0;
+
+	    normal-fg: @foreground;
+	sel-normal-fg: @foreground;
+	alt-normal-fg: @foreground;
+	    normal-bg: @background;
+	sel-normal-bg: #555;
+	alt-normal-bg: @background;
+
+	    urgent-fg: @foreground;
+	sel-urgent-fg: @foreground;
+	alt-urgent-fg: @foreground;
+	    urgent-bg: @background;
+	sel-urgent-bg: @background;
+	alt-urgent-bg: @background;
+
+	    active-fg: @foreground;
+	sel-active-fg: @foreground;
+	alt-active-fg: @foreground;
+	    active-bg: @background;
+	sel-active-bg: @background;
+	alt-active-bg: @background;
+
+	   bordercolor: @foreground;
+	separatorcolor: @background;
+}
+window {
+	background-color: @background;
+	width: 40%;
+	location: southwest;
+	x-offset: 15;
+	y-offset: -15;
+}
+mainbox {
+	children: [listview, inputbar];
+	spacing: 8;
+}
+listview {
+	background-color: @background-true;
+	lines: 2;	columns: 7;
+	spacing: 5;
+	padding: 3;
+	fixed-columns: true;
+}
+inputbar {
+	background-color: @background-true;
+	children: [textbox-prompt, entry];
+	padding: 3;
+}
+textbox-prompt {
+	expand: false;
+	str: "❯";
+	margin: 0px 0.3em 0em 0em;
+}
+entry {
+
+}
+element { padding: 2; }
+element-text { background-color: inherit; text-color: inherit; }
+element.normal.normal    { text-color:     @normal-fg; background-color:     @normal-bg; }
+element.normal.urgent    { text-color:     @urgent-fg; background-color:     @urgent-bg; }
+element.normal.active    { text-color:     @active-fg; background-color:     @active-bg; }
+element.selected.normal  { text-color: @sel-normal-fg; background-color: @sel-normal-bg; }
+element.selected.urgent  { text-color: @sel-urgent-fg; background-color: @sel-urgent-bg; }
+element.selected.active  { text-color: @sel-active-fg; background-color: @sel-active-bg; }
+element.alternate.normal { text-color: @alt-normal-fg; background-color: @alt-normal-bg; }
+element.alternate.urgent { text-color: @alt-urgent-fg; background-color: @alt-urgent-bg; }
+element.alternate.active { text-color: @alt-active-fg; background-color: @alt-active-bg; }
+button.selected          { text-color: @sel-normal-fg; background-color: @sel-normal-bg; }
+button.normal            { text-color: @foreground; }
+
+
