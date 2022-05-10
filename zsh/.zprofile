@@ -7,9 +7,8 @@
 #	      |_|
 
 clear
-
 # Autostart Xserver
 if [ -z "$DISPLAY$TERM_PROGRAM$(pgrep Xorg)" -a $XDG_VTNR = 1 ]; then
-	command mkdir -p $XDG_RUNTIME_DIR/Xorg
-	xinit -- :0 &>$XDG_RUNTIME_DIR/Xorg/:0
+	mkdir -p $XDG_RUNTIME_DIR/Xorg
+	startx "$XINITRC" -- "$XSERVERRC" &>"$XDG_RUNTIME_DIR/Xorg/:0"
 fi

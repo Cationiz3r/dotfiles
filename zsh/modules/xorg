@@ -1,7 +1,5 @@
 #!/bin/zsh
-N=$((XDG_VTNR-1))
-alias xinit="xinit -- :$N &>\$XDG_RUNTIME_DIR/Xorg/:$N"
-unset N
+startx() command startx "$XINITRC" -- "$XSERVERRC" &>"$XDG_RUNTIME_DIR/Xorg/:$((XDG_VTNR-1))"
 alias \
 	lp='spawn leafpad' \
 	gp='spawn gpicview' \
