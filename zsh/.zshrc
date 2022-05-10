@@ -128,12 +128,12 @@ u*)
 	[ $COLUMNS -le $short_threshold ] && userhost="$PROMPT_SHORTUAH"
 	local pwd_length=$(( COLUMNS - ${#PROMPT_CURVES[1]} - ${#userhost} ))
 	local pwd=$(prompt pwd $pwd_length)
-	local curves=(╭╴ ╰─╸ "│    ")
+	local curves=(╭╴ ╰─╸ "│   ")
 	local git=$(2>/dev/null git branch|grep -oP '(?<=\* ).*')
 	[ -z $git ] || git="%F{11}  $git"
 
-	local sign=❯
-	[ "$EUID" -eq 0 ] && sign=\#
+	local sign
+	[ "$EUID" -eq 0 ] && sign=#
 	PS1="%B%F{15}$curves[1]%F{14}$userhost%F{13}$pwd$git
 %F{15}$curves[2]$sign "
 	PS2="%B%F{15}"$'\e[F'"$curves[3]
@@ -141,10 +141,8 @@ u*)
 	;;
 i*)
 	PROMPT_NEWLINE=false
-	PROMPT_USERHOST="${USER}@$HOST"
-	local symbol=$(element $HOST)
-	[ -z $symbol ] && symbol=${HOST[1]:u}
-	PROMPT_SHORTUAH="${USER:0:1}@$symbol"
+	PROMPT_USERHOST="$USER@$HOST"
+	PROMPT_SHORTUAH="$USER[1]@${HOST[1]:u}"
 	unset PS1
 	zle_highlight=(none)
 	[ -n "$SSH_CONNECTION$DOAS_USER" ] && echo
