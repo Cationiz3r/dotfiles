@@ -20,16 +20,16 @@
 	</placement>
 	<theme>
 		<name>VoidOpenbox</name>
-		<titleLayout>SLIMC</titleLayout>
+		<titleLayout>L</titleLayout>
 		<keepBorder>yes</keepBorder>
 		<animateIconify>no</animateIconify>
-		<font place="ActiveWindow">           <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
-		<font place="InactiveWindow">         <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
-		<font place="MenuHeader">             <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
-		<font place="MenuItem">               <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
-		<font place="OnScreenDisplay">        <name>Source Code Variable Medium</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
-		<font place="ActiveOnScreenDisplay">  <name>Source Code Variable Medium</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
-		<font place="InactiveOnScreenDisplay"><name>Source Code Variable Medium</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="ActiveWindow">           <name>Poppins</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="InactiveWindow">         <name>Poppins</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="MenuHeader">             <name>Poppins</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="MenuItem">               <name>Poppins</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="OnScreenDisplay">        <name>Poppins</name><size>10</size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="ActiveOnScreenDisplay">  <name>Poppins</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
+		<font place="InactiveOnScreenDisplay"><name>Poppins</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
 	</theme>
 	<desktops>
 		<number>1</number>
@@ -132,44 +132,6 @@
 			<mousebind button="Left"   action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
 			<mousebind button="Middle" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
 			<mousebind button="Right"  action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
-		</context>
-
-	<!-- Titlebar & its icons actions -->
-		<context name="Titlebar">
-			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
-			<mousebind button="Left" action="Drag"><action name="Move"/></mousebind>
-			<mousebind button="Left" action="DoubleClick"><action name="ToggleMaximizeFull"/></mousebind>
-			<mousebind button="Up"    action="Click"><action name="Shade"/><action name="FocusToBottom"/><action name="Unfocus"/><action name="Lower"/></mousebind>
-			<mousebind button="Down"  action="Click"><action name="Unshade"/><action name="Raise"/></mousebind>
-			<mousebind button="Right" action="Press"><action name="Focus"/><action name="Raise"/><action name="ShowMenu"><menu>client-menu</menu></action></mousebind>
-		</context>
-		<context name="Icon">
-			<mousebind button="Left"  action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/><action name="ShowMenu"><menu>client-menu</menu></action></mousebind>
-			<mousebind button="Right" action="Press"><action name="Focus"/><action name="Raise"/><action name="ShowMenu"><menu>client-menu</menu></action></mousebind>
-		</context>
-		<context name="AllDesktops"> <!-- Omnipresent -->
-			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
-			<mousebind button="Left" action="Click"><action name="ToggleOmnipresent"/></mousebind>
-		</context>
-		<context name="Shade">
-			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
-			<mousebind button="Left" action="Click"><action name="ToggleShade"/></mousebind>
-		</context>
-		<context name="Iconify">
-			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/></mousebind>
-			<mousebind button="Left" action="Click"><action name="Iconify"/></mousebind>
-		</context>
-		<context name="Maximize">
-			<mousebind button="Left"   action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
-			<mousebind button="Middle" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
-			<mousebind button="Right"  action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
-			<mousebind button="Left"   action="Click"><action name="ToggleMaximizeFull"/></mousebind>
-			<mousebind button="Middle" action="Click"><action name="ToggleMaximizeVert"/></mousebind>
-			<mousebind button="Right"  action="Click"><action name="ToggleMaximizeHorz"/></mousebind>
-		</context>
-		<context name="Close">
-			<mousebind button="Left" action="Press"><action name="Focus"/><action name="Raise"/><action name="Unshade"/></mousebind>
-			<mousebind button="Left" action="Click"><action name="Close"/></mousebind>
 		</context>
 
 	<!-- Non-window actions -->
