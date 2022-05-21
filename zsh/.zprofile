@@ -6,6 +6,7 @@
 #	(_)___| .__/|_|  \___/|_| |_|_|\___|
 #	      |_|
 
+mpd-init &
 clear
 # Autostart Xserver
 if [ -z "$DISPLAY$TERM_PROGRAM$(pgrep Xorg)" -a $XDG_VTNR = 1 ]; then
