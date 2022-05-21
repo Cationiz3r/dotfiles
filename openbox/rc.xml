@@ -13,7 +13,11 @@
 		<focusDelay>200</focusDelay>
 		<raiseOnFocus>no</raiseOnFocus>
 	</focus>
-	<placement><policy>Smart</policy><center>yes</center></placement>
+	<placement>
+		<policy>Smart</policy>
+		<center>yes</center>
+		<monitor>Mouse</monitor>
+	</placement>
 	<theme>
 		<name>VoidOpenbox</name>
 		<titleLayout>SLIMC</titleLayout>
