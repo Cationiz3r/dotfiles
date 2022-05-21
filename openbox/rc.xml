@@ -94,12 +94,14 @@
 		<keybind key="XF86MonBrightnessDown C-Page_Down"><action name="Execute"><command>snaplight -d</command></action></keybind>
 		<keybind key="XF86MonBrightnessUp   C-Page_Up">  <action name="Execute"><command>snaplight -u</command></action></keybind>
 		<keybind key="XF86Display"><action name="Execute"><command>sh -c 'pgrep arandr || arandr'</command></action></keybind>
-		<keybind key="F9"> <action name="Execute"><command>dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause</command></action></keybind>
-		<keybind key="F10"><action name="Execute"><command>dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next</command></action></keybind>
-		<keybind key="S-F9"><action name="Execute"><command>pkill vlc</command></action></keybind>
 		<keybind key="Print">  <action name="Execute"><command>shoot</command></action></keybind>
 		<keybind key="S-Print"><action name="Execute"><command>shoot -a</command></action></keybind>
 		<keybind key="C-Print"><action name="Execute"><command>shoot -w</command></action></keybind>
+	<!-- MPD control -->
+		<keybind key="  F9 "><action name="Execute"><command>mpc toggle</command></action></keybind>
+		<keybind key="S-F9 "><action name="Execute"><command>mpc clear</command></action></keybind>
+		<keybind key="  F10"><action name="Execute"><command>mpc next</command></action></keybind>
+		<keybind key="S-F10"><action name="Execute"><command>mpc prev</command></action></keybind>
 	<!-- Misc. -->
 		<keybind key="C-A-Delete"><action name="Execute"><prompt>Logout?</prompt><command>sh -c 'pkill -15 -t tty"$XDG_VTNR" Xorg'</command></action></keybind>
 		<keybind key="Scroll_Lock"><action name="Execute"><command>keylight -t</command></action></keybind>
