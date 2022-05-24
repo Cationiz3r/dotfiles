@@ -6,10 +6,10 @@
 #	(_)___| .__/|_|  \___/|_| |_|_|\___|
 #	      |_|
 
-mpd-init &
-clear
+[ -n "$XDG_VTNR" ] && clear
 # Autostart Xserver
-if [ -z "$DISPLAY$TERM_PROGRAM$(pgrep Xorg)" -a $XDG_VTNR = 1 ]; then
+if [ -z "$DISPLAY" -a "$XDG_VTNR" = 1 ]; then
+	mpd-init &|
 	mkdir -p $XDG_RUNTIME_DIR/Xorg
 	startx "$XINITRC" -- "$XSERVERRC" &>"$XDG_RUNTIME_DIR/Xorg/:0"
 fi
