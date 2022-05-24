@@ -1,0 +1,21 @@
+#!/bin/sh
+xset m 20/10 10 r rate 300 30 b on &
+xhost +si:localuser:$USER &
+xwallpaper --zoom ~/Pictures/Desktop.??? &
+
+killall dunst; dunst &
+dunstctl rule lockscreen disable &
+ibus-daemon -drx &
+overcharge &
+picom &
+redshift &
+xfce4-panel &
+chkboot &
+forgetful -g &
+mpd-notify &
+numlockx &
+
+mkdir -p "$XDG_RUNTIME_DIR/thumbnails" &
+mkdir -p "$XDG_RUNTIME_DIR/tordownload" &
+
+exec openbox
