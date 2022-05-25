@@ -9,7 +9,7 @@ ibus-daemon -drx &
 overcharge &
 picom &
 redshift &
-xfce4-panel &
+polybar &
 chkboot &
 forgetful -g &
 mpd-notify &
