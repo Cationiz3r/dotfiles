@@ -57,6 +57,7 @@ export _JAVA_OPTIONS="$_JAVA_OPTIONS \
 -Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export MAKEPKG_CONF="$XDG_CONFIG_HOME/makepkg.conf"
+export POLYBAR_SRC="config-laptop.ini"
 # Locales
 export LANG="en_US.UTF-8"
 export LC_TIME="en_GB.UTF-8"
