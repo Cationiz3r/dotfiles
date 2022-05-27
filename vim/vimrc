@@ -40,6 +40,8 @@ function! UpdateStatus(id)
 		set statusline+=VISUAL
   elseif (mode() ==# 'i')
 		set statusline+=INSERT
+  elseif (mode() ==# 'R')
+		set statusline+=REPLACE
   else
 		set statusline+=COMMAND
 		echo mode()
