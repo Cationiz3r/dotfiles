@@ -14,6 +14,7 @@ map <c-s> :up<CR>
 filetype plugin on
 syntax on
 colorscheme pablo
+set t_Co=16
 set tabstop=2
 set shiftwidth=2
 set number
@@ -48,6 +49,7 @@ endfunction
 call timer_start(100, function('UpdateStatus'), {'repeat': -1})
 
 set cursorline
+hi Normal       guibg=NONE ctermbg=NONE
 hi LineNr       cterm=bold ctermbg=0   ctermfg=12
 hi CursorLine   cterm=bold ctermbg=8
 hi CursorLineNr cterm=bold ctermbg=9   ctermfg=15
