@@ -1,4 +1,4 @@
-" General settings
+"" Source system files
 function! SourceExists(file)
 	if filereadable(expand(a:file))
 		exe 'source' a:file
@@ -8,9 +8,39 @@ endfunction
 call SourceExists("/usr/share/vim/vimfiles/archlinux.vim")
 call SourceExists("$VIMRUNTIME/vimrc_example.vim")
 
-map <c-q> :x<CR>
-map <c-d> :q!<CR>
-map <c-s> :up<CR>
+"" Key binding
+" Normal
+nmap <c-r> :so ~/.config/vim/vimrc<CR>
+nmap <c-q> :x<CR>
+nmap <c-d> :q!<CR>
+nmap <c-s> :up<CR>
+nmap <s-Up> v<Up>
+nmap <s-Down> v<Down>
+nmap <s-Left> v<Left>
+nmap <s-Right> v<Right>
+nmap <c-z> :undo<Cr>
+nmap <c-y> :redo<Cr>
+nmap <c-v> p
+nmap <End> <End><Right>
+" Visual
+vmap <c-r> <Esc>:so ~/.config/vim/vimrc<CR>
+vmap <c-q> <Esc>:x<CR>
+vmap <c-d> <Esc>:q!<CR>
+vmap <c-s> <Esc>:up<CR>
+vmap <s-Up> <Up>
+vmap <s-Down> <Down>
+vmap <s-Left> <Left>
+vmap <s-Right> <Right>
+vmap <c-c> y
+vmap <c-x> x
+vmap <c-v> p
+" Insert
+imap <s-Up> <Esc>v<Up>
+imap <s-Down> <Esc>v<Down>
+imap <s-Left> <Esc>v<Left>
+imap <s-Right> <Esc>v<Right>
+
+"" General
 filetype plugin on
 syntax on
 colorscheme pablo
@@ -27,6 +57,7 @@ let g:python_recommended_style = 0
 set nobackup
 set ignorecase
 silent
+set virtualedit=onemore
 
 " Powerline-esque Status line
 set noshowmode
@@ -50,6 +81,7 @@ function! UpdateStatus(id)
 endfunction
 call timer_start(100, function('UpdateStatus'), {'repeat': -1})
 
+"" Highlight
 set cursorline
 hi Normal       guibg=NONE ctermbg=NONE
 hi LineNr       cterm=bold ctermbg=0   ctermfg=12
