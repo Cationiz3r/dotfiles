@@ -1,0 +1,36 @@
+#!/bin/sh
+mkdir -p "$XDG_RUNTIME_DIR/polybar"
+cache="$XDG_RUNTIME_DIR/polybar/updates"
+force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
+iterate() {
+	force
+	touch "$cache.skip"
+	[ -s "$cache" ] || exit
+	grep -q ERROR "$cache" && exit
+	for p in $(cat "$cache"); do
+		# Highlight important packges: kernel coreutils
+		echo $p|egrep -q linux\|coreutils && p="%{T2}$p"
+		echo " $p"
+		sleep .5
+	done
+}
+trap 'force; exit' INT
+trap force USR1 EXIT
+trap iterate USR2
+while true; do
+	echo \ ...
+	[ -f "$cache" ] || checkupdates 2>&1|cut -d\  -f1 >"$cache"
+	(
+		PKGS=$(cat "$cache"|wc -l)
+		[ $PKGS -eq 0 ] && { echo; exit; }
+		[ $PKGS -eq 1 ] && [ "$(cat "$cache")" = '==>' ] &&
+			{ echo ' %{T2}?'; exit; }
+		PKGS=" $PKGS"
+		[ $PKGS -ge 20 ] && PKGS="%{T2}$PKGS!"
+		echo "$PKGS"
+	)
+	sleep 30m & sleep_pid=$!
+	wait
+	[ -f "$cache.skip" ] || rm -f "$cache"
+	rm -f "$cache.skip"
+done

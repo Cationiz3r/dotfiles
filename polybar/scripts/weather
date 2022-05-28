@@ -1,0 +1,48 @@
+#!/bin/sh
+mkdir -p "$XDG_RUNTIME_DIR/polybar"
+cache="$XDG_RUNTIME_DIR/polybar/weather"
+force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
+symbol() {
+	# Dictionary: gh:chubin/wttr.in/share/translations/en.txt
+	local s=
+	echo "$@"|grep -qi clear && s=
+	echo "$@"|grep -qi sun && s=
+	echo "$@"|grep -qi 'mist\|fog' && s=
+	echo "$@"|grep -qi rain && s=
+	echo "$@"|grep -qi driz && s=
+	echo "$@"|grep -qi 'snow\|ice\|sleet' && s=
+	echo "$@"|grep -qi 'cloud\|over' && s=
+	echo "$@"|grep -qi thun && s=
+	echo "$@"|grep -qi heavy && s=" $s"
+	echo "$s"
+}
+switch() {
+#	[ $(ps aux|grep weather|wc -l) -le 3 ] || return
+	force
+	touch "$cache.skip"
+	echo $((1-0$(cat "$cache.mode"))) >"$cache.mode"
+}
+trap 'force; exit' INT
+trap force USR1 EXIT
+trap switch USR2
+echo 0 >"$cache.mode"
+while true; do
+	mode=0$(cat "$cache.mode")
+	[ -f "$cache.skip" ] || { [ $mode -eq 0 ] && echo  ... || echo ...; }
+	rm -f "$cache.skip"
+	[ -s "$cache" ] || curl -s wttr.in?format=%f+%C|sed s/+// >"$cache"
+	(
+		set -- $(cat "$cache")
+		[ $# -eq 0 ] && { echo; exit; }
+		echo "$1"|grep -q html && { echo; exit; }
+		temp="%{T2}$(echo "$1"|head -c-4)%{T-}$(echo "$1"|tail -c4)"
+		shift
+		w="$@"
+		# 0:icon 1:text
+		[ $mode -eq 0 ] && w=$(symbol "$w")
+		echo "$w $temp"
+	)
+	sleep 1h & sleep_pid=$!
+	wait
+	[ -f "$cache.skip" ] || rm -f "$cache"
+done
