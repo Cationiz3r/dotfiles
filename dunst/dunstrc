@@ -29,7 +29,7 @@ sort = yes
 idle_threshold = 120
 
 ## Text
-font = JetBrains Mono 9
+font = Poppins 9
 line_height = 0
 markup = full
 format = "<b>%s</b>\n%b"
