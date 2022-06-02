@@ -1,4 +1,6 @@
 #!/bin/sh
+echo ' ...?'
+for i in $(seq 1 50); do ping -c1 archlinux.org >/dev/null 2>&1 && break; sleep .1; done
 mkdir -p "$XDG_RUNTIME_DIR/polybar"
 cache="$XDG_RUNTIME_DIR/polybar/updates"
 force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
