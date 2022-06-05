@@ -1,7 +1,12 @@
 #!/bin/zsh
+up=doas
+which doas &>/dev/null || up=sudo
+[ $EUID -eq 0 ] && up=
+[ -z $up ] || up="$up "
+
 alias \
-	pY='doas pacman -Syu' \
-	pU='doas pacman -U' \
+	pY="${up}pacman -Syu" \
+	pU="${up}pacman -U" \
 
 pS() {
 	local pkgs=("$@") fzf=false
@@ -15,7 +20,7 @@ pS() {
 	))
 	[ $#pkgs -eq 0 ] && return
 	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	doas pacman -S $pkgs
+	$up pacman -S $pkgs
 }
 pR() {
 	local pkgs=("$@") fzf=false
@@ -26,13 +31,13 @@ pR() {
 	))
 	[ $#pkgs -eq 0 ] && return
 	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	doas pacman -Rns $pkgs
+	$up pacman -Rns $pkgs
 }
 pRO() {
 	local pkgs=($(pacman -Qdtq))
 	[ $#pkgs -eq 0 ] && return
 	echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	doas pacman -Rns $pkgs
+	$up pacman -Rns $pkgs
 }
 
 _pS() {
