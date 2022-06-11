@@ -152,5 +152,6 @@
 		<application class="mpv"><!--maximized>true</maximized><desktop>2</desktop--></application>
 		<application class="Leafpad" type="normal"><layer>above</layer><size><width>400</width><height>300</height></size></application>
 		<application class="Wrapper-2.0" type="normal"><position><x>835</x><y>0</y></position></application>
+		<application class="Thunar" type="normal"><size><width>802</width><height>455</height></size></application> <!--Fixed size even when snapping-->
 	</applications>
 </openbox_config>
