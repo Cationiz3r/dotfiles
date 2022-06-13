@@ -8,8 +8,11 @@ alias \
 	pY="${up}pacman -Syu --noconfirm" \
 	pU="${up}pacman -U" \
 
+unset up
+
 pS() {
-	local pkgs=("$@") fzf=false
+	local up=$(whence pY|cut -d\  -f1) pkgs=("$@") fzf=false
+	[ $up = pacman ] && up= || up="$up "
 	[ $#pkgs -eq 0 ] && fzf=true && pkgs=($(pacman -Sl \
 		| awk '{print ($4=="" ? "" : "│ ")$2 " " $3}' \
 		| fzf --layout=reverse-list -m --marker='❯ ' \
@@ -20,10 +23,11 @@ pS() {
 	))
 	[ $#pkgs -eq 0 ] && return
 	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	$up pacman -S $pkgs
+	eval "${up}pacman -S $pkgs"
 }
 pR() {
-	local pkgs=("$@") fzf=false
+	local up=$(whence pY|cut -d\  -f1) pkgs=("$@") fzf=false
+	[ $up = pacman ] && up= || up="$up "
 	[ $#pkgs -eq 0 ] && fzf=true && pkgs=($((pacman -Qen; pacman -Qem) \
 		| fzf --layout=reverse-list -m --marker='❯ ' \
 			--preview 'pacman -Qi {1}' \
@@ -31,13 +35,13 @@ pR() {
 	))
 	[ $#pkgs -eq 0 ] && return
 	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	$up pacman -Rns $pkgs
+	eval "${up}pacman -Rns $pkgs"
 }
 pRO() {
 	local pkgs=($(pacman -Qdtq))
 	[ $#pkgs -eq 0 ] && return
 	echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	$up pacman -Rns $pkgs
+	pR $pkgs
 }
 
 _pS() {
