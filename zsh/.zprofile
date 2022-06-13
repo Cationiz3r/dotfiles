@@ -9,7 +9,7 @@
 [ -n "$XDG_VTNR" ] && clear
 # Autostart Xserver
 if [ -z "$DISPLAY$TERM_PROGRAM" -a "$XDG_VTNR" = 1 ]; then
-	mpd-init &|
+	mpd-init &>/dev/null &|
 	mkdir -p $XDG_RUNTIME_DIR/Xorg
 	startx "$XINITRC" -- "$XSERVERRC" &>"$XDG_RUNTIME_DIR/Xorg/:0"
 fi
