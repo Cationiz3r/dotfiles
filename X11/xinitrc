@@ -9,7 +9,7 @@ ibus-daemon -drx &
 overcharge &
 picom &
 redshift &
-polybar &
+$XDG_CONFIG_HOME/polybar/launch &
 chkboot &
 forgetful -g &
 mpd-notify &

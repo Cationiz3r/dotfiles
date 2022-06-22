@@ -1,7 +1,5 @@
 #!/bin/sh
-SEP_BACKGROUND=$(grep background\  "$XDG_CONFIG_HOME/polybar/config.ini"|head -1|cut -d\  -f3)
-SEP_BACKGROUND_ALT=$(grep background-alt\  "$XDG_CONFIG_HOME/polybar/config.ini"|head -1|cut -d\  -f3)
-out() { echo "%{B${SEP_BACKGROUND} F${SEP_BACKGROUND}}|%{B${SEP_BACKGROUND_ALT} F-}  $@  "; }
+out() { echo "  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  $@"; }
 out ...\?
 for i in $(seq 1 50); do ping -c1 archlinux.org >/dev/null 2>&1 && break; sleep .1; done
 mkdir -p "$XDG_RUNTIME_DIR/polybar"

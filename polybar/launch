@@ -1,0 +1,11 @@
+#!/bin/sh
+cd "$(dirname "$0")"
+pgrep polybar && killall polybar
+export \
+	BAR_WIDTH=$(($(xrandr|grep \ connected|head -1|cut -d\  -f3|cut -dx -f1)-20)) \
+	BACKGROUND=$(grep background\          config.ini|head -1|cut -d\  -f3) \
+	BACKGROUND_ALT=$(grep background-alt\  config.ini|head -1|cut -d\  -f3)
+export \
+	SEP_CONTENT="%{B$BACKGROUND_ALT}  %{B-}|%{B$BACKGROUND_ALT}  %{B-}" \
+	MPD_PREFIX="  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "
+exec polybar
