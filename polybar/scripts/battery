@@ -1,0 +1,7 @@
+#!/bin/sh
+get_state()  { acpi -a|grep -q 'on-line'; }
+get_charge() { acpi -b|egrep -o '[0-9]+%'|head -c-2; }
+
+icon=
+get_state && icon=
+echo "$icon $(get_charge)"
