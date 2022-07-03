@@ -61,6 +61,7 @@ share() { chmod 770 -R .; fd -tf -x chmod a-x {}; [ -n "$1" ] && chown :$1 -R . 
 dirname() { command dirname "$@"|tilde }
 sleep() { >&2 date; command sleep "$@" }
 die() { rm "$@" $PWD; cd .. }
+mkcd() { mkdir "$@"; while [ $# -gt 0 ]; do [ -d "$1" ] && { cd "$1"; return }; shift; done }
 pkg-prepare() {
 	[ -r PKGBUILD ] || return 1
 	git init
