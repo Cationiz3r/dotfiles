@@ -15,7 +15,10 @@ mpd-notify &
 numlockx &
 waldate &
 
-mkdir -p "$XDG_RUNTIME_DIR/thumbnails" &
-mkdir -p "$XDG_RUNTIME_DIR/tordownload" &
+for d in thumbnails tordownload; do
+	mkdir -p "$XDG_RUNTIME_DIR/$d" &
+done
+rm -rf "$XDG_CACHE_HOME/thumbnails"
+ln -s "$XDG_RUNTIME_DIR/thumbnails" "$XDG_CACHE_HOME"
 
 exec openbox

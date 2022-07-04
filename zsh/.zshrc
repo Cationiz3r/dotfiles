@@ -62,6 +62,7 @@ dirname() { command dirname "$@"|tilde }
 sleep() { >&2 date; command sleep "$@" }
 die() { rm "$@" $PWD; cd .. }
 mkcd() { mkdir "$@"; while [ $# -gt 0 ]; do [ -d "$1" ] && { cd "$1"; return }; shift; done }
+spawn() { sh -c "$* &" &>>$XLOG }
 pkg-prepare() {
 	[ -r PKGBUILD ] || return 1
 	git init

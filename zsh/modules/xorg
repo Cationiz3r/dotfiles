@@ -1,5 +1,5 @@
 #!/bin/zsh
-startx() command startx "$XINITRC" -- "$XSERVERRC" &>"$XDG_RUNTIME_DIR/Xorg/:$((XDG_VTNR-1))"
+startx() command startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
 alias \
 	lp='spawn leafpad' \
 	gp='spawn gpicview' \

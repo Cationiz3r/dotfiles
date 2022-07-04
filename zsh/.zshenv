@@ -66,6 +66,7 @@ export LC_MEASUREMENT="en_GB.UTF-8"
 export LC_COLLATE=C
 umask 0077
 HISTSIZE=200
+XLOG="$XDG_RUNTIME_DIR/Xorg/$XDG_VTNR"
 
 [ -r "$ZSPECDIR/.zshenv" ] &&
 	source "$ZSPECDIR/.zshenv"
