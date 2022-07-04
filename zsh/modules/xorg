@@ -7,3 +7,4 @@ alias \
 	fr='spawn file-roller' \
 	kr='spawn krita' \
 	za='spawn zathura' \
+	tn='spawn thunar' \
