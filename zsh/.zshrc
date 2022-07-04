@@ -131,7 +131,10 @@ u*)
 	local pwd=$(prompt pwd $pwd_length)
 	local curves=(╭╴ ╰─╸ "│   ")
 	local git=$(2>/dev/null git branch|grep -oP '(?<=\* ).*')
-	[ -z $git ] || git="%F{11}  $git"
+	if [ -n $git ]; then
+		git="%F{11}  $git"
+		[ -z "$(git diff 2>/dev/null)" ] || git+=\*
+	fi
 
 	local sign
 	[ "$EUID" -eq 0 ] && sign=#
