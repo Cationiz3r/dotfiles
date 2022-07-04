@@ -1,6 +1,7 @@
 [user]
 	name = Martin Cation
 	email = martin cation et protonmail dot com
+	signingkey = D0DABDF1E1EA085D
 [core]
 	pager = less -FRx2
 [init]
@@ -15,6 +16,8 @@
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 [pull]
 	rebase = true
+[commit]
+	gpgsign = true
 
 [url "https://github.com/"]
 	insteadOf = gh:

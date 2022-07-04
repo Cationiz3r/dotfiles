@@ -36,6 +36,7 @@ export EXA_COLORS="*.aac=36:*.alac=36:*.ape=36:*.flac=36:*.m4a=36:*.mka=36\
 :*.asc=32:*.enc=32:*.gpg=32:*.p12=32:*.pfx=32:*.pgp=32:*.sig=32:*.signature=32\
 :or=05;01;33"
 export LANG="${LANG:-en_US.UTF-8}" #Default locale
+export GPG_TTY=$(tty)
 unset HISTFILE # No history
 # XDG Decluttering
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
