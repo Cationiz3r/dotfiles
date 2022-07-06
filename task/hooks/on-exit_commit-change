@@ -1,0 +1,18 @@
+#!/bin/sh
+quit() { echo "$@"; exit; }
+while [ $# -gt 0 ]; do
+	val=$(echo "$1"|cut -d: -f2)
+	case "$(echo "$1"|cut -d: -f1)" in
+		api) [ $val -ne 2 ] && quit api!=2;;
+		data) data="$val";;
+		command)
+			cmd=$val
+			echo $val|egrep -q 'add|modify|undo|delete|purge|done' || quit;;
+	esac
+	shift
+done
+
+cd "$data"
+commit_msg="commit $(date +%y%m%d_%H%M%S) ($cmd) @$(hostnamectl hostname)"
+git commit -qam"$commit_msg"
+git push -q

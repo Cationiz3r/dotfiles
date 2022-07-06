@@ -1,0 +1,11 @@
+data.location = $XDG_DATA_HOME/task
+hooks.location = $XDG_CONFIG_HOME/task/hooks
+news.version = 2.6.0
+urgency.blocking.coefficient = 1
+
+# Project coefficients
+urgency.user.project.School.coefficient = 1.5
+urgency.user.project.Tech.coefficient = 1
+
+# Themes
+include dark-gray-256.theme
