@@ -7,7 +7,7 @@ while [ $# -gt 0 ]; do
 		data) data="$val";;
 		command)
 			cmd=$val
-			echo $val|egrep -q 'add|modify|undo|delete|purge|done' || quit;;
+			echo $val|egrep -q 'add|modify|undo|delete|purge|done|annotate' || quit;;
 	esac
 	shift
 done
