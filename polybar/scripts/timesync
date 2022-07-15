@@ -1,3 +1,2 @@
 #!/bin/sh
-[ -z "$(timedatectl 2>&1 >/dev/null)" ] || { echo '%{T2}!!  '; exit; }
-timedatectl 2>/dev/null|grep synchronized|grep -q yes && echo || echo '%{T2}!  '
+timedatectl 2>/dev/null|grep synchronized|grep -q yes && echo || echo ' '
