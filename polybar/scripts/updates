@@ -1,9 +1,12 @@
 #!/bin/sh
-out() { echo "$@  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "; }
-out ' ...?'
-for i in $(seq 1 50); do ping -c1 archlinux.org >/dev/null 2>&1 && break; sleep .1; done
-mkdir -p "$XDG_RUNTIME_DIR/polybar"
-cache="$XDG_RUNTIME_DIR/polybar/updates"
+out() { echo " $@  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "; }
+waitonline() {
+	out ..\?
+	for i in $(seq 1 30); do
+		ping -c1 archlinux.org >/dev/null 2>&1 && break; sleep 2
+	done
+}
+cache="$POLYBAR_RUN/updates"
 force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
 iterate() {
 	force
@@ -13,7 +16,7 @@ iterate() {
 	for p in $(cat "$cache"); do
 		# Highlight important packges: kernel coreutils
 		echo $p|egrep -q linux\|coreutils && p="%{T2}$p"
-		out " $p"
+		out "$p"
 		sleep .5
 	done
 }
@@ -21,19 +24,18 @@ trap 'force; exit' INT
 trap force USR1 EXIT
 trap iterate USR2
 while true; do
-	out \ ...
+	[ -f "$cache.skip" ] || { waitonline; out ...; }
+	rm -f "$cache.skip"
 	[ -f "$cache" ] || checkupdates 2>&1|cut -d\  -f1 >"$cache"
 	(
 		PKGS=$(cat "$cache"|wc -l)
 		[ $PKGS -eq 0 ] && { echo; exit; }
 		[ $PKGS -eq 1 ] && [ "$(cat "$cache")" = '==>' ] &&
-			{ out ' %{T2}?'; exit; }
-		PKGS=" $PKGS"
+			{ out '%{T2}?'; exit; }
 		[ $PKGS -ge 20 ] && PKGS="%{T2}$PKGS!"
 		out "$PKGS"
 	)
 	sleep 30m & sleep_pid=$!
 	wait
 	[ -f "$cache.skip" ] || rm -f "$cache"
-	rm -f "$cache.skip"
 done
