@@ -249,6 +249,7 @@ bindkey -s '\ee' '\C-e|egrep '
 bindkey -s '\eh' '\C-e|head '
 bindkey -s '\et' '\C-e|tail '
 bindkey -s '\ex' '\C-e|xargs '
+bindkey -s '\es' '\C-e|sed -E '
 bindkey -s '\er' '{,}'
 
 # Macros (app launcher)
@@ -283,7 +284,7 @@ wrl_() {
 zle -N doas_
 zle -N wrl_
 bindkey '\ed' doas_
-bindkey '\es' wrl_
+bindkey '\ea' wrl_
 
 #  ____                  _  __ _
 # / ___| _ __   ___  ___(_)/ _(_) ___
