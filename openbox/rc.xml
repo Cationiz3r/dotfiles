@@ -45,6 +45,11 @@
 	<keyboard>
 		<chainQuitKey>C-g</chainQuitKey>
 
+	<!-- Openbox control -->
+		<keybind key="S-W-F5"><action name="Restart"/></keybind>
+		<keybind key="  W-F5"><action name="Reconfigure"/></keybind>
+		<keybind key="C-A-Delete"><action name="SessionLogout"><prompt>true</prompt></action></keybind>
+
 	<!-- Desktop control -->
 		<keybind key="W-F1"><action name="GotoDesktop"><to>1</to></action></keybind>
 		<keybind key="W-F2"><action name="GotoDesktop"><to>2</to></action></keybind>
@@ -60,7 +65,6 @@
 		<keybind key="S-W-F4"><action name="SendToDesktop"><to>4</to></action></keybind>
 
 	<!-- Window control -->
-		<keybind key="W-F5"><action name="Restart"/></keybind>
 		<keybind key="A-F4"><action name="Close"/></keybind>
 		<keybind key="C-A-d"><action name="ToggleShowDesktop"/></keybind>
 		<keybind key="S-A-f"><action name="ToggleDecorations"/></keybind>
@@ -103,7 +107,6 @@
 		<keybind key="  F10"><action name="Execute"><command>mpc next</command></action></keybind>
 		<keybind key="S-F10"><action name="Execute"><command>mpc prev</command></action></keybind>
 	<!-- Misc. -->
-		<keybind key="C-A-Delete"><action name="Execute"><prompt>Logout?</prompt><command>sh -c 'pkill -15 -t tty"$XDG_VTNR" Xorg'</command></action></keybind>
 		<keybind key="Scroll_Lock"><action name="Execute"><command>keylight -t</command></action></keybind>
 		<keybind key="A-F2 W-r"><action name="Execute"><command>rofi -show run</command></action></keybind>
 		<keybind key="C-Escape"><action name="Execute"><command>keylight -f</command></action></keybind>
