@@ -9,7 +9,6 @@ overcharge &
 picom &
 redshift &
 $XDG_CONFIG_HOME/polybar/launch &
-chkboot &
 forgetful -g &
 mpd-notify &
 numlockx &

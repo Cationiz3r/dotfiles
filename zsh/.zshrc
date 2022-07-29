@@ -21,6 +21,7 @@ alias \
 	rmdir='rmdir -v' \
 	rename='rename -v' \
 	re=rename \
+	sed='sed -E' \
 	gzip='gzip -v' \
 	py='python' \
 	path='tr : \\n <<<$PATH' \
@@ -249,7 +250,7 @@ bindkey -s '\ee' '\C-e|egrep '
 bindkey -s '\eh' '\C-e|head '
 bindkey -s '\et' '\C-e|tail '
 bindkey -s '\ex' '\C-e|xargs '
-bindkey -s '\es' '\C-e|sed -E '
+bindkey -s '\es' '\C-e|sed '
 bindkey -s '\er' '{,}'
 
 # Macros (app launcher)

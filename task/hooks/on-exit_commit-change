@@ -15,4 +15,9 @@ done
 cd "$data"
 commit_msg="commit $(date +%y%m%d_%H%M%S) ($cmd) @$(hostnamectl hostname)"
 git commit -qam"$commit_msg"
+if ! ip -4 -o a|grep -q '10\.0\.0\.'; then
+	echo "warning: not in preferred subnet (10.0.0.0/24)"
+	echo "warning: not pushing"
+	exit 1
+fi
 git push -q
