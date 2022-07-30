@@ -1,0 +1,19 @@
+#!/bin/sh
+# Use only for deluge
+
+pgrep deluged >/dev/null || { echo; exit; }
+
+## Get torrent count
+#IFS=: read down seed <<EOF
+#$(deluge-console status 2>/dev/null|grep 'Down\|Seed'|cut -d\  -f3|tr \\n :)
+#EOF
+
+# Get ratio
+info=$(deluge-console info 2>/dev/null)
+sumof() { echo "$info"|grep -oP "(?<=$1: )[^\\(]+"|tr -d \ |egrep -v '^0B$'|numfmt --from=iec|awk 'BEGIN{sum=0} {sum=sum+$1} END{printf "%.0f\n", sum}'; }
+ratio=$(echo "scale=4; $(sumof UL)*100/$(sumof DL)"|bc)
+echo $ratio|cut -b-4|grep -q '\.' &&
+	ratio=$(echo "$ratio"|cut -b-4|sed 's/\.$//') ||
+	ratio=$(echo "$ratio"|cut -d. -f1)
+
+echo " $ratio$NETWORK_SUFFIX"
