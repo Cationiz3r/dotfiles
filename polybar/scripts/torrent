@@ -9,9 +9,16 @@ pgrep deluged >/dev/null || { echo; exit; }
 #EOF
 
 # Get ratio
-info=$(deluge-console info 2>/dev/null)
-sumof() { echo "$info"|grep -oP "(?<=$1: )[^\\(]+"|tr -d \ |egrep -v '^0B$'|numfmt --from=iec|awk 'BEGIN{sum=0} {sum=sum+$1} END{printf "%.0f\n", sum}'; }
-ratio=$(echo "scale=4; $(sumof UL)*100/$(sumof DL)"|bc)
+info=$(deluge-console info --detailed 2>/dev/null)
+sumof() {
+	echo "$info"|\
+		grep -oP "(?<=$1:)( [^ /]+){2}+"|\
+		tr -d \ |\
+		egrep -v '^0B$'|\
+		numfmt --from=iec|\
+		awk 'BEGIN{sum=0} {sum=sum+$1} END{printf "%.0f\n", sum}'
+}
+ratio=$(echo "scale=4; $(sumof Uploaded)*100/$(sumof Size)"|bc)
 echo $ratio|cut -b-4|grep -q '\.' &&
 	ratio=$(echo "$ratio"|cut -b-4|sed 's/\.$//') ||
 	ratio=$(echo "$ratio"|cut -d. -f1)
