@@ -13,4 +13,6 @@ if [ -z "$DISPLAY$TERM_PROGRAM" -a "$XDG_VTNR" = 1 ]; then
 	mkdir -p $XDG_RUNTIME_DIR/Xorg
 	startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
 fi
-setvtrgb /etc/vtrgb
+
+# Temporary fix for plymouth
+[[ "$(tty)" =~ tty ]] && setvtrgb /etc/vtrgb
