@@ -5,8 +5,8 @@ export \
 	POLYBAR_ROOT=$(pwd) \
 	POLYBAR_RUN="$XDG_RUNTIME_DIR/polybar" \
 	BAR_WIDTH=$(($(xrandr|grep \ connected|head -1|egrep -o '[0-9]+x[0-9]+'|cut -dx -f1)-20)) \
-	BACKGROUND=$(grep background\          config.ini|head -1|cut -d\  -f3) \
-	BACKGROUND_ALT=$(grep background-alt\  config.ini|head -1|cut -d\  -f3)
+	BACKGROUND=$(grep background\          colors.ini|head -1|cut -d\  -f3) \
+	BACKGROUND_ALT=$(grep background-alt\  colors.ini|head -1|cut -d\  -f3)
 mkdir -vp "$POLYBAR_RUN"
 export SEP="  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "
 export MPD_PREFIX="$SEP"
