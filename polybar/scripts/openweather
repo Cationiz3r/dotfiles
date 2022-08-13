@@ -61,8 +61,8 @@ switch() {
 	echo $((1-$(cat "$cache.mode"))) >"$cache.mode"
 }
 trap 'force; exit' INT
-trap force USR1 EXIT
-trap switch USR2
+trap force USR2 EXIT
+trap switch USR1
 
 # Main loop
 echo 0 >"$cache.mode"

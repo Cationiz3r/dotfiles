@@ -21,8 +21,8 @@ iterate() {
 	done
 }
 trap 'force; exit' INT
-trap force USR1 EXIT
-trap iterate USR2
+trap force USR2 EXIT
+trap iterate USR1
 while true; do
 	[ -f "$cache.skip" ] || { waitonline; out ...; }
 	rm -f "$cache.skip"
