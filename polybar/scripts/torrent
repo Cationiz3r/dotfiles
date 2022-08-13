@@ -23,4 +23,4 @@ echo $ratio|cut -b-4|grep -q '\.' &&
 	ratio=$(echo "$ratio"|cut -b-4|sed 's/\.$//') ||
 	ratio=$(echo "$ratio"|cut -d. -f1)
 
-echo " $ratio$NETWORK_SUFFIX"
+echo " $ratio"

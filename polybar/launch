@@ -8,8 +8,6 @@ export \
 	BACKGROUND=$(grep background\          config.ini|head -1|cut -d\  -f3) \
 	BACKGROUND_ALT=$(grep background-alt\  config.ini|head -1|cut -d\  -f3)
 mkdir -vp "$POLYBAR_RUN"
-export \
-	SEP_CONTENT="%{B$BACKGROUND_ALT}  %{B-}|%{B$BACKGROUND_ALT}  %{B-}" \
-	MPD_PREFIX="  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  " \
-	NETWORK_SUFFIX="  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT}  "
+export SEP="  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "
+export MPD_PREFIX="$SEP"
 exec polybar
