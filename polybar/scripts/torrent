@@ -9,7 +9,8 @@ pgrep deluged >/dev/null || { echo; exit; }
 #EOF
 
 # Get ratio
-info=$(deluge-console info --detailed 2>/dev/null)
+info=$(timeout 10 deluge-console info --detailed 2>/dev/null)
+[ -z "$info" ] && { echo; exit; }
 sumof() {
 	echo "$info"|\
 		grep -oP "(?<=$1:)( [^ /]+){2}+"|\
