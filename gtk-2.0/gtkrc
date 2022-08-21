@@ -1,5 +1,5 @@
-gtk-theme-name="VoidGTK"
-gtk-icon-theme-name="VoidIcons"
+gtk-theme-name="huelessOS-gtk"
+gtk-icon-theme-name="huelessOS-icons"
 gtk-font-name="Poppins 9"
 gtk-cursor-theme-size=18
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ

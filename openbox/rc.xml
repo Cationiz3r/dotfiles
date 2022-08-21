@@ -19,7 +19,7 @@
 		<monitor>Mouse</monitor>
 	</placement>
 	<theme>
-		<name>VoidOpenbox</name>
+		<name>huelessOS-openbox</name>
 		<titleLayout>L</titleLayout>
 		<keepBorder>yes</keepBorder>
 		<animateIconify>no</animateIconify>
