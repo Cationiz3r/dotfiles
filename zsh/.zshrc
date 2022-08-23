@@ -154,7 +154,7 @@ i*)
 	[ -n "$SSH_CONNECTION$DOAS_USER" ] && echo
 	if [[ "$(tty)" =~ tty ]]; then
 		TMOUT=1200
-		TRAPALRM() { exit }
+		TRAPALRM() { tput reset; exit }
 		TERM=linux-16color
 	fi
 	;;
