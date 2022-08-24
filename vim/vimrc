@@ -85,7 +85,7 @@ call timer_start(100, function('UpdateStatus'), {'repeat': -1})
 set cursorline
 hi Normal       guibg=NONE ctermbg=NONE
 hi LineNr       cterm=bold ctermbg=0   ctermfg=12
-hi CursorLine   cterm=bold ctermbg=NONE
+hi CursorLine   cterm=bold ctermbg=0
 hi CursorLineNr cterm=bold ctermbg=9   ctermfg=15
 hi StatusLine   cterm=bold ctermbg=233 ctermfg=15
 hi StatusLineNc cterm=bold ctermbg=233 ctermfg=15
