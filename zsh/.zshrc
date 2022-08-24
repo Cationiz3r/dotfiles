@@ -59,7 +59,6 @@ qr() { echo $'\e[1;37m'"$(qrencode -tUTF8 "$@")"$'\e[0m' }
 enc() { gpg -c --no-symkey-cache --cipher-algo AES256 -o "$(basename "$1").gpg" "$1" }
 dec() { gpg -d -o "$(basename "$1" .gpg)" "$1" }
 share() { chmod 770 -R .; fd -tf -x chmod a-x {}; [ -n "$1" ] && chown :$1 -R . }
-dirname() { command dirname "$@"|tilde }
 sleep() { >&2 date; command sleep "$@" }
 die() { rm "$@" $PWD; cd .. }
 mkcd() { mkdir "$@"; while [ $# -gt 0 ]; do [ -d "$1" ] && { cd "$1"; return }; shift; done }
