@@ -66,7 +66,7 @@
 
 	<!-- Window control -->
 		<keybind key="A-F4"><action name="Close"/></keybind>
-		<keybind key="C-A-d"><action name="ToggleShowDesktop"/></keybind>
+		<keybind key="C-A-d W-d"><action name="ToggleShowDesktop"/></keybind>
 		<keybind key="S-A-f"><action name="ToggleDecorations"/></keybind>
 		<keybind key="C-A-p"><action name="ToggleAlwaysOnTop"/></keybind>
 		<keybind key="C-A-o"><action name="ToggleOmnipresent"/></keybind>
