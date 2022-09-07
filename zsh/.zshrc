@@ -52,6 +52,7 @@ alias \
 	now='date +%y%m%d_%H%M%S' \
 	printq='printf "%q\n"' \
 	cenv='env -i TERM="$TERM" USER=clear LANG="$LANG" HISTFILE=' \
+	sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep' \
 
 df() { command df -h|head -1; command df -hxdevtmpfs "$@"|tail +2|sort }
 du() { command du -ahd1 --apparent-size "$@"|sort -h|sed 's:\./::'|column -ts$'\t' }
@@ -59,7 +60,6 @@ qr() { echo $'\e[1;37m'"$(qrencode -tUTF8 "$@")"$'\e[0m' }
 enc() { gpg -c --no-symkey-cache --cipher-algo AES256 -o "$(basename "$1").gpg" "$1" }
 dec() { gpg -d -o "$(basename "$1" .gpg)" "$1" }
 share() { chmod 770 -R .; fd -tf -x chmod a-x {}; [ -n "$1" ] && chown :$1 -R . }
-sleep() { >&2 date; command sleep "$@" }
 die() { rm "$@" $PWD; cd .. }
 mkcd() { mkdir "$@"; while [ $# -gt 0 ]; do [ -d "$1" ] && { cd "$1"; return }; shift; done }
 spawn() { sh -c "$* &" &>>$XLOG }
