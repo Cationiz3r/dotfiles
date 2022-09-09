@@ -143,8 +143,8 @@ i*)
 	PROMPT_USER="$USER"
 	PROMPT_HOST="$HOST"
 	local tree=$(pstree -s $$) #pstree takes a while
-	echo "$tree"|grep sshd && PROMPT_SSH=yes
-	echo "$tree"|grep sudo\|doas && PROMPT_PRIV=yes
+	echo "$tree"|grep -q sshd && PROMPT_SSH=yes
+	echo "$tree"|grep -q sudo\|doas && PROMPT_PRIV=yes
 	zle_highlight=(none)
 	if [[ "$(tty)" =~ tty ]]; then
 		TMOUT=1200
