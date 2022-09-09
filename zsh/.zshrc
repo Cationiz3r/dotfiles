@@ -105,52 +105,47 @@ unset compdump
 preexec() tput sgr0
 precmd() {
 	prompt update
-	$PROMPT_NEWLINE && echo || PROMPT_NEWLINE=true
+	#$PROMPT_NEWLINE && echo || PROMPT_NEWLINE=true
 	TRAPINT() { zle kill-whole-line; zle-update-prompt }
 }
 prompt() {
 case "$1" in
-p*) # shorten: 2=maxlength 3=pwd(debug)
-	local delim='  ' cutoff='..' use='3/5'
-	local pwd="${${3:-$PWD}/#$HOME/~}" full_len="${2:-$COLUMNS}"
-	local max_len=$((full_len * $use))
-	[ $max_len -lt $((${#delim} + ${#cutoff})) ] && pwd=''
-	if [ -n "$pwd" ]; then
-		local offset=$((${#pwd} - max_len + ${#cutoff} + ${#delim}))
-		if [ $offset -gt 0 ]; then
-			pwd="${pwd:$offset}"
-			pwd="$cutoff$([[ "$pwd" == */* ]] && echo /)${pwd#*/}"
-		fi
-		pwd="$delim$pwd"
+p*) # shorten: 2=maxlength
+	local cutoff='..'
+	local pwd="${PWD/#$HOME/~}"
+	local max_len=$2
+	local offset=$((${#pwd} - max_len + ${#cutoff}))
+	if [ $offset -gt 0 ]; then
+		pwd="${pwd:$offset}"
+		pwd="$cutoff$([[ "$pwd" == */* ]] && echo /)${pwd#*/}"
 	fi
+	pwd="$delim$pwd"
 	echo "$pwd"
 	;;
 u*)
-	local short_threshold=60 userhost="$PROMPT_USERHOST"
-	[ $COLUMNS -le $short_threshold ] && userhost="$PROMPT_SHORTUAH"
-	local pwd_length=$(( COLUMNS - ${#PROMPT_CURVES[1]} - ${#userhost} ))
-	local pwd=$(prompt pwd $pwd_length)
-	local curves=(╭╴ ╰─╸ "│   ")
-	local git=$(2>/dev/null git branch|grep -oP '(?<=\* ).*')
-	if [ -n $git ]; then
-		git="%F{11}  $git"
+	local userhost="$PROMPT_HOST" user="$PROMPT_USER"
+	[ "$EUID" -eq 0 ] && user="%U%F{15}$user%u%F{14}"
+	[ -n "$PROMPT_PRIV" ] && userhost="$user@$userhost"
+	[ -n "$PROMPT_SSH" ] && userhost="ssh:$userhost"
+	local pwd=$(prompt pwd 30)
+	local git=$(2>/dev/null git branch|grep \*|cut -b3-)
+	if [ -n "$git" ]; then
+		git="%F{11}$git"
 		[ -z "$(git diff 2>/dev/null)" ] || git+=\*
+		git+='  '
 	fi
 
-	local sign
+	local sign=❯
 	[ "$EUID" -eq 0 ] && sign=#
-	PS1="%B%F{15}$curves[1]%F{14}$userhost%F{13}$pwd$git
-%F{15}$curves[2]$sign "
-	PS2="%B%F{15}"$'\e[F'"$curves[3]
-%F{15}$curves[2]$sign "
+	PS1="%B%F{15}██ %F{14}$userhost  %F{13}$pwd  $git%F{15}$sign "
 	;;
 i*)
-	PROMPT_NEWLINE=false
-	PROMPT_USERHOST="$USER@$HOST"
-	PROMPT_SHORTUAH="$USER[1]@${HOST[1]:u}"
-	unset PS1
+	PROMPT_USER="$USER"
+	PROMPT_HOST="$HOST"
+	local tree=$(pstree -s $$) #pstree takes a while
+	echo "$tree"|grep sshd && PROMPT_SSH=yes
+	echo "$tree"|grep sudo\|doas && PROMPT_PRIV=yes
 	zle_highlight=(none)
-	[ -n "$SSH_CONNECTION$DOAS_USER" ] && echo
 	if [[ "$(tty)" =~ tty ]]; then
 		TMOUT=1200
 		TRAPALRM() { tput reset; exit }
