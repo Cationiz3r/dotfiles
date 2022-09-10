@@ -1,9 +1,13 @@
 * {
-	highlight: bold #fff;
-	text-color: #eee;
-	background-color: #00000000;
+
+	highlight: bold underline #fff;
+	foreground: #fff;
+	background: #00000000;
 	background-true:  #222;
 	border: 0; padding: 0;
+
+	text-color: @foreground;
+	background-color: @background;
 
 	    normal-fg: @foreground;
 	sel-normal-fg: @foreground;
@@ -57,8 +61,11 @@ textbox-prompt {
 	str: "❯";
 	margin: 0px 0.3em 0em 0em;
 }
-entry {
-
+error-message {
+	expand: true;
+	background-color: @background-true;
+	border: 2px;
+	padding: 3;
 }
 element { padding: 2; }
 element-text { background-color: inherit; text-color: inherit; }
