@@ -128,16 +128,17 @@ u*)
 	[ -n "$PROMPT_PRIV" ] && userhost="$user@$userhost"
 	[ -n "$PROMPT_SSH" ] && userhost="ssh:$userhost"
 	local pwd=$(prompt pwd 30)
+	[ "$pwd" = "~" ] && pwd="" || pwd="%F{12}$pwd "
 	local git=$(2>/dev/null git branch|grep \*|cut -b3-)
 	if [ -n "$git" ]; then
-		git="%F{11}$git"
+		git="%F{10}$git"
 		[ -z "$(git diff 2>/dev/null)" ] || git+=\*
-		git+='  '
+		git+=' '
 	fi
 
 	local sign=❯
 	[ "$EUID" -eq 0 ] && sign=#
-	PS1="%B%F{15}██ %F{14}$userhost  %F{13}$pwd  $git%F{15}$sign "
+	PS1="%B%F{15}██ %F{14}$userhost $pwd$git%F{15}$sign "
 	;;
 i*)
 	PROMPT_USER="$USER"
