@@ -84,7 +84,7 @@
 <!-- Commands -->
 	<!-- Launcher -->
 		<keybind key="W-e"><action name="Execute"><command>thunar</command></action></keybind>
-		<keybind key="W-1"><action name="Execute"><command>sakura</command></action></keybind>
+		<keybind key="W-1"><action name="Execute"><command>kitty</command></action></keybind>
 		<keybind key="W-2"><action name="Execute"><command>librewolf</command></action></keybind>
 		<keybind key="W-3"><action name="Execute"><command>pavucontrol</command></action></keybind>
 		<keybind key="W-4"><action name="Execute"><command>lmms -c /home/cationiz3r/.config/lmms/lmmsrc.xml</command></action></keybind>
