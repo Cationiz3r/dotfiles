@@ -105,7 +105,6 @@ unset compdump
 preexec() tput sgr0
 precmd() {
 	prompt update
-	#$PROMPT_NEWLINE && echo || PROMPT_NEWLINE=true
 	TRAPINT() { zle kill-whole-line; zle-update-prompt }
 }
 prompt() {
@@ -143,6 +142,8 @@ u*)
 i*)
 	PROMPT_USER="$USER"
 	PROMPT_HOST="$HOST"
+	local shorthn=$(grep -oP '(?<=short:).*' /etc/hostname|head -1)
+	[ -n "$shorthn" ] && PROMPT_HOST="$shorthn"
 	local tree=$(pstree -s $$) #pstree takes a while
 	echo "$tree"|grep -q sshd && PROMPT_SSH=yes
 	echo "$tree"|grep -q 'sudo\|doas' && PROMPT_PRIV=yes
