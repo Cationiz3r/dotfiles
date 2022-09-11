@@ -41,6 +41,9 @@ imap <s-Left> <Esc>v<Left>
 imap <s-Right> <Esc>v<Right>
 
 "" General
+if $TERM == 'xterm-kitty'
+	set term=kitty
+endif
 filetype plugin on
 syntax on
 colorscheme pablo
