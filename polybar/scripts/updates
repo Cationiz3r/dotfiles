@@ -16,7 +16,7 @@ iterate() {
 	while read p; do
 		# Highlight important packges: kernel coreutils
 		p=$(echo $p|cut -d\  -f1)
-		echo $p|egrep -q linux\|coreutils && p="%{T2}$p"
+		echo $p|grep -Eq linux\|coreutils && p="%{T2}$p"
 		out "$p"
 		sleep .5
 	done <"$cache"

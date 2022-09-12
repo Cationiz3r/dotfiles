@@ -15,7 +15,7 @@ sumof() {
 	echo "$info"|\
 		grep -oP "(?<=$1:)( [^ /]+){2}+"|\
 		tr -d \ |\
-		egrep -v '^0B$'|\
+		grep -Ev '^0B$'|\
 		numfmt --from=iec|\
 		awk 'BEGIN{sum=0} {sum=sum+$1} END{printf "%.0f\n", sum}'
 }
