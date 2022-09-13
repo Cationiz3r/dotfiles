@@ -32,7 +32,7 @@
 		<font place="InactiveOnScreenDisplay"><name>Poppins</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
 	</theme>
 	<desktops>
-		<number>1</number>
+		<number>4</number>
 		<firstdesk>1</firstdesk>
 		<maximum>4</maximum>
 		<popupTime>0</popupTime>
@@ -48,17 +48,17 @@
 	<!-- Openbox control -->
 		<keybind key="S-W-F5"><action name="Restart"/></keybind>
 		<keybind key="  W-F5"><action name="Reconfigure"/></keybind>
-		<keybind key="C-A-Delete"><action name="SessionLogout"><prompt>true</prompt></action></keybind>
+		<keybind key="C-A-Delete C-S-W-q"><action name="SessionLogout"><prompt>no</prompt></action></keybind>
 
 	<!-- Desktop control -->
-		<keybind key="W-F1"><action name="GotoDesktop"><to>1</to></action></keybind>
-		<keybind key="W-F2"><action name="GotoDesktop"><to>2</to></action></keybind>
-		<keybind key="W-F3"><action name="GotoDesktop"><to>3</to></action></keybind>
-		<keybind key="W-F4"><action name="GotoDesktop"><to>4</to></action></keybind>
-
-	<!-- Window/Desktop control -->
-		<keybind key="S-W-Left"> <action name="SendToDesktop"><wrap>no</wrap><to>previous</to></action></keybind>
-		<keybind key="S-W-Right"><action name="SendToDesktop"><wrap>no</wrap><to>next</to></action></keybind>
+		<keybind key="  W-z"> <action name="GoToDesktop"><wrap>no</wrap><to>previous</to></action></keybind>
+		<keybind key="  W-c"> <action name="GoToDesktop"><wrap>no</wrap><to>next</to></action></keybind>
+		<keybind key="  W-F1"><action name="GotoDesktop"><to>1</to></action></keybind>
+		<keybind key="  W-F2"><action name="GotoDesktop"><to>2</to></action></keybind>
+		<keybind key="  W-F3"><action name="GotoDesktop"><to>3</to></action></keybind>
+		<keybind key="  W-F4"><action name="GotoDesktop"><to>4</to></action></keybind>
+		<keybind key="S-W-z"> <action name="SendToDesktop"><wrap>no</wrap><to>previous</to></action></keybind>
+		<keybind key="S-W-c"> <action name="SendToDesktop"><wrap>no</wrap><to>next</to></action></keybind>
 		<keybind key="S-W-F1"><action name="SendToDesktop"><to>1</to></action></keybind>
 		<keybind key="S-W-F2"><action name="SendToDesktop"><to>2</to></action></keybind>
 		<keybind key="S-W-F3"><action name="SendToDesktop"><to>3</to></action></keybind>
@@ -67,29 +67,28 @@
 	<!-- Window control -->
 		<keybind key="A-F4"><action name="Close"/></keybind>
 		<keybind key="C-A-d W-d"><action name="ToggleShowDesktop"/></keybind>
-		<keybind key="S-A-f"><action name="ToggleDecorations"/></keybind>
-		<keybind key="C-A-p"><action name="ToggleAlwaysOnTop"/></keybind>
-		<keybind key="C-A-o"><action name="ToggleOmnipresent"/></keybind>
+		<keybind key="S-W-f"><action name="ToggleDecorations"/></keybind>
+		<keybind key="C-W-p"><action name="ToggleAlwaysOnTop"/></keybind>
+		<keybind key="C-W-o"><action name="ToggleOmnipresent"/></keybind>
 		<keybind key="A-F11"><action name="ToggleFullscreen"/></keybind>
 		<keybind key="A-space"><action name="ShowMenu"><menu>client-menu</menu></action></keybind>
-		<keybind key="A-Tab">  <action name="NextWindow">    <dialog>none</dialog><raise>yes</raise></action></keybind>
-		<keybind key="A-S-Tab"><action name="PreviousWindow"><dialog>none</dialog><raise>yes</raise></action></keybind>
-		<keybind key="W-Up">   <action name="ToggleMaximize"/></keybind>
-		<keybind key="W-Down"> <action name="Iconify"/></keybind>
-		<keybind key="W-Left"> <action name="Snap"><direction>west</direction></action></keybind>
-		<keybind key="W-Right"><action name="Snap"><direction>east</direction></action></keybind>
+		<keybind key="  A-Tab"><action name="NextWindow">    <dialog>none</dialog><raise>yes</raise></action></keybind>
+		<keybind key="S-A-Tab"><action name="PreviousWindow"><dialog>none</dialog><raise>yes</raise></action></keybind>
+		<keybind key="W-Up    C-W-s"><action name="ToggleMaximize"/></keybind>
+		<keybind key="W-Down  C-W-x"><action name="Iconify"/></keybind>
+		<keybind key="W-Left  C-W-z"><action name="Snap"><direction>west</direction></action></keybind>
+		<keybind key="W-Right C-W-c"><action name="Snap"><direction>east</direction></action></keybind>
 		<keybind key="W-equal"><action name="AddDesktop"/></keybind>
 		<keybind key="W-minus"><action name="RemoveDesktop"><where>last</where></action></keybind>
 
 <!-- Commands -->
 	<!-- Launcher -->
-		<keybind key="W-e"><action name="Execute"><command>thunar</command></action></keybind>
-		<keybind key="W-1"><action name="Execute"><command>kitty</command></action></keybind>
-		<keybind key="W-2"><action name="Execute"><command>librewolf</command></action></keybind>
-		<keybind key="W-3"><action name="Execute"><command>pavucontrol</command></action></keybind>
-		<keybind key="W-4"><action name="Execute"><command>lmms -c /home/cationiz3r/.config/lmms/lmmsrc.xml</command></action></keybind>
-		<keybind key="W-5"><action name="Execute"><command>discord</command></action></keybind>
-		<keybind key="W-6"><action name="Execute"><command>steam</command></action></keybind>
+		<keybind key="  W-1"><action name="Execute"><command>kitty</command></action></keybind>
+		<keybind key="  W-2"><action name="Execute"><command>librewolf</command></action></keybind>
+		<keybind key="  W-3"><action name="Execute"><command>pavucontrol</command></action></keybind>
+		<keybind key="  W-q"><action name="Execute"><command>discord</command></action></keybind>
+		<keybind key="  W-w"><action name="Execute"><command>steam</command></action></keybind>
+		<keybind key="  W-e"><action name="Execute"><command>thunar</command></action></keybind>
 		<keybind key="S-W-2"><action name="Execute"><command>torb</command></action></keybind>
 	<!-- Function keys -->
 		<keybind key="XF86AudioMute         C-Insert">   <action name="Execute"><command>pavol -m</command></action></keybind>
@@ -98,7 +97,7 @@
 		<keybind key="XF86MonBrightnessDown C-Page_Down"><action name="Execute"><command>snaplight -d</command></action></keybind>
 		<keybind key="XF86MonBrightnessUp   C-Page_Up">  <action name="Execute"><command>snaplight -u</command></action></keybind>
 		<keybind key="XF86Display"><action name="Execute"><command>sh -c 'pgrep arandr || arandr'</command></action></keybind>
-		<keybind key="Print">  <action name="Execute"><command>shoot</command></action></keybind>
+		<keybind key="  Print"><action name="Execute"><command>shoot</command></action></keybind>
 		<keybind key="S-Print"><action name="Execute"><command>shoot -a</command></action></keybind>
 		<keybind key="C-Print"><action name="Execute"><command>shoot -w</command></action></keybind>
 	<!-- MPD control -->
@@ -111,7 +110,7 @@
 		<keybind key="A-F2 W-r"><action name="Execute"><command>rofi -show run</command></action></keybind>
 		<keybind key="C-Escape"><action name="Execute"><command>keylight -f</command></action></keybind>
 		<keybind key="W-grave"><action name="Execute"><command>lbr</command></action></keybind>
-		<keybind key="Pause">  <action name="Execute"><prompt>Suspend?</prompt><command>sh -c 'newlock &amp; sleep 2s; systemctl suspend'</command></action></keybind>
+		<keybind key="  Pause"><action name="Execute"><prompt>Suspend?</prompt><command>sh -c 'newlock &amp; sleep 2s; systemctl suspend'</command></action></keybind>
 		<keybind key="S-Pause"><action name="Execute"><prompt>Unlocked?</prompt><command>systemctl suspend</command></action></keybind>
 		<keybind key="Help"><action name="Execute"><command>dunstify -r 182 'No.'</command></action></keybind>
 		<keybind key="W-l"><action name="Execute"><command>newlock</command></action></keybind>
