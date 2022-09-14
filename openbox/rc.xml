@@ -32,9 +32,9 @@
 		<font place="InactiveOnScreenDisplay"><name>Poppins</name><size>8 </size><weight>Normal</weight><slant>Normal</slant></font>
 	</theme>
 	<desktops>
-		<number>4</number>
+		<number>8</number>
 		<firstdesk>1</firstdesk>
-		<maximum>4</maximum>
+		<maximum>8</maximum>
 		<popupTime>0</popupTime>
 	</desktops>
 	<resize>
