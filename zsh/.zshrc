@@ -275,7 +275,7 @@ bindkey '\en' widget-launcher
 #Better macros
 doas_() { BUFFER="doas $BUFFER"; CURSOR+=5 }
 wrl_() {
-	BUFFER="$BUFFER|while read line; do ; done"
+	BUFFER="$BUFFER|while read l; do ; done"
 	CURSOR=$(($#BUFFER - 6))
 }
 zle -N doas_
