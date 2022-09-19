@@ -311,7 +311,7 @@ setopt extendedglob
 setopt autocd
 setopt autopushd
 setopt pushdsilent
-tabs 2
+tabs -2
 command_not_found_handler() {
   local pkgs cmd="$1"
 	&>/dev/null which -p pkgfile || echo \?
