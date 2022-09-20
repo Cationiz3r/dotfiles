@@ -25,7 +25,7 @@ alias \
 	gzip='gzip -v' \
 	py='python' \
 	path='tr : \\n <<<$PATH' \
-	refresh='. ~/.config/zsh/.zshrc; echo' \
+	refresh='. $ZDOTDIR/.zshenv; . $ZDOTDIR/.zshrc' \
 	grep='grep --color=auto' \
 	egrep='egrep --color=auto' \
 	fgrep='fgrep --color=auto' \
@@ -53,6 +53,7 @@ alias \
 	printq='printf "%q\n"' \
 	cenv='env -i TERM="$TERM" USER=clear LANG="$LANG" HISTFILE=' \
 	sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep' \
+	count='sort|uniq -c|sort -n'
 
 df() { command df -h|head -1; command df -hxdevtmpfs "$@"|tail +2|sort }
 du() { command du -ahd1 --apparent-size "$@"|sort -h|sed 's:\./::'|column -ts$'\t' }
@@ -239,8 +240,9 @@ bindkey '^Z' undo
 # Macros
 bindkey -s '\ew' '\C-a$(\C-e)'
 bindkey -s '\el' '\C-e|less'
-bindkey -s '\eq' '\C-e|qr'
+bindkey -s '\eq' '\C-e|count'
 bindkey -s '\ej' '\C-e|jq'
+bindkey -s '\eJ' '\C-e|jq -C|less'
 bindkey -s '\eg' '\C-e|grep '
 bindkey -s '\ee' '\C-e|egrep '
 bindkey -s '\eh' '\C-e|head '
