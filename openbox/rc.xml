@@ -159,7 +159,9 @@
 		<application class="Geany"><desktop>1</desktop></application>
 		<application class="Tor Browser"><desktop>2</desktop></application>
 		<application class="librewolf"><desktop>2</desktop><maximized>true</maximized></application>
-		<application class="Steam"><desktop>4</desktop></application>
-		<application class="hl2_linux"><desktop>4</desktop></application>
+		<application class="Steam"><desktop>3</desktop></application>
+		<application class="hl2_linux"><desktop>3</desktop></application>
+		<application class="discord"><desktop>4</desktop></application>
+		<application class="explorer.exe"><desktop>5</desktop></application> <!--Wine desktop (FL Studio)-->
 	</applications>
 </openbox_config>
