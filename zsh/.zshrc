@@ -192,9 +192,10 @@ forward-pure-word()  { WORDCHARS= zle forward-word; }
 backward-pure-word() { WORDCHARS= zle backward-word; }
 clear-buffer() { echo -n $'\e[H\e[3J' clear; zle-update-prompt }
 clear-history() {
-	local i
+	local i OLDHISTSIZE=$HISTSIZE
 	for i in $(seq 2 $(dirs -v|wc -l)); do popd; done
 	history -p
+	HISTSIZE=$OLDHISTSIZE
 	clear-buffer
 }
 just-exit() { exit }
