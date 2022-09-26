@@ -103,7 +103,10 @@ unset compdump
 # |  __/| | | (_) | | | | | | |_) | |_   / /
 # |_|   |_|  \___/|_| |_| |_| .__/ \__| /_/____
 #                           |_|          |_____|
-preexec() tput sgr0
+preexec() {
+	tput sgr0
+	tabs -2
+}
 precmd() {
 	prompt update
 	TRAPINT() { zle kill-whole-line; zle-update-prompt }
@@ -314,7 +317,6 @@ setopt extendedglob
 setopt autocd
 setopt autopushd
 setopt pushdsilent
-tabs -2
 command_not_found_handler() {
   local pkgs cmd="$1"
 	&>/dev/null which -p pkgfile || echo \?
