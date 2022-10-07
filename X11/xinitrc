@@ -6,7 +6,7 @@ killall dunst; dunst &
 dunstctl rule lockscreen disable &
 ibus-daemon -drx &
 overcharge &
-picom &
+picom --config "$PICOM_CONF" &
 redshift &
 $XDG_CONFIG_HOME/polybar/launch &
 forgetful -g &
