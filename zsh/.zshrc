@@ -328,3 +328,4 @@ command_not_found_handler() {
   fi >&2
   return 127
 }
+stty -ixon
