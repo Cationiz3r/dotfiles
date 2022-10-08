@@ -289,6 +289,10 @@ zle -N wrl_
 bindkey '\ed' doas_
 bindkey '\ea' wrl_
 
+# Unbinding
+bindkey -r '^s'
+bindkey -r '^r'
+
 #  ____                  _  __ _
 # / ___| _ __   ___  ___(_)/ _(_) ___
 # \___ \| '_ \ / _ \/ __| | |_| |/ __|
