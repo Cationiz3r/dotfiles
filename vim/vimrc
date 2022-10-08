@@ -11,7 +11,7 @@ call SourceExists("$VIMRUNTIME/vimrc_example.vim")
 "" Key binding
 " Normal
 nmap <c-r> :so ~/.config/vim/vimrc<CR>
-nmap <c-q> :x<CR>
+nmap <c-w> :x<CR>
 nmap <c-d> :q!<CR>
 nmap <c-s> :up<CR>
 nmap <s-Up> v<Up>
@@ -24,7 +24,7 @@ nmap <c-v> p
 nmap <End> <End><Right>
 " Visual
 vmap <c-r> <Esc>:so ~/.config/vim/vimrc<CR>
-vmap <c-q> <Esc>:x<CR>
+vmap <c-w> <Esc>:x<CR>
 vmap <c-d> <Esc>:q!<CR>
 vmap <c-s> <Esc>:up<CR>
 vmap <s-Up> <Up>
