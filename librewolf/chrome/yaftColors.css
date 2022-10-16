@@ -1,0 +1,38 @@
+/* Yet another firefox theme */
+:root {
+	/* Debug
+	--yaft-bg: #303;
+	--yaft-bg-page: #101;
+	--yaft-bg-sel: #f00;
+	--yaft-bg-hover: #0f0;
+	--yaft-bg-sel-hover: #00f;
+	--yaft-fg: #fff;*/
+
+	/* Release */
+	--yaft-bg: #151515;
+	--yaft-bg-page: #0c0c0c;
+	--yaft-bg-sel: #333;
+	--yaft-bg-hover: #222;
+	--yaft-bg-sel-hover: #777;
+	--yaft-fg: #fff;
+
+	--in-content-page-background: var(--yaft-bg-page) !important;
+	--in-content-page-color: var(--yaft-fg) !important;
+
+	--newtab-background-color: var(--yaft-bg-page) !important;
+	--newtab-background-color-secondary: var(--yaft-bg-sel) !important;
+	--newtab-text-primary-color: var(--yaft-fg) !important;
+	--newtab-text-secondary-color: var(--yaft-fg) !important;
+
+	/* Accent (Radio/Checkbox color) */
+	--in-content-primary-button-background: var(--yaft-fg) !important;
+	--in-content-primary-button-background-hover: var(--yaft-fg) !important;
+
+	/* Button */
+  --button-bgcolor: var(--yaft-bg-sel) !important;
+  --button-hover-bgcolor: var(--yaft-bg-sel-hover) !important;
+	--button-active-bgcolor: var(--yaft-bg-sel-hover) !important;
+	--in-content-button-background: var(--yaft-bg-sel) !important;
+	--in-content-button-background-hover: var(--yaft-bg-sel-hover) !important;
+	--in-content-button-background-active: var(--yaft-fg) !important; /* clicked */
+}

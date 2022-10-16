@@ -1,0 +1,63 @@
+@import url("yaftColors.css");
+@-moz-document
+	url("about:about"),
+	url("about:addons"),
+	url("about:buildconfig"),
+	url("about:cache"),
+	url("about:certificate"),
+	url("about:checkerboard"),
+	url("about:compat"),
+	url("about:config"),
+	url("about:credits"),
+	url("about:debugging"),
+	url("about:downloads"),
+	url("about:glean"),
+	url("about:home"),
+	url("about:license"),
+	url("about:logins"),
+	url("about:loginsimportreport"),
+	url("about:logo"),
+	url("about:memory"),
+	url("about:mozilla"),
+	url("about:networking"),
+	url("about:newtab"),
+	url("about:performance"),
+	url("about:plugins"),
+	url("about:policies"),
+	url("about:preferences"),
+	url("about:privatebrowsing"),
+	url("about:processes"),
+	url("about:profiles"),
+	url("about:profiling"),
+	url("about:protections"),
+	url("about:rights"),
+	url("about:robots"),
+	url("about:serviceworkers"),
+	url("about:studies"),
+	url("about:support"),
+	url("about:sync-log"),
+	url("about:telemetry"),
+	url("about:unloads"),
+	url("about:url-classifier"),
+	url("about:webrtc"),
+	url("about:welcome")
+{
+	html, body { background-color: var(--yaft-bg-page) !important; }
+	img, image { filter: grayscale(1); }
+}
+
+@-moz-document url("about:newtab"), url("about:home") {
+	#root { display: none; }
+	/* body {
+		background: url("background.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	} */
+}
+@-moz-document url("about:preferences") {
+	.category             { border-radius: 0px !important; }
+	.category:first-child { border-radius: 12px 12px 0 0 !important; }
+	.category:last-child  { border-radius: 0 0 12px 12px !important; }
+	.category[selected]       { background: var(--yaft-bg-sel) !important; }
+	.category[selected]:hover { background: var(--yaft-bg-sel-hover) !important; }
+}
