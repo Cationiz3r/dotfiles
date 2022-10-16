@@ -155,10 +155,10 @@
 		<application class="Wrapper-2.0" type="normal"><position><x>835</x><y>0</y></position></application>
 		<application class="Thunar" type="normal"><size><width>802</width><height>455</height></size></application> <!--Fixed size even when snapping-->
 
-
 		<application class="Geany"><desktop>1</desktop></application>
 		<application class="Tor Browser"><desktop>1</desktop></application>
 		<application class="LibreWolf" name="Navigator"><desktop>2</desktop><maximized>true</maximized></application>
+		<application class="LibreWolf" name="Devtools"><desktop>2</desktop><layer>above</layer></application>
 		<application class="Steam"><desktop>3</desktop></application>
 		<application class="hl2_linux"><desktop>3</desktop></application>
 		<application class="discord"><desktop>4</desktop></application>
