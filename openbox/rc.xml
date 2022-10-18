@@ -82,9 +82,9 @@
 	<!-- Launcher -->
 		<keybind key="  W-1"><action name="Execute"><command>kitty</command></action></keybind>
 		<keybind key="  W-2"><action name="Execute"><command>librewolf</command></action></keybind>
-		<keybind key="  W-3"><action name="Execute"><command>pavucontrol</command></action></keybind>
+		<keybind key="  W-3"><action name="Execute"><command>steam</command></action></keybind>
 		<keybind key="  W-q"><action name="Execute"><command>discord</command></action></keybind>
-		<keybind key="  W-w"><action name="Execute"><command>steam</command></action></keybind>
+		<keybind key="  W-w"><action name="Execute"><command>pavucontrol</command></action></keybind>
 		<keybind key="  W-e"><action name="Execute"><command>thunar</command></action></keybind>
 		<keybind key="S-W-1"><action name="Execute"><command>leafpad</command></action></keybind>
 		<keybind key="S-W-2"><action name="Execute"><command>tor-browser</command></action></keybind>
