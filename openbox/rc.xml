@@ -161,6 +161,7 @@
 		<application class="LibreWolf" name="Devtools"><desktop>2</desktop><layer>above</layer></application>
 		<application class="Steam"><desktop>3</desktop></application>
 		<application name="Steam"><desktop>3</desktop></application>
+		<application class="steam_app_*"><desktop>3</desktop></application>
 		<application class="hl2_linux"><desktop>3</desktop></application>
 		<application class="discord"><desktop>4</desktop></application>
 		<application class="explorer.exe"><desktop>5</desktop></application> <!--Wine desktop (FL Studio)-->
