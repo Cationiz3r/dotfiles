@@ -35,6 +35,11 @@
 	--in-content-button-background: var(--yaft-bg-sel) !important;
 	--in-content-button-background-hover: var(--yaft-bg-sel-hover) !important;
 	--in-content-button-background-active: var(--yaft-fg) !important; /* clicked */
+
+	/* List/Box */
+	--in-content-box-background: var(--yaft-bg-sel) !important;
+	--in-content-box-border-color: var(--yaft-bg-sel) !important;
+	--in-content-box-background-odd: var(--yaft-bg) !important;
 }
 
 /* Remove animations */
