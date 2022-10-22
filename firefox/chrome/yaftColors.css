@@ -36,3 +36,10 @@
 	--in-content-button-background-hover: var(--yaft-bg-sel-hover) !important;
 	--in-content-button-background-active: var(--yaft-fg) !important; /* clicked */
 }
+
+/* Remove animations */
+* {
+	animation-delay: 0ms !important;
+	animation-duration: 0ms !important;
+	transition: none !important;
+}
