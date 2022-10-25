@@ -41,10 +41,3 @@
 	--in-content-box-border-color: var(--yaft-bg-sel) !important;
 	--in-content-box-background-odd: var(--yaft-bg) !important;
 }
-
-/* Remove animations */
-* {
-	animation-delay: 0ms !important;
-	animation-duration: 0ms !important;
-	transition: none !important;
-}
