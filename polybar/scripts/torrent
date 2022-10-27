@@ -5,7 +5,6 @@ while true; do
 	echo "..."
 	out=$(python "$POLYBAR_ROOT"/scripts/deluge.py)
 	echo "$out"
-	if [ -z "$out" ]; then sleep 60
-	else sleep 1800; fi
+	sleep 60
 done
 
