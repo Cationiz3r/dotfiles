@@ -22,10 +22,9 @@ def readConfig(where):
 	return [conf[key] for key in conf]
 
 def getStatus(client):
-	try: status = client.call('core.get_torrents_status', {}, ["total_wanted", "total_uploaded"])
+	try: status = client.call('core.get_torrents_status', {}, ["total_uploaded"])
 	except FailedToReconnectException: printExit("")
 	except: printExit("Err")
-	printExit(round(100 * sum([status[i][b"total_uploaded"] for i in status])\
-	                           / sum([status[i][b"total_wanted"]   for i in status]), 2))
+	printExit(sum([status[i][b"total_uploaded"] for i in status]))
 
 getStatus(DelugeRPCClient(*readConfig(os.getenv("POLYBAR_ROOT") + "/.priv/deluge.conf")))
