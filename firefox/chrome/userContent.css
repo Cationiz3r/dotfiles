@@ -1,8 +1,4 @@
 @import url("yaftColors.css");
-
-/* Global css */
-html, body { background-color: var(--yaft-bg-page) !important; }
-
 @-moz-document
 	url("about:about"),
 	url("about:addons"),
@@ -47,6 +43,7 @@ html, body { background-color: var(--yaft-bg-page) !important; }
 	url("about:webrtc"),
 	url("about:welcome")
 {
+	html, body { background-color: var(--yaft-bg-page) !important; }
 	img, image { filter: grayscale(1); }
 }
 
