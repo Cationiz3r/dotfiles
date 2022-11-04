@@ -7,6 +7,12 @@ set -- #empty array
 while true; do
 	echo "..."
 	last=$(python "$POLYBAR_ROOT"/scripts/deluge.py)
+	if [ -z "$last" ]; then
+		set --
+		echo
+		sleep 60
+		continue
+	fi
 	set -- "$@" "$last"
 	[ $# -gt 181 ] && shift #3 hours
 	speed=\?
