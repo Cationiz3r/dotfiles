@@ -60,6 +60,7 @@ export _JAVA_OPTIONS="$_JAVA_OPTIONS \
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export MAKEPKG_CONF="$XDG_CONFIG_HOME/makepkg.conf"
 export MYSQL_HISTFILE="$XDG_RUNTIME_DIR/mysql"
+export UNISON="$XDG_DATA_HOME/unison"
 # Locales
 export LANG="en_US.UTF-8"
 export LC_TIME="en_GB.UTF-8"
