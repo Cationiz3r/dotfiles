@@ -18,7 +18,7 @@ iterate() {
 		p=$(echo $p|cut -d\  -f1)
 		echo $p|grep -Eq linux\|coreutils && p="%{T2}$p"
 		out "$p"
-		sleep .5
+		sleep .2
 	done <"$cache"
 }
 trap 'force; exit' INT
