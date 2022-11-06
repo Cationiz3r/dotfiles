@@ -1,5 +1,5 @@
 #!/bin/sh
-out() { echo " $@  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "; }
+out() { echo "$@"; }
 waitonline() {
 	out ..\?
 	for i in $(seq 1 30); do

@@ -2,7 +2,7 @@
 # polybar weather module, powered by openweather
 
 # Output
-out() { echo "  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  $@"; }
+out() { echo "$@"; }
 out_simple() { out "$data_icon %{T2}$data_feel%{T-}°C"; }
 out_detailed() {
 	out "$data_desc %{T2}$data_feel%{T-}($data_temp)°C $data_humid%"
