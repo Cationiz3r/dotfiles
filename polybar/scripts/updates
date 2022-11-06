@@ -8,35 +8,23 @@ waitonline() {
 }
 cache="$POLYBAR_RUN/updates"
 force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
-iterate() {
-	force
-	touch "$cache.skip"
-	[ -s "$cache" ] || exit
-	grep -q ERROR "$cache" && exit
-	while read p; do
-		# Highlight important packges: kernel coreutils
-		p=$(echo $p|cut -d\  -f1)
-		echo $p|grep -Eq linux\|coreutils && p="%{T2}$p"
-		out "$p"
-		sleep .2
-	done <"$cache"
-}
 trap 'force; exit' INT
-trap force USR2 EXIT
-trap iterate USR1
+trap force USR1 USR2 EXIT
 while true; do
-	[ -f "$cache.skip" ] || { waitonline; out ...; }
-	rm -f "$cache.skip"
+	waitonline; out ...
 	[ -f "$cache" ] || checkupdates 2>&1 >"$cache"
+	[ -f "$cache.pw" ] || which pkgwatch >/dev/null 2>&1 && pkgwatch >"$cache.pw"
 	(
 		PKGS=$(cat "$cache"|wc -l)
-		[ $PKGS -eq 0 ] && { echo; exit; }
+		PKGS_EX=$(cat "$cache.pw"|wc -l)
+		TOT=$((PKGS + PKGS_EX))
+		[ $TOT -eq 0 ] && { echo; exit; }
 		[ $PKGS -eq 1 ] && [ "$(cat "$cache")" = '==>' ] &&
 			{ out '%{T2}?'; exit; }
-		[ $PKGS -ge 20 ] && PKGS="%{T2}$PKGS!"
-		out "$PKGS"
+		[ $PKGS_EX -gt 0 ] && TOT="$TOT ($PKGS_EX)"
+		out "$TOT"
 	)
 	sleep 30m & sleep_pid=$!
 	wait
-	[ -f "$cache.skip" ] || rm -f "$cache"
+	rm -f "$cache" "$cache.pw"
 done
