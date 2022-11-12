@@ -13,7 +13,7 @@ trap force USR1 USR2 EXIT
 while true; do
 	waitonline; out ...
 	[ -f "$cache" ] || checkupdates 2>&1 >"$cache"
-	[ -f "$cache.pw" ] || which pkgwatch >/dev/null 2>&1 && pkgwatch >"$cache.pw"
+	[ -f "$cache.pw" ] || command -v pkgwatch >/dev/null 2>&1 && pkgwatch >"$cache.pw"
 	(
 		PKGS=$(cat "$cache"|wc -l)
 		PKGS_EX=$(cat "$cache.pw"|wc -l)
