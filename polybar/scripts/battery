@@ -1,5 +1,5 @@
 #!/bin/sh
-command -v >/dev/null 2>&1 || { echo; exit 1; }
+command -v acpi >/dev/null 2>&1 || { echo; exit 1; }
 get_state()  { acpi -a|grep -q 'on-line'; }
 get_charge() { acpi -b|grep -Eo '[0-9]+%'|head -c-2; }
 
