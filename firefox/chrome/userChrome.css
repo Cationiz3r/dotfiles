@@ -112,8 +112,8 @@ tab .tab-icon, .tab-icon-image,
 #tabs-newtab-button:hover .toolbarbutton-icon { border-radius: 0 8px 0 0 !important; }
 
 /* Tab button width for inactive/active one */
-.tabbrowser-tab[selected]:not([pinned]) { min-width: 250px !important; }
-.tabbrowser-tab:not([selected]):not([pinned]) { max-width: 150px !important; }
+.tabbrowser-tab[fadein][selected]:not([pinned]) { min-width: 250px !important; }
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) { max-width: 100px !important; }
 
 /*        _  _            _
  *  ___  | \| |__ ___ __ | |__  __ _ _ _
