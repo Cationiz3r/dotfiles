@@ -98,7 +98,8 @@ tab .tab-icon, .tab-icon-image,
  *         |_|\__,_|_.__/__/ |_.__/\__,_|_|
  */
 .tabbrowser-tab:first-child .tab-background { border-radius: 8px 0 0 0 !important; } /* First tab button corner */
-.tabbrowser-tab { padding: 0 2.5px !important; } /* Tab buttons spacing */
+.tabbrowser-tab[last-visible-tab] .tab-background { border-radius: 0 8px 0 0 !important; } /* Last tab button corner */
+.tabbrowser-tab { padding: 0 2.5px !important; transition: none !important; } /* Tab buttons spacing & disable animations */
 #tabbrowser-arrowscrollbox { padding: 5px 2.5px 0 !important; } /* Space tab bar with window borders */
 .tab-label-container { height: 20px !important; } /* Smaller textbox height */
 .tab-close-button { display: none !important; } /* Hide tab close button */
@@ -109,6 +110,10 @@ tab .tab-icon, .tab-icon-image,
 /* New tab button */
 #tabs-newtab-button { margin: 0 !important; padding: 0 1px !important; }
 #tabs-newtab-button:hover .toolbarbutton-icon { border-radius: 0 8px 0 0 !important; }
+
+/* Tab button width for inactive/active one */
+.tabbrowser-tab[selected]:not([pinned]) { min-width: 250px !important; }
+.tabbrowser-tab:not([selected]):not([pinned]) { max-width: 150px !important; }
 
 /*        _  _            _
  *  ___  | \| |__ ___ __ | |__  __ _ _ _
