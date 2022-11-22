@@ -7,6 +7,7 @@
   --arrowpanel-color: var(--yaft-fg) !important;
   --arrowpanel-border-color: transparent !important;
   --arrowpanel-padding: 0 !important;
+  --arrowpanel-border-radius: 0 !important; /* Avoid unaccounted transparency by composer */
   --panel-item-hover-bgcolor: var(--yaft-bg-sel-hover) !important;
   --panel-item-active-bgcolor: var(--yaft-fg) !important;
 }
@@ -38,7 +39,6 @@
 .urlbarView-row[selected] .urlbarView-row-inner, /* Url results */
 .chromeUI #identity-icon-box, /* Button left of url bar */
 #urlbar-search-mode-indicator, /* Search engine to use */
-panel, menupopup, /* Workaround for annoying border */
 #personal-bookmarks /* Bookmarks container */
 	{ background: var(--yaft-bg-sel) !important; }
 
@@ -169,3 +169,12 @@ tab .tab-icon, .tab-icon-image,
 	margin-top: 5px !important;
 	border-radius: 0 12px 0 0 !important;
 }
+
+/*        __  __ _
+ *  ___  |  \/  (_)___ __
+ * |___| | |\/| | (_-</ _|
+ *       |_|  |_|_/__/\__|
+ */
+
+.menupopup-arrowscrollbox { border-radius: 0 !important; } /* Avoid unaccounted transparency by composer */
+arrowscrollbox { margin: 0 !important; } /* Eliminate annoying border around popup menus */
