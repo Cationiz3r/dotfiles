@@ -211,19 +211,21 @@ cd-back() {
 	[ $(dirs -v|wc -l) -eq 1 ] && return
 	local o_PWD="$PWD"
 	&>/dev/null popd
-	[ "$o_PWD" = "$PWD" ] || zle-update-prompt
+	[ "$o_PWD" = "$PWD" ] && return
+	DIRSTACK+=("$o_PWD")
+	zle-update-prompt
+}
+cd-next() {
+	[ $#DIRSTACK -eq 0 ] && return
+	pushd "$DIRSTACK[1]"
+	DIRSTACK=(${DIRSTACK:1})
+	zle-update-prompt
 }
 cd-up()   { cd ..; zle-update-prompt }
 cd-home() { cd; zle-update-prompt }
-cd-copy() { echo -n "$PWD"|xclip }
-cd-paste() {
-	local dir="$(2>/dev/null xclip -o)"
-	[ -d "$dir" ] || return
-	cd "$dir" && zle-update-prompt
-}
 for func in delete-pure-word forward-pure-word backward-pure-word \
 	clear-buffer clear-history just-exit better-accept-line \
-	cd-back cd-up cd-home cd-copy cd-paste; do zle -N $func; done; unset func
+	cd-back cd-next cd-up cd-home cd-copy cd-paste; do zle -N $func; done; unset func
 bindkey '^H' backward-delete-word
 bindkey '^[^?' delete-pure-word
 bindkey '^[^L' clear-buffer
@@ -235,10 +237,9 @@ bindkey '^M' better-accept-line
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[1' cd-back
-bindkey '^[2' cd-up
-bindkey '^[3' cd-home
-bindkey '^[4' cd-copy
-bindkey '^[5' cd-paste
+bindkey '^[2' cd-next
+bindkey '^[3' cd-up
+bindkey '^[4' cd-home
 bindkey '^Z' undo
 
 # Macros
