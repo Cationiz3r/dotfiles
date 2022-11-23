@@ -333,3 +333,4 @@ command_not_found_handler() {
   return 127
 }
 stty -ixon
+echo -ne '\r' #clear early text
