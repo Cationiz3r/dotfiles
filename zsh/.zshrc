@@ -38,7 +38,7 @@ alias \
 	btop='btop +t' \
 	wget='wget -c --show-progress --hsts-file /dev/null' \
 	xargs='xargs -t' \
-	fd='fd -uu --show-errors' \
+	fd='fd -uu' \
 	bat='bat --tabs 2' \
 	shred='shred -vu --random-source=/dev/urandom' \
 	ps='ps aux' \
@@ -47,7 +47,6 @@ alias \
 	yd4='yt-dlp -f"bv*[height<=480]+ba/b[height<=480]/wv*+ba/w"' \
 	xpcn='xprop _NET_WM_PID WM_CLASS WM_NAME _OB_APP_CLASS _OB_APP_NAME _OB_APP_TYPE _OB_APP_TITLE _OB_APP_ROLE' \
 	netspeed='speedtest --secure --bytes' \
-	weather='curl "wttr.in/Haiphong?MQT0"' \
 	pubip='curl https://ifconfig.me && echo' \
 	now='date +%y%m%d_%H%M%S' \
 	printq='printf "%q\n"' \
