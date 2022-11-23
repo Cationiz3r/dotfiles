@@ -193,7 +193,7 @@ bindkey '\e[F' end-of-line
 delete-pure-word()   { WORDCHARS= zle backward-delete-word; }
 forward-pure-word()  { WORDCHARS= zle forward-word; }
 backward-pure-word() { WORDCHARS= zle backward-word; }
-clear-buffer() { echo -n $'\e[H\e[3J' clear; zle-update-prompt }
+clear-buffer() { echo -n $'\e[H\e[3J'; clear; zle-update-prompt }
 clear-history() {
 	local i OLDHISTSIZE=$HISTSIZE
 	for i in $(seq 2 $(dirs -v|wc -l)); do popd; done
