@@ -97,8 +97,9 @@ tab .tab-icon, .tab-icon-image,
  * |___|   | |/ _` | '_ (_-< | '_ \/ _` | '_|
  *         |_|\__,_|_.__/__/ |_.__/\__,_|_|
  */
-.tabbrowser-tab:first-child .tab-background { border-radius: 8px 0 0 0 !important; } /* First tab button corner */
+.tabbrowser-tab[first-visible-tab] .tab-background { border-radius: 8px 0 0 0 !important; } /* First tab button corner */
 .tabbrowser-tab[last-visible-tab] .tab-background { border-radius: 0 8px 0 0 !important; } /* Last tab button corner */
+.tabbrowser-tab[first-visible-tab][last-visible-tab] .tab-background { border-radius: 8px 8px 0 0 !important; } /* Only tab button */
 .tabbrowser-tab { padding: 0 2.5px !important; transition: none !important; } /* Tab buttons spacing & disable animations */
 #tabbrowser-arrowscrollbox { padding: 5px 2.5px 0 !important; } /* Space tab bar with window borders */
 .tab-label-container { height: 20px !important; } /* Smaller textbox height */
