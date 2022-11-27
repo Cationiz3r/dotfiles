@@ -100,21 +100,31 @@ tab .tab-icon, .tab-icon-image,
 .tabbrowser-tab[first-visible-tab] .tab-background { border-radius: 8px 0 0 0 !important; } /* First tab button corner */
 .tabbrowser-tab[last-visible-tab] .tab-background { border-radius: 0 8px 0 0 !important; } /* Last tab button corner */
 .tabbrowser-tab[first-visible-tab][last-visible-tab] .tab-background { border-radius: 8px 8px 0 0 !important; } /* Only tab button */
-.tabbrowser-tab { padding: 0 2.5px !important; transition: none !important; } /* Tab buttons spacing & disable animations */
-#tabbrowser-arrowscrollbox { padding: 5px 2.5px 0 !important; } /* Space tab bar with window borders */
+#tabbrowser-arrowscrollbox { margin: 5px 5px 0 !important; } /* Space tab bar with window borders */
 .tab-label-container { height: 20px !important; } /* Smaller textbox height */
+#alltabs-button, #scrollbutton-up, #scrollbutton-down, /* Hide tab manager */
+spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"], /* Hide tab manager seperators */
+#tabs-newtab-button, /* Hide new tab button */
 .tab-close-button { display: none !important; } /* Hide tab close button */
 
 /* Expand tab background to whole button and square for middle buttons */
 .tab-background { margin: 0 !important; border-radius: 0 !important; }
 
-/* New tab button */
-#tabs-newtab-button { margin: 0 !important; padding: 0 1px !important; }
-#tabs-newtab-button:hover .toolbarbutton-icon { border-radius: 0 8px 0 0 !important; }
-
 /* Tab button width for inactive/active one */
 .tabbrowser-tab[fadein][selected]:not([pinned]) { min-width: 250px !important; }
 .tabbrowser-tab[fadein]:not([selected]):not([pinned]) { max-width: 100px !important; }
+
+/* Tab buttons */
+.tabbrowser-tab { /* Default (middle ones) */
+	margin: 0 !important;
+	padding: 0 !important;
+	transition-duration: 1ms !important;
+}
+.tabbrowser-tab:not([first-visible-tab]) { margin: 0 0 0 5px !important; }
+.scrollbox-clip {
+	border-radius: 8px 8px 0 0 !important;
+	overflow: hidden !important;
+}
 
 /*        _  _            _
  *  ___  | \| |__ ___ __ | |__  __ _ _ _
