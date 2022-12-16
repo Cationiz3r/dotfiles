@@ -7,36 +7,11 @@ which doas &>/dev/null || up=sudo
 alias \
 	pY="${up}pacman -Syu --noconfirm" \
 	pU="${up}pacman -U" \
+	pS="${up}pacman -S" \
+	pR="${up}pacman -Rns" \
 
 unset up
 
-pS() {
-	local up=$(whence pY|cut -d\  -f1) pkgs=("$@") fzf=false
-	[ $up = pacman ] && up= || up="$up "
-	[ $#pkgs -eq 0 ] && fzf=true && pkgs=($(pacman -Sl \
-		| awk '{print ($4=="" ? "" : "│ ")$2 " " $3}' \
-		| fzf --layout=reverse-list -m --marker='❯ ' \
-			--preview 'bash -c "[ {1} = │ ] && pacman -Si {2} || pacman -Si {1}"' \
-		| while read line; do local pos=1
-			[ "${line:0:1}" = │ ] && pos=2
-		cut -d' ' -f$pos <<< "$line"; done
-	))
-	[ $#pkgs -eq 0 ] && return
-	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	eval "${up}pacman -S $pkgs"
-}
-pR() {
-	local up=$(whence pY|cut -d\  -f1) pkgs=("$@") fzf=false
-	[ $up = pacman ] && up= || up="$up "
-	[ $#pkgs -eq 0 ] && fzf=true && pkgs=($((pacman -Qen; pacman -Qem) \
-		| fzf --layout=reverse-list -m --marker='❯ ' \
-			--preview 'pacman -Qi {1}' \
-		| cut -d' ' -f1
-	))
-	[ $#pkgs -eq 0 ] && return
-	$fzf && echo "packages: $(tput bold)$pkgs$(tput sgr0)"
-	eval "${up}pacman -Rns $pkgs"
-}
 pRO() {
 	local pkgs=($(pacman -Qdtq))
 	[ $#pkgs -eq 0 ] && return
