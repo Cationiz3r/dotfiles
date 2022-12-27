@@ -8,5 +8,5 @@ export \
 	BACKGROUND=$(grep background\          colors.ini|head -1|cut -d\  -f3) \
 	BACKGROUND_ALT=$(grep background-alt\  colors.ini|head -1|cut -d\  -f3)
 mkdir -vp "$POLYBAR_RUN"
-export SEP="  %{B$BACKGROUND F$BACKGROUND}|%{B$BACKGROUND_ALT F-}  "
+export SEP="    %{B$BACKGROUND F$BACKGROUND}  %{B$BACKGROUND_ALT F-}    "
 exec polybar
