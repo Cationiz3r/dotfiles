@@ -34,7 +34,12 @@ export EXA_COLORS="*.aac=36:*.alac=36:*.ape=36:*.flac=36:*.m4a=36:*.mka=36\
 :*.djvu=33:*.doc=33:*.docx=33:*.dvi=33:*.eml=33:*.eps=33:*.fotd=33:*.key=33\
 :*.odp=33:*.odt=33:*.pdf=33:*.ppt=33:*.pptx=33:*.rtf=33:*.xls=33:*.xlsx=33\
 :*.asc=32:*.enc=32:*.gpg=32:*.p12=32:*.pfx=32:*.pgp=32:*.sig=32:*.signature=32\
-:or=05;01;33"
+:*.7z=36;1:*.a=36;1:*.ar=36;1:*.bz2=36;1:*.deb=36;1:*.dmg=36;1:*.gz=36;1\
+:*.iso=36;1:*.lzma=36;1:*.par=36;1:*.rar=36;1:*.rpm=36;1:*.tar=36;1:*.tc=36;1\
+:*.tgz=36;1:*.txz=36;1:*.xz=36;1:*.z=36;1:*.Z=36;1:*.zip=36;1:*.zst\
+:build.gradle=37;4:Cargo.toml=37;4:CMakeLists.txt=37;4:Dockerfile=37;4:Justfile=37;4:Makefile=37;4:Rakefile=37;4:SConstruct\
+:or=31;4:ex=37;1:su=31;1;4:sf=31;1;4:ux=36;1;4:gx=36:tx=36:uw=35;1:gw=35:tw=35:ur=33;1:gr=33:tr=33\
+:uu=33;1:gu=33;1:un=31;1:gn=31;1:ln=35;1"
 export LANG="${LANG:-en_US.UTF-8}" #Default locale
 export GPG_TTY=$(tty)
 export PICOM_CONF="$HOME/.config/picom/picom.conf"
