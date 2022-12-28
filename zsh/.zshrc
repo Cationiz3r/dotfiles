@@ -30,7 +30,7 @@ alias \
 	egrep='egrep --color=auto' \
 	fgrep='fgrep --color=auto' \
 	pactree='pactree -c' \
-	diff='diff --color=auto -uT --palette "ad=0;97"' \
+	diff='diff --color=auto -uT --palette "hd=34;1:rs=95;1:de=91;2:ad=97;1"' \
 	less='less -FRx2' \
 	ffmpeg='ffmpeg -hide_banner' \
 	ffprobe='ffprobe -hide_banner' \

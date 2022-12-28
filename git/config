@@ -7,8 +7,10 @@
 [init]
 	defaultBranch = main
 [color "diff"]
-	meta = blue
-	new = white
+	meta = bold blue
+	frag = bold brightmagenta
+	old = brightred
+	new = bold brightwhite
 [alias]
 	root = rev-parse --show-toplevel
 	last = log --format=%H -n1
