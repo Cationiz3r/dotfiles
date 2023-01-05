@@ -1,5 +1,21 @@
--o "[%(id)s]%(title)s.%(ext)s"
+## Download
+--playlist-random
+
+## Filesystem
 --no-mtime
---sub-lang en
---write-sub
---write-auto-sub
+--output "%(artist,uploader|Unknown)s - %(title|Unknown)s.%(ext)s"
+
+## Workaround
+--sleep-requests 1
+--min-sleep-interval 5
+--max-sleep-interval 20
+--sleep-subtitles 2
+
+## Subtitle
+--sub-lang "en,vi"
+
+## Post-Processing
+--embed-subs
+--embed-thumbnail
+--embed-metadata
+--embed-chapters
