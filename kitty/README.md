@@ -6,4 +6,7 @@ The blue-ish background in the preview is just my wallpaper blurred.
 The terminal would just have a black background with a trinity.
 
 ## Preview
-![screenshot](preview.png)
+### Colorscheme
+![colorscheme](.preview/colorscheme.png)
+### Screenshot
+![screenshot](.preview/screenshot.png)
