@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 command_not_found_handler() {
   local pkgs cmd="$1"
 	&>/dev/null which -p pkgfile || echo \?
@@ -9,5 +11,6 @@ command_not_found_handler() {
   fi >&2
   return 127
 }
+
+# Disable pausing/resuming terminal
 stty -ixon
-echo -ne '\r' #clear early text

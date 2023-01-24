@@ -8,3 +8,6 @@ source "$ZDOTDIR/core/misc.zsh"
 source "$ZDOTDIR/core/prompt.zsh"
 source "$ZDOTDIR/core/options.zsh"
 source "$ZDOTDIR/core/specific.zsh"
+
+# Reformat text when shell is not loaded
+echo -ne '\r'
