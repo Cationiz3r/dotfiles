@@ -75,3 +75,4 @@ bindkey '\ea' wrl_
 # Unbinding
 bindkey -r '^s'
 bindkey -r '^r'
+bindkey -r '^[^L'
