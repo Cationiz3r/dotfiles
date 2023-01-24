@@ -1,5 +1,12 @@
 #!/bin/zsh
 
+# PROMPT_USER: username to display (hidden by default)
+# PROMPT_HOST: hostname of system
+# PROMPT_PRIV: set if sudo or doas is used, shows username
+# PROMPT_SSH: set if ssh is used, shows as prefix
+# PROMPT_MAX_PWDLEN: max length of pwd PART of the prompt
+#   hidden if current dir is $HOME or '~'
+
 preexec() {
 	tput sgr0
 	# kitty reset tab size on terminal resize
