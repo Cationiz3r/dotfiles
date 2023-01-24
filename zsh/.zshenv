@@ -26,20 +26,12 @@ export QT_STYLE_OVERRIDE=gtk2 #Qt theme unification
 export QT_QPA_PLATFORMTHEME=gtk2
 export LESSHISTFILE=- # No less history
 export BAT_THEME='ansi'
-export EXA_COLORS="*.aac=36:*.alac=36:*.ape=36:*.flac=36:*.m4a=36:*.mka=36\
-:*.mp3=36:*.ogg=36:*.opus=36:*.wav=36:*.wma=36:*.arw=35:*.bmp=35:*.cbr=35\
-:*.cbz=35:*.cr2=35:*.dvi=35:*.eps=35:*.gif=35:*.heif=35:*.ico=35:*.jpeg=35\
-:*.jpg=35:*.nef=35:*.orf=35:*.pbm=35:*.pgm=35:*.png=35:*.pnm=35:*.ppm=35\
-:*.ps=35:*.raw=35:*.stl=35:*.svg=35:*.tif=35:*.tiff=35:*.webp=35:*.xpm=35\
-:*.djvu=33:*.doc=33:*.docx=33:*.dvi=33:*.eml=33:*.eps=33:*.fotd=33:*.key=33\
-:*.odp=33:*.odt=33:*.pdf=33:*.ppt=33:*.pptx=33:*.rtf=33:*.xls=33:*.xlsx=33\
-:*.asc=32:*.enc=32:*.gpg=32:*.p12=32:*.pfx=32:*.pgp=32:*.sig=32:*.signature=32\
-:*.7z=36;1:*.a=36;1:*.ar=36;1:*.bz2=36;1:*.deb=36;1:*.dmg=36;1:*.gz=36;1\
-:*.iso=36;1:*.lzma=36;1:*.par=36;1:*.rar=36;1:*.rpm=36;1:*.tar=36;1:*.tc=36;1\
-:*.tgz=36;1:*.txz=36;1:*.xz=36;1:*.z=36;1:*.Z=36;1:*.zip=36;1:*.zst\
-:build.gradle=37;4:Cargo.toml=37;4:CMakeLists.txt=37;4:Dockerfile=37;4:Justfile=37;4:Makefile=37;4:Rakefile=37;4:SConstruct\
-:or=31;4:ex=37;1:su=31;1;4:sf=31;1;4:ux=36;1;4:gx=36:tx=36:uw=35;1:gw=35:tw=35:ur=33;1:gr=33:tr=33\
-:uu=33;1:gu=33;1:un=31;1:gn=31;1:ln=35;1"
+export EXA_COLORS="\
+su=01;04;31:sf=01;04;31:\
+ur=01;33:uw=01;35:ux=01;04;37:\
+gr=00;33:gw=00;35:gx=01;04;37:\
+tr=00;33:tw=00;35:tx=01;04;37:\
+uu=01;33:gu=01;33:un=01;31:gn=01;31"
 export LANG="${LANG:-en_US.UTF-8}" #Default locale
 export GPG_TTY=$(tty)
 export PICOM_CONF="$HOME/.config/picom/picom.conf"
@@ -67,6 +59,7 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export MAKEPKG_CONF="$XDG_CONFIG_HOME/makepkg.conf"
 export MYSQL_HISTFILE="$XDG_RUNTIME_DIR/mysql"
 export UNISON="$XDG_DATA_HOME/unison"
+export DIRCOLORS="$XDG_CONFIG_HOME/dircolors"
 # Locales
 export LANG="en_US.UTF-8"
 export LC_TIME="en_GB.UTF-8"

@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-[ -z "$LS_COLORS" ] && eval "$(dircolors)"
+eval "$(dircolors "$DIRCOLORS")"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} #Completion dircolors
 zstyle ':completion:*' menu select
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX)(?)*==1;32=1;35}")'
