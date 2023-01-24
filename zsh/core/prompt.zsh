@@ -2,33 +2,35 @@
 
 preexec() {
 	tput sgr0
+	# kitty reset tab size on terminal resize
 	tabs -2
 }
 precmd() {
-	prompt update
-	TRAPINT() { zle kill-whole-line; zle-update-prompt }
+	promptUpdate
+	TRAPINT() {
+		zle kill-whole-line
+		promptReset
+	}
 }
-prompt() {
-case "$1" in
-p*) # shorten: 2=maxlength
+
+promptPwd() { # shorten: 2=maxlength
 	local cutoff='..'
 	local pwd="${PWD/#$HOME/~}"
-	local max_len=$2
-	local offset=$((${#pwd} - max_len + ${#cutoff}))
+	local offset=$((${#pwd} - $PROMPT_MAX_PWDLEN + ${#cutoff}))
 	if [ $offset -gt 0 ]; then
 		pwd="${pwd:$offset}"
 		pwd="$cutoff$([[ "$pwd" == */* ]] && echo /)${pwd#*/}"
 	fi
-	pwd="$delim$pwd"
-	echo "$pwd"
-	;;
-u*)
+	[ "$pwd" = "~" ] && echo || echo "$pwd"
+}
+
+promptUpdate() {
 	local userhost="$PROMPT_HOST" user="$PROMPT_USER"
 	[ "$EUID" -eq 0 ] && user="%U%F{15}$user%u%F{14}"
 	[ -n "$PROMPT_PRIV" ] && userhost="$user@$userhost"
 	[ -n "$PROMPT_SSH" ] && userhost="ssh:$userhost"
-	local pwd=$(prompt pwd 30)
-	[ "$pwd" = "~" ] && pwd="" || pwd="%F{12}$pwd "
+	local pwd=$(promptPwd)
+	[ -n "$pwd" ] && pwd="%F{12}$pwd "
 	local git=$(2>/dev/null git branch|grep \*|cut -b3-)
 	if [ -n "$git" ]; then
 		git="%F{10}$git"
@@ -39,23 +41,33 @@ u*)
 	local sign=❯
 	[ "$EUID" -eq 0 ] && sign=#
 	PS1="%B%F{15}██ %F{14}$userhost $pwd$git%F{15}$sign "
-	;;
-i*)
+}
+
+promptInit() {
 	PROMPT_USER="$USER"
 	PROMPT_HOST="$HOST"
 	local shorthn=$(grep -oP '(?<=short:).*' /etc/hostname|head -1)
 	[ -n "$shorthn" ] && PROMPT_HOST="$shorthn"
+	PROMPT_MAX_PWDLEN=30
 	local tree=$(pstree -s $$) #pstree takes a while
 	echo "$tree"|grep -q sshd && PROMPT_SSH=yes
 	echo "$tree"|grep -q 'sudo\|doas' && PROMPT_PRIV=yes
 	zle_highlight=(none)
+
+	# Terminal emulator logout after 20 mins
 	if [[ "$(tty)" =~ tty ]]; then
 		TMOUT=1200
-		TRAPALRM() { tput reset; exit }
+		TRAPALRM() {
+			tput reset
+			exit
+		}
 		TERM=linux-16color
 	fi
-	;;
-esac
 }
-prompt init
-zle-update-prompt() { prompt update; zle reset-prompt }
+
+promptReset() {
+	promptUpdate
+	zle reset-prompt
+}
+
+promptInit

@@ -7,7 +7,7 @@ backwardFullWord() { WORDCHARS= zle backward-word; }
 clearBuffer() {
 	echo -n $'\e[H\e[3J'
 	clear
-	zle-update-prompt
+	promptReset
 }
 clearHistory() {
 	local i OLDHISTSIZE=$HISTSIZE
@@ -32,16 +32,16 @@ cdBack() {
 	&>/dev/null popd
 	[ "$o_PWD" = "$PWD" ] && return
 	DIRSTACK+=("$o_PWD")
-	zle-update-prompt
+	promptReset
 }
 cdNext() {
 	[ $#DIRSTACK -eq 0 ] && return
 	pushd "$DIRSTACK[1]"
 	DIRSTACK=(${DIRSTACK:1})
-	zle-update-prompt
+	promptReset
 }
-cdUp()   { cd ..; zle-update-prompt }
-cdHome() { cd; zle-update-prompt }
+cdUp()   { cd ..; promptReset }
+cdHome() { cd; promptReset }
 
 for func in \
 	deleteFullWord \
