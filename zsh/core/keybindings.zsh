@@ -1,77 +1,28 @@
 #!/bin/zsh
 
-. "$ZDOTDIR/modules/substring-search"
-bindkey -e
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[4~' end-of-line
-bindkey '\e[5~' beginning-of-history
-bindkey '\e[6~' end-of-history
-bindkey '\e[7~' beginning-of-line
-bindkey '\e[3~' delete-char
-bindkey '\e[2~' quoted-insert
-bindkey '\e[5C' forward-word
-bindkey '\e[5D' backward-word
-bindkey '\e\e[C' forward-word
-bindkey '\e\e[D' backward-word
-bindkey '\e[1;5C' forward-word
-bindkey '\e[1;5D' backward-word
-bindkey '\e[8~' end-of-line
-bindkey '\eOH' beginning-of-line
-bindkey '\eOF' end-of-line
-bindkey '\e[H' beginning-of-line
-bindkey '\e[F' end-of-line
+source "$ZDOTDIR/core/inputrc.zsh"
 
-delete-pure-word()   { WORDCHARS= zle backward-delete-word; }
-forward-pure-word()  { WORDCHARS= zle forward-word; }
-backward-pure-word() { WORDCHARS= zle backward-word; }
-clear-buffer() { echo -n $'\e[H\e[3J'; clear; zle-update-prompt }
-clear-history() {
-	local i OLDHISTSIZE=$HISTSIZE
-	for i in $(seq 2 $(dirs -v|wc -l)); do popd; done
-	history -p
-	HISTSIZE=$OLDHISTSIZE
-	clear-buffer
-}
-just-exit() { exit }
-better-accept-line() {
-	[ -z "$BUFFER" ] && return
-	&>/dev/null unset -f TRAPINT
-	zle accept-line
-}
-cd-back() {
-	[ $(dirs -v|wc -l) -eq 1 ] && return
-	local o_PWD="$PWD"
-	&>/dev/null popd
-	[ "$o_PWD" = "$PWD" ] && return
-	DIRSTACK+=("$o_PWD")
-	zle-update-prompt
-}
-cd-next() {
-	[ $#DIRSTACK -eq 0 ] && return
-	pushd "$DIRSTACK[1]"
-	DIRSTACK=(${DIRSTACK:1})
-	zle-update-prompt
-}
-cd-up()   { cd ..; zle-update-prompt }
-cd-home() { cd; zle-update-prompt }
-for func in delete-pure-word forward-pure-word backward-pure-word \
-	clear-buffer clear-history just-exit better-accept-line \
-	cd-back cd-next cd-up cd-home cd-copy cd-paste; do zle -N $func; done; unset func
-bindkey '^H' backward-delete-word
-bindkey '^[^?' delete-pure-word
-bindkey '^[^L' clear-buffer
-bindkey '^K' clear-history
-bindkey '^[[1;3C' forward-pure-word
-bindkey '^[[1;3D' backward-pure-word
-bindkey '^D' just-exit
-bindkey '^M' better-accept-line
+# Substring search
+source "$ZDOTDIR/modules/substring-search"
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey '^[1' cd-back
-bindkey '^[2' cd-next
-bindkey '^[3' cd-up
-bindkey '^[4' cd-home
+
+# Define addition function and bind
+source "$ZDOTDIR/core/key_functions.zsh"
+bindkey '^H' backward-delete-word
 bindkey '^Z' undo
+bindkey '^[^?' deleteFullWord
+bindkey '^[[1;3C' forwardFullWord
+bindkey '^[[1;3D' backwardFullWord
+bindkey '^[^L' clearBuffer
+bindkey '^K' clearHistory
+bindkey '^Q' fastExit
+bindkey '^D' fastExit
+bindkey '^M' nonNullAcceptLine
+bindkey '^[1' cdBack
+bindkey '^[2' cdNext
+bindkey '^[3' cdUp
+bindkey '^[4' cdHome
 
 # Macros
 bindkey -s '\ew' '\C-a$(\C-e)'
