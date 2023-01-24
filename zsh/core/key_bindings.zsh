@@ -14,7 +14,7 @@ bindkey '^Z' undo
 bindkey '^[^?' deleteFullWord
 bindkey '^[[1;3C' forwardFullWord
 bindkey '^[[1;3D' backwardFullWord
-bindkey '^[^L' clearBuffer
+bindkey '^L' clearBuffer
 bindkey '^K' clearHistory
 bindkey '^Q' fastExit
 bindkey '^D' fastExit
