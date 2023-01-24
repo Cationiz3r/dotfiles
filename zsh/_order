@@ -1,8 +1,0 @@
-/etc/$file -> $ZDOTDIR/.$file
-
-zshenv
-zprofile L
-zshrc I
-zlogin L
-E
-zlogout L
