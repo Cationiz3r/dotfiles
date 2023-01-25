@@ -110,3 +110,8 @@ endif
 "	au TextChanged  * :echo g:cmdmsg
 "	au TextChangedI * :echo g:cmdmsg
 "augroup END
+
+" Fix delete key
+if $TERM == 'xterm-kitty'
+	set term=xterm-256color
+endif
