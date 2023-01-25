@@ -14,7 +14,7 @@ clearHistory() {
 	for i in $(seq 2 $(dirs -v|wc -l)); do popd; done
 	history -p
 	HISTSIZE=$OLDHISTSIZE
-	clear-buffer
+	clearBuffer
 }
 
 fastExit() exit
