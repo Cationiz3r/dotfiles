@@ -42,7 +42,7 @@ imap <s-Right> <Esc>v<Right>
 
 "" General
 if $TERM == 'xterm-kitty'
-	set term=kitty
+	set term=ansi
 endif
 filetype plugin on
 syntax on
@@ -87,9 +87,9 @@ call timer_start(100, function('UpdateStatus'), {'repeat': -1})
 "" Highlight
 set cursorline
 hi Normal       guibg=NONE ctermbg=NONE
-hi LineNr       cterm=bold ctermbg=0   ctermfg=12
+hi LineNr       cterm=bold ctermbg=233 ctermfg=12
 hi CursorLine   cterm=bold ctermbg=0
-hi CursorLineNr cterm=bold ctermbg=9   ctermfg=15
+hi CursorLineNr cterm=bold ctermbg=0   ctermfg=15
 hi StatusLine   cterm=bold ctermbg=233 ctermfg=15
 hi StatusLineNc cterm=bold ctermbg=233 ctermfg=15
 hi User1        cterm=bold ctermbg=15  ctermfg=0
