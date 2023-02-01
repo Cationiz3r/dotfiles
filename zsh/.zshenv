@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS="--color=fg:#c7c7c7,bg:#151515,hl:#8f8f8f \
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true \
 -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel \
 -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" # Java theme unification
-export EDITOR='vim'
+export EDITOR='nvim'
 export PAGER='less -FRx2'
 export GREP_COLORS='ms=1;97:mc=1;97:ln=1;95' # Grep color
 export QT_AUTO_SCREEN_SCALE_FACTOR=0 # Disable appimage scaling
@@ -49,7 +49,6 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export ANDROID_SDK_ROOT="$XDG_DATA_HOME/android"
