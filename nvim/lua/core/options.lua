@@ -14,3 +14,4 @@ vim.opt.tabstop = 2 -- space chars for each tab
 vim.opt.shiftround = true -- round indent to multiple of shiftwidth
 vim.opt.expandtab = false -- replace tab with space
 vim.opt.smartindent = true
+vim.g.python_recommended_style = 0
