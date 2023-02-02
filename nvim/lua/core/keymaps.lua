@@ -1,5 +1,6 @@
 --- NORMAL
 -- File operations
+vim.keymap.set("n", "q", ":q<CR>")
 vim.keymap.set("n", "<leader>d", ":qa!<CR>")
 vim.keymap.set("n", "<leader>q", ":wqa<CR>")
 vim.keymap.set("n", "<leader>w", ":wq<CR>")
