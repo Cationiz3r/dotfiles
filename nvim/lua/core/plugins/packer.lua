@@ -50,7 +50,7 @@ return require("packer").startup(function(use)
 	use "saadparwaiz1/cmp_luasnip"
 	use "rafamadriz/friendly-snippets" -- Extra snippets
 
-	use "Mofiqul/dracula.nvim" -- Temporary theme
+	use "andersevenrud/nordic.nvim" -- Better temporary theme
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
