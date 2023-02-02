@@ -48,6 +48,7 @@ alias \
 	cenv='env -i TERM="$TERM" USER=clear LANG="$LANG" HISTFILE=' \
 	sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep' \
 	g='git' \
+	nv='nvim' \
 	count='sort|uniq -c|sort -n'
 
 df() { command df -h|head -1; command df -hxdevtmpfs "$@"|tail +2|sort }
