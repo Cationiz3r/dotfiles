@@ -1,5 +1,8 @@
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"sumneko_lua",
+		"clangd", -- C, C++
+		"sumneko_lua", -- Lua
+		"jedi_language_server", -- Python
+		"lemminx", -- XML
 	},
 })
