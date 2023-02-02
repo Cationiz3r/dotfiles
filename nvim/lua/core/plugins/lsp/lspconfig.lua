@@ -16,6 +16,20 @@ require("lspconfig").clangd.setup {
 require("lspconfig").sumneko_lua.setup {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		-- NVIM library
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				library = {
+					[vim.fn.expand "$VIMRUNTIME/lua"] = true,
+					[vim.fn.stdpath "config" .. "lua"] = true,
+				},
+			},
+		},
+	}
 }
 require("lspconfig").jedi_language_server.setup {
 	on_attach = on_attach,
