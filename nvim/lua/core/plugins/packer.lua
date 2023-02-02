@@ -37,6 +37,11 @@ return require("packer").startup(function(use)
 	}
 	use "numToStr/Comment.nvim"
 
+	-- Mason/LSP
+	use "williamboman/mason.nvim"
+	use "williamboman/mason-lspconfig.nvim"
+	use "neovim/nvim-lspconfig"
+
 	use "Mofiqul/dracula.nvim" -- Temporary theme
 
 	-- Automatically set up your configuration after cloning packer.nvim

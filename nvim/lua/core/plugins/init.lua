@@ -10,5 +10,8 @@ require("core.plugins.lualine")
 require("core.plugins.syntax")
 require("core.plugins.tree")
 
+-- LSP
+require("core.plugins.lsp")
+
 -- Utilities
 require("core.plugins.telescope")
