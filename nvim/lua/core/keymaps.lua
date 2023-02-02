@@ -1,27 +1,21 @@
 --- NORMAL
 -- File operations
-vim.keymap.set("n", "<c-d>", ":qa!<CR>")
-vim.keymap.set("n", "<c-q>", ":wqa<CR>")
-vim.keymap.set("n", "<c-w>", ":wq<CR>")
-vim.keymap.set("n", "<c-s>", ":w<CR>")
-vim.keymap.set("n", "<c-r>", ":source %<CR>")
+vim.keymap.set("n", "<leader>d", ":qa!<CR>")
+vim.keymap.set("n", "<leader>q", ":wqa<CR>")
+vim.keymap.set("n", "<leader>w", ":wq<CR>")
+vim.keymap.set("n", "<leader>s", ":w<CR>")
+vim.keymap.set("n", "<leader>r", ":source %<CR>")
 
 -- Line operations
-vim.keymap.set("n", "<c-j>", "yy$p")
-vim.keymap.set("n", "<c-k>", "dd")
+vim.keymap.set("n", "<leader>j", "yy$p")
+vim.keymap.set("n", "<leader>k", "dd")
 
 -- Un/Redo
-vim.keymap.set("n", "<c-z>", ":undo<CR>")
-vim.keymap.set("n", "<c-y>", ":redo<CR>")
-
--- Visual shortcuts
-vim.keymap.set("n", "<s-Up>",    "v<Up>")
-vim.keymap.set("n", "<s-Down>",  "v<Down>")
-vim.keymap.set("n", "<s-Left>",  "v<Left>")
-vim.keymap.set("n", "<s-Right>", "v<Right>")
+vim.keymap.set("n", "<leader>z", ":undo<CR>")
+vim.keymap.set("n", "<leader>x", ":redo<CR>")
 
 --- VISUAL
 -- Edit
-vim.keymap.set("v", "<c-c>", "y")
-vim.keymap.set("v", "<c-x>", "x")
-vim.keymap.set("v", "<c-v>", "p")
+vim.keymap.set("v", "<leader>c", "y")
+vim.keymap.set("v", "<leader>x", "x")
+vim.keymap.set("v", "<leader>v", "p")

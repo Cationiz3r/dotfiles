@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.opt.cursorline = true -- current line highlight/underline
 vim.opt.autoread = true -- load on external change
 vim.opt.autowrite = true -- save on change
