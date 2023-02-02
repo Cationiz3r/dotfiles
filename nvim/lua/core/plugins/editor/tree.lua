@@ -14,6 +14,7 @@ end
 
 require("nvim-tree").setup({
 	on_attach = on_attach,
+	reload_on_bufenter = true,
 	view = {
 		width = 30,
 	},
