@@ -5,9 +5,10 @@ vim.opt.cursorline = true -- current line highlight/underline
 vim.opt.autoread = true -- load on external change
 vim.opt.autowrite = true -- save on change
 vim.opt.number = true -- number column
-vim.opt.viminfo = NONE -- no history file
+vim.opt.shadafile = "NONE" -- no history file
 vim.opt.scrolloff = 5 -- always visible lines
 vim.opt.smartcase = true -- ignore case when search unless contains upper
+vim.opt.showmode = false -- hide mode in bottom line
 
 vim.opt.shiftwidth = 2 -- indent on pressing tab
 vim.opt.tabstop = 2 -- space chars for each tab
