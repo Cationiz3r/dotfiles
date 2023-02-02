@@ -42,6 +42,13 @@ return require("packer").startup(function(use)
 	use "williamboman/mason-lspconfig.nvim"
 	use "neovim/nvim-lspconfig"
 
+	-- Completion
+	use "hrsh7th/nvim-cmp"
+	use "hrsh7th/cmp-nvim-lsp"
+	use "L3MON4D3/LuaSnip"
+	use "saadparwaiz1/cmp_luasnip"
+	use "rafamadriz/friendly-snippets" -- Extra snippets
+
 	use "Mofiqul/dracula.nvim" -- Temporary theme
 
 	-- Automatically set up your configuration after cloning packer.nvim
