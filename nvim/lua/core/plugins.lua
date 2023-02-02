@@ -34,6 +34,7 @@ return require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons",
 		}
 	}
+	use "numToStr/Comment.nvim"
 
 	use "Mofiqul/dracula.nvim" -- Temporary theme
 
