@@ -37,6 +37,7 @@ return require("packer").startup(function(use)
 	}
 	use "numToStr/Comment.nvim"
 	use "windwp/nvim-autopairs"
+	use "RRethy/vim-illuminate"
 
 	-- Mason/LSP
 	use "williamboman/mason.nvim"
