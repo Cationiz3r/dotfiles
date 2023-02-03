@@ -14,7 +14,7 @@ require("bufferline").setup {
 			filetype = "NvimTree",
 			text = "Tree",
 			text_align = "center",
-			highlight = "NvimTreeNormal",
+			highlight = "NvimTreeHeader",
 			separator = " "
 		}},
 

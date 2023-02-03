@@ -55,6 +55,15 @@ require("dracula").setup({
 
 		GitSignsAdd = { fg = colors.bright_white },
 		GitSignsChange = { fg = colors.orange },
+
+		NvimTreeHeader = { link = "BufferLineBufferSelected" },
+		NvimTreeNormal = { bg = colors.bg, fg = colors.yellow },
+		NvimTreeOpenedFile = { fg = colors.bright_white, bold = true },
+		NvimTreeFolderName = { fg = colors.cyan, bold = true },
+		NvimTreeOpenedFolderName = { link = "NvimTreeFolderName" },
+		NvimTreeIndentMarker = { link = "NvimTreeFolderName" },
+		NvimTreeGitDirty = { fg = colors.bright_red, bold = true },
+		NvimTreeGitStaged = { fg = colors.bright_white, bold = true },
 	},
 
 	italic_comments = true,
