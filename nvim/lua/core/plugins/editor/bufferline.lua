@@ -28,8 +28,9 @@ require("bufferline").setup {
 	}
 }
 
-vim.keymap.set("n", "<leader>w", ":bp<bar>sp<bar>bn<bar>bd<CR>")
-vim.keymap.set("n", "<s-Tab>", "<Cmd>BufferLineCycleNext<CR>")
+vim.keymap.set("n", "e", ":bp<bar>sp<bar>bn<bar>bd<CR>")
+vim.keymap.set("n", "<s-Tab>", "<Cmd>BufferLineCyclePrev<CR>")
+vim.keymap.set("n", "<Tab>", "<Cmd>BufferLineCycleNext<CR>")
 vim.keymap.set("n", "1", "<Cmd>BufferLineGoToBuffer 1<CR>")
 vim.keymap.set("n", "2", "<Cmd>BufferLineGoToBuffer 2<CR>")
 vim.keymap.set("n", "3", "<Cmd>BufferLineGoToBuffer 3<CR>")

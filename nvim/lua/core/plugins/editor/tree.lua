@@ -5,6 +5,7 @@ local api = require("nvim-tree.api")
 local function on_attach(bufnr)
 	vim.keymap.set("n", "<Tab>", "<c-w>p", { buffer = bufnr })
 	vim.keymap.set("n", "<s-Tab>", "<c-w>p", { buffer = bufnr })
+	vim.keymap.set("n", "t", ":NvimTreeClose<CR>", { buffer = bufnr })
 	vim.keymap.set("n", "e", function()
 		api.tree.expand_all()
 	end, { buffer = bufnr })
@@ -42,4 +43,3 @@ require("nvim-tree").setup({
 })
 
 vim.keymap.set("n", "t", ":NvimTreeFocus<CR>")
-vim.keymap.set("n", "<Tab>", "<c-w>p")
