@@ -1,7 +1,7 @@
+require("core.plugins.editor.colorscheme") -- Needs to load first
 require("core.plugins.editor.autopairs")
 require("core.plugins.editor.bufferline")
 require("core.plugins.editor.colorizer")
-require("core.plugins.editor.colorscheme")
 require("core.plugins.editor.comment")
 require("core.plugins.editor.gitsigns")
 require("core.plugins.editor.illuminate")
