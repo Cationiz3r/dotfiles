@@ -35,5 +35,5 @@ require("nvim-tree").setup({
 	}
 })
 
-vim.keymap.set("n", "t", ":NvimTreeToggle<CR>")
+vim.keymap.set("n", "t", ":NvimTreeFocus<CR>")
 vim.keymap.set("n", "<Tab>", "<c-w>p")
