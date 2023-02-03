@@ -15,7 +15,7 @@ require("bufferline").setup {
 			text = "Tree",
 			text_align = "center",
 			highlight = "NvimTreeNormal",
-			separator = true
+			separator = " "
 		}},
 
 		max_name_length = 18,
