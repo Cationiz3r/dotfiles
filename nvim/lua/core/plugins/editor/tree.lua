@@ -31,6 +31,10 @@ require("nvim-tree").setup({
 			},
 			glyphs = {
 				default = "",
+				folder = {
+					arrow_closed = "",
+					arrow_open = "",
+				},
 			},
 		}
 	}
