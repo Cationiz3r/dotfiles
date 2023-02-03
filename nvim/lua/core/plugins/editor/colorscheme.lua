@@ -52,6 +52,9 @@ require("dracula").setup({
 		BufferLineIndicatorVisible = { link = "BufferLineBufferVisible" },
 		BufferLineModifiedVisible = { link = "BufferLineBufferVisible" },
 		BufferLineOffsetSeparator = { link = "VertSplit" },
+
+		GitSignsAdd = { fg = colors.bright_white },
+		GitSignsChange = { fg = colors.orange },
 	},
 
 	italic_comments = true,
