@@ -1,62 +1,123 @@
 #!/bin/zsh
 
-alias \
-	ls='exa -ag --group-directories-first' \
-	ll='ls -l' \
-	la='ll -a' \
-	l='ls -D' \
-	lm='ls -snewest' \
-	ld='ll -ssize' \
-	lo='ls -soldest' \
-	cp='cp -ivr' \
-	mv='mv -iv' \
-	rm='rm -vr' \
-	ln='ln -v' \
-	mkdir='mkdir -vp' \
-	rmdir='rmdir -v' \
-	rename='rename -v' \
-	re=rename \
-	sed='sed -E' \
-	gzip='gzip -v' \
-	py='python' \
-	path='tr : \\n <<<$PATH' \
-	refresh='. $ZDOTDIR/.zshenv; . $ZDOTDIR/.zshrc' \
-	grep='grep --color=auto' \
-	egrep='egrep --color=auto' \
-	fgrep='fgrep --color=auto' \
-	pactree='pactree -c' \
-	diff='diff --color=auto -uT --palette "hd=34;1:rs=95;1:de=91;2:ad=97;1"' \
-	less='less -FRx2' \
-	ffmpeg='ffmpeg -hide_banner' \
-	ffprobe='ffprobe -hide_banner' \
-	time='command time -p' \
-	btop='btop +t' \
-	wget='wget -c --show-progress --hsts-file /dev/null' \
-	xargs='xargs -t' \
-	fd='fd -uu' \
-	bat='bat --tabs 2' \
-	shred='shred -vu --random-source=/dev/urandom' \
-	ps='ps aux' \
-	play='mpv --profile=music' \
-	yd3='yt-dlp -xfba --audio-format mp3' \
-	yd4='yt-dlp -f"bv*[height<=480]+ba/b[height<=480]/wv*+ba/w"' \
-	xpcn='xprop _NET_WM_PID WM_CLASS WM_NAME _OB_APP_CLASS _OB_APP_NAME _OB_APP_TYPE _OB_APP_TITLE _OB_APP_ROLE' \
-	netspeed='speedtest --secure --bytes' \
-	pubip='curl https://ifconfig.me && echo' \
-	now='date +%y%m%d_%H%M%S' \
-	printq='printf "%q\n"' \
-	cenv='env -i TERM="$TERM" USER=clear LANG="$LANG" HISTFILE=' \
-	sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep' \
-	g='git' \
-	nv='nvim' \
-	count='sort|uniq -c|sort -n'
+# Reload
+alias refresh='. $ZDOTDIR/.zshenv; . $ZDOTDIR/.zshrc'
 
-df() { command df -h|head -1; command df -hxdevtmpfs "$@"|tail +2|sort }
-du() { command du -ahd1 --apparent-size "$@"|sort -h|sed 's:\./::'|column -ts$'\t' }
-qr() { echo $'\e[1;37m'"$(qrencode -tUTF8 "$@")"$'\e[0m' }
-enc() { gpg -c --no-symkey-cache --cipher-algo AES256 -o "$(basename "$1").gpg" "$1" }
+# Filesystem (more verbose)
+alias ls='exa -ag --group-directories-first' # replace ls with exa
+alias ll='ls -l'
+alias la='ll -a'
+alias l='ls -D'
+alias lm='ls -snewest'
+alias ld='ll -ssize'
+alias lo='ls -soldest'
+alias cp='cp -ivr'
+alias mv='mv -iv'
+alias rm='rm -vr'
+alias ln='ln -v'
+alias mkdir='mkdir -vp'
+alias rmdir='rmdir -v'
+alias rename='rename -v'
+
+# Verbose
+alias gzip='gzip -v'
+alias fd='fd -uu'
+
+# Quite
+alias ffmpeg='ffmpeg -hide_banner'
+alias ffprobe='ffprobe -hide_banner'
+
+# Colorize
+alias grep='grep --color=auto'
+alias pactree='pactree -c'
+alias diff='diff --color=auto -uT --palette "hd=34;1:rs=95;1:de=91;2:ad=97;1"'
+
+# Misc replace
+alias less='less -FRx2'
+alias bat='bat --tabs 2'
+alias time='command time -p'
+alias wget='wget -c --show-progress --hsts-file /dev/null'
+alias shred='shred -vu --random-source=/dev/urandom'
+alias ps='ps aux'
+alias speedtest='speedtest --secure --bytes'
+alias sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep'
+
+df() {
+	# Sort disk free content results
+	local out=$(command df -hxdevtmpfs "$@")
+	echo "$out"|head -1
+	echo "$out"|tail +2|sort
+}
+du() {
+	# List size of direct files/dirs in args and display in table
+	command du -ahd1 --apparent-size "$@"|\
+		sort -h|\
+		sed 's:\t\./:\t:'|\
+		column -ts$'\t' 
+}
+
+# Shortcuts
+alias re=rename
+alias py='python'
+alias play='mpv --profile=music'
+alias g='git'
+alias nv='nvim'
+
+# Utilities
+alias path='tr :\n <<<$PATH'
+alias pubip='curl https://ifconfig.me && echo'
+alias now='date +%y%m%d_%H%M%S'
+alias printq='printf "%q\n"'
+alias cenv='env -i TERM="$TERM" USER=clear LANG="$LANG" HISTFILE='
+alias xpcn="xprop \
+_NET_WM_PID \
+WM_CLASS \
+WM_NAME \
+_OB_APP_CLASS \
+_OB_APP_NAME \
+_OB_APP_TYPE \
+_OB_APP_TITLE \
+_OB_APP_ROLE"
+alias count='sort|uniq -c|sort -n'
+alias webcam='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
+
+qr() {
+	# Pipe for qrcode generation
+	tput setaf 15
+	qrencode -tUTF8 "$@"
+}
+
+# Simple symmetric gpg encrypt/decrypt functions
+enc() {	gpg -c --no-symkey-cache --cipher-algo AES256 -o "$(basename "$1").gpg" "$1" }
 dec() { gpg -d -o "$(basename "$1" .gpg)" "$1" }
-share() { chmod 770 -R .; fd -tf -x chmod a-x {}; [ -n "$1" ] && chown :$1 -R . }
-die() { rm "$@" $PWD; cd .. }
-mkcd() { mkdir "$@"; while [ $# -gt 0 ]; do [ -d "$1" ] && { cd "$1"; return }; shift; done }
-spawn() { sh -c "$* &" &>>$XLOG }
+
+share() {
+	# Grant group read/write access for current pwd
+	# and change group name if specified
+	fd -tf -x chmod g+rw  {}
+	fd -td -x chmod g+rwx {}
+	chmod g+rwx . # fd doesn't include current dir
+	if [ -n "$1" ] && grep -qE "^$1:" /etc/group; then
+		chown ":$1" -R .
+	else
+		echo "warning: sharing self-group"
+	fi
+}
+
+die() { 
+	# Remove current dir and back out
+	rm "$@" "$PWD"
+	cd .. 
+}
+
+mkcd() { 
+	# Make many dirs and cd into the first valid one
+	mkdir "$@"
+	while [ $# -gt 0 ]; do 
+		if [ -d "$1" ]; then
+			cd "$1"
+			return
+		fi
+		shift
+	done
+}

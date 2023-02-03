@@ -1,5 +1,6 @@
 #!/bin/zsh
 startx() command startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
+spawn() { sh -c "$* &" &>>$XLOG }
 alias \
 	lp='spawn leafpad' \
 	gp='spawn gpicview' \
