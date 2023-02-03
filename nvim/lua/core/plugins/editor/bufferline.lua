@@ -5,11 +5,16 @@ require("bufferline").setup {
 		middle_mouse_command = "bdelete! %d",
 		right_mouse_command = "vertical sbuffer %d",
 
+		indicator = {
+			style = "underline",
+		},
+		modified_icon = "",
+
 		offsets = {{
 			filetype = "NvimTree",
 			text = "Tree",
 			text_align = "center",
-			highlight = "BufferLineBufferSelected",
+			highlight = "NvimTreeNormal",
 			separator = true
 		}},
 
@@ -19,18 +24,9 @@ require("bufferline").setup {
 		show_buffer_close_icons = false, -- on tab buttons
 		show_close_icon = false, -- end of bar
 
-		separator_style = { "", "" },
+		separator_style = { "", "" },
 	}
 }
-
-vim.api.nvim_set_hl(0, "BufferLineBackground", { bg = "#111111", })
-vim.api.nvim_set_hl(0, "BufferLineFill", { link = "BufferLineBackground" })
-vim.api.nvim_set_hl(0, "BufferLineBufferSelected", { bold = true })
-vim.api.nvim_set_hl(0, "BufferLineBufferVisible", { link = "BufferLineBufferSelected" })
-vim.api.nvim_set_hl(0, "BufferLineOffsetSeparator", { link = "VertSplit" })
-vim.api.nvim_set_hl(0, "BufferLineSeparator", { bg = "#111111", fg = "#2e3440"})
-vim.api.nvim_set_hl(0, "BufferLineSeparatorSelected", { fg = "#111111" })
-vim.api.nvim_set_hl(0, "BufferLineSeparatorVisible", { fg = "#111111" })
 
 vim.keymap.set("n", "<leader>w", ":bp<bar>sp<bar>bn<bar>bd<CR>")
 vim.keymap.set("n", "<leader><Tab>", "<Cmd>BufferLineCycleNext<CR>")

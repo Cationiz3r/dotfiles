@@ -24,6 +24,7 @@ require("nvim-tree").setup({
 		highlight_opened_files = "all",
 		indent_width = 1,
 		icons = {
+			webdev_colors = false,
 			git_placement = "after",
 			show = {
 				folder = false,
