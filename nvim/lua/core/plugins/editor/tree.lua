@@ -4,6 +4,7 @@ vim.g.loaded_netrwPlugin = 1
 local api = require("nvim-tree.api")
 local function on_attach(bufnr)
 	vim.keymap.set("n", "<Tab>", "<c-w>p", { buffer = bufnr })
+	vim.keymap.set("n", "<s-Tab>", "<c-w>p", { buffer = bufnr })
 	vim.keymap.set("n", "e", function()
 		api.tree.expand_all()
 	end, { buffer = bufnr })
