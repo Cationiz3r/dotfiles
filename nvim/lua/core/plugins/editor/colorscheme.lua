@@ -58,3 +58,7 @@ require("dracula").setup({
 })
 
 vim.cmd[[ colorscheme dracula ]]
+
+return { -- Passing to custom lualine theme
+	colors = colors
+}
