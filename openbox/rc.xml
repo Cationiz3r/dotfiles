@@ -36,6 +36,16 @@
 		<firstdesk>1</firstdesk>
 		<maximum>8</maximum>
 		<popupTime>0</popupTime>
+		<names>
+			<name>Work</name>
+			<name>Web</name>
+			<name>Game</name>
+			<name>Commune</name>
+			<name>Music</name>
+			<name>Art</name>
+			<name>Torrent</name>
+			<name>Misc</name>
+		</names>
 	</desktops>
 	<resize>
 		<drawContents>yes</drawContents>
