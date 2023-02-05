@@ -10,10 +10,11 @@ typeset -U PATH="/usr/lib/ccache/bin:$HOME/.local/bin:$HOME/.local/bin-firejail:
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
-export FZF_DEFAULT_OPTS="--color=fg:#c7c7c7,bg:#151515,hl:#8f8f8f \
---color=fg+:#f0f0f0,bg+:#151515,hl+:#a6a6a6 \
---color=info:#d6d6d6,prompt:#efefef,pointer:#ffffff \
---color=marker:#999999,spinner:#a5a5a5,header:#ffffff \
+export FZF_DEFAULT_OPTS="--color=\
+fg:#c7c7c7,bg:#111111,hl:#8f8f8f,\
+fg+:#f0f0f0,bg+:#111111,hl+:#a6a6a6,\
+info:#d6d6d6,prompt:#efefef,pointer:#ffffff,\
+marker:#999999,spinner:#a5a5a5,header:#ffffff \
 --prompt='  ' --pointer='❯'"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true \
 -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel \
