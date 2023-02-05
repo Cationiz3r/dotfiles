@@ -62,6 +62,7 @@ require("dracula").setup({
 		NvimTreeFolderName = { fg = colors.cyan, bold = true },
 		NvimTreeOpenedFolderName = { link = "NvimTreeFolderName" },
 		NvimTreeIndentMarker = { link = "NvimTreeFolderName" },
+		NvimTreeWindowPicker = { bg = colors.selection, fg = colors.white, bold = true },
 		NvimTreeGitDirty = { fg = colors.bright_red, bold = true },
 		NvimTreeGitStaged = { fg = colors.bright_white, bold = true },
 	},
