@@ -1,4 +1,6 @@
-@theme "/home/cationiz3r/.config/rofi/hueless.rasi"
+@theme "list"
+@theme "grid"
+
 configuration {
 	modi: "run";
 	font: "JetBrains Mono Bold 10";

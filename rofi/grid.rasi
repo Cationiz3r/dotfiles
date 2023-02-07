@@ -1,0 +1,5 @@
+@import "hueless"
+* {
+	lines: 3;
+	columns: 5;
+}

@@ -26,8 +26,8 @@ mainbox {
 }
 listview {
 	background-color: @bg;
-	lines: 3;
-	columns: 5;
+	lines: @lines;
+	columns: @columns;
 	spacing: 5;
 	padding: 3;
 	fixed-columns: true;
