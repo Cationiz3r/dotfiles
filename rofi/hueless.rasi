@@ -15,7 +15,7 @@
 }
 window {
 	background-color: @almost-none;
-	width: 40%;
+	width: 30%;
 	location: southwest;
 	x-offset: 0;
 	y-offset: -15;
@@ -26,7 +26,8 @@ mainbox {
 }
 listview {
 	background-color: @bg;
-	lines: 2;	columns: 7;
+	lines: 3;
+	columns: 5;
 	spacing: 5;
 	padding: 3;
 	fixed-columns: true;
