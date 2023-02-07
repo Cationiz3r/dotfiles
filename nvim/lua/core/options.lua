@@ -10,6 +10,7 @@ vim.opt.scrolloff = 5 -- always visible lines
 vim.opt.smartcase = true -- ignore case when search unless contains upper
 vim.opt.showmode = false -- hide mode in bottom line
 vim.opt.fillchars = "vert: "
+vim.opt.cmdheight = 0 -- Hide bottom line
 
 vim.opt.shiftwidth = 2 -- indent on pressing tab
 vim.opt.tabstop = 2 -- space chars for each tab
