@@ -8,6 +8,7 @@ local colors = {
 
 	red = "#aa0000",
 	bright_red = "#ff0000",
+	warn = "#ffff00",
 
 	orange = "#676767",
 	yellow = "#838383",
@@ -43,7 +44,10 @@ require("dracula").setup({
 		DiagnosticFloatingError = { link = "Error" },
 		DiagnosticSignError = { link = "Error" },
 		DiagnosticUnderlineError = { fg = colors.bright_red, sp = colors.bright_red, bold = true, undercurl = true },
-		DiagnosticUnderlineWarn = { sp = "#ffff00", undercurl = true },
+		DiagnosticWarn = { fg = colors.warn, bold = true },
+		DiagnosticUnderlineWarn = { sp = colors.warn, undercurl = true },
+		DiagnosticInfo = { fg = colors.bright_white, bold = true },
+		DiagnosticHint = { fg = colors.bright_white, bold = true },
 
 		BufferLineBufferSelected = { fg = colors.bright_white, bold = true, underline = true },
 		BufferLineIndicatorSelected = { link = "BufferLineBufferSelected" },
