@@ -49,14 +49,14 @@ require("dracula").setup({
 		DiagnosticInfo = { fg = colors.bright_white, bold = true },
 		DiagnosticHint = { fg = colors.bright_white, bold = true },
 
-		BufferLineBufferSelected = { fg = colors.bright_white, bold = true, underline = true },
+		BufferLineBufferSelected = { fg = colors.bright_white, bold = true },
 		BufferLineIndicatorSelected = { link = "BufferLineBufferSelected" },
 		BufferLineModifiedSelected = { link = "BufferLineIndicatorSelected" },
-		BufferLineBufferVisible = { fg = colors.bright_green, bold = true, underline = true },
+		BufferLineBufferVisible = { fg = colors.bright_green, bold = true },
 		BufferLineIndicatorVisible = { link = "BufferLineBufferVisible" },
 		BufferLineModifiedVisible = { link = "BufferLineBufferVisible" },
-		BufferLineDuplicateSelected = { fg = colors.green, sp = colors.bright_white, underline = true, italic = true, bold = true },
-		BufferLineDuplicateVisible = { fg = colors.comment, sp = colors.bright_green, underline = true, italic = true },
+		BufferLineDuplicateSelected = { fg = colors.green, italic = true, bold = true },
+		BufferLineDuplicateVisible = { fg = colors.comment, italic = true },
 		BufferLineOffsetSeparator = { link = "VertSplit" },
 
 		GitSignsAdd = { fg = colors.bright_white },
