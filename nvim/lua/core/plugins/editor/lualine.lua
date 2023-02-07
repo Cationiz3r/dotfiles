@@ -1,10 +1,11 @@
 local mode_icons = {
-	NORMAL = "",
-	VISUAL = "",
-	["V-LINE"] = "",
-	INSERT = "",
-	REPLACE = "",
-	COMMAND = "",
+	NORMAL = " ",
+	VISUAL = " ",
+	["V-LINE"] = " ",
+	INSERT = " ",
+	REPLACE = " ",
+	COMMAND = " ",
+	["O-PENDING"] = " "
 }
 
 require("lualine").setup {
@@ -24,7 +25,7 @@ require("lualine").setup {
 				"mode",
 				icons_enabled = true,
 				fmt = function(mode)
-					return table.concat({ mode_icons[mode], mode }, " ")
+					return mode_icons[mode] .. mode
 				end,
 			},
 		},
