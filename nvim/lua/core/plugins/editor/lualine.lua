@@ -1,3 +1,12 @@
+local mode_icons = {
+	NORMAL = "",
+	VISUAL = "",
+	["V-LINE"] = "",
+	INSERT = "",
+	REPLACE = "",
+	COMMAND = "",
+}
+
 require("lualine").setup {
 	options = {
 		icons_enabled = true,
@@ -10,6 +19,15 @@ require("lualine").setup {
 		},
 	},
 	sections = {
+		lualine_a = {
+			{
+				"mode",
+				icons_enabled = true,
+				fmt = function(mode)
+					return table.concat({ mode_icons[mode], mode }, " ")
+				end,
+			},
+		},
 		lualine_b = {
 			"branch",
 			"diff",
