@@ -36,7 +36,21 @@ require("lualine").setup {
 			{ "filename", path = 3 },
 		},
 		lualine_x = {
-			"diagnostics",
+			{
+				"diagnostics",
+				diagnostics_color = {
+					error = "DiagnosticError",
+					warn  = "DiagnosticWarn",
+					info  = "DiagnosticInfo",
+					hint  = "DiagnosticHint",
+				},
+				symbols = {
+					error = " ",
+					warn = " ",
+					info = " ",
+					hint = " ",
+				},
+			},
 		},
 	},
 	inactive_sections = {
