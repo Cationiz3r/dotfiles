@@ -29,6 +29,8 @@
 	fg = reset --hard
 	d = diff --staged
 	ds = diff --stat --staged
+	dd = diff
+	dds = diff --stat
 	last = log -1 --stat HEAD
 	cc = shortlog -sen
 	p = push
