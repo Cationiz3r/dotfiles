@@ -12,5 +12,5 @@ vim.keymap.set("n", "j", "yy$p")
 vim.keymap.set("n", "k", "dd")
 
 -- Un/Redo
-vim.keymap.set("n", "z", ":undo<CR>")
-vim.keymap.set("n", "x", ":redo<CR>")
+vim.keymap.set("n", "z", ":silent undo<CR>")
+vim.keymap.set("n", "x", ":silent redo<CR>")
