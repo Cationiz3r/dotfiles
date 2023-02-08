@@ -119,7 +119,7 @@
 		<keybind key="A-F2 W-x"><action name="Execute"><command>rofi -show run</command></action></keybind>
 		<keybind key="S-W-x"><action name="Execute"><command>rofi-bookmarks</command></action></keybind>
 		<keybind key="C-Escape"><action name="Execute"><command>keylight -f</command></action></keybind>
-		<keybind key="W-grave"><action name="Execute"><command>lbr</command></action></keybind>
+		<keybind key="W-grave"><action name="Execute"><command>yt-xclip</command></action></keybind>
 		<keybind key="  Pause"><action name="Execute"><prompt>Suspend?</prompt><command>sh -c 'newlock &amp; sleep 2s; systemctl suspend'</command></action></keybind>
 		<keybind key="S-Pause"><action name="Execute"><prompt>Unlocked?</prompt><command>systemctl suspend</command></action></keybind>
 		<keybind key="Help"><action name="Execute"><command>dunstify -r 182 'No.'</command></action></keybind>
