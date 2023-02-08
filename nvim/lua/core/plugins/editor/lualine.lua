@@ -11,7 +11,7 @@ local mode_icons = {
 require("lualine").setup {
 	options = {
 		icons_enabled = true,
-		theme = require("core.plugins.editor.lualine-theme"),
+		theme = require("core.plugins.theme.lualine"),
 		component_separators = { left = '', right = ''},
 		section_separators   = { left = '', right = ''},
 		disabled_filetypes = {

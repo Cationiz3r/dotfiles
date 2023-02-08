@@ -1,4 +1,3 @@
-require("core.plugins.editor.colorscheme") -- Needs to load first
 require("core.plugins.editor.autopairs")
 require("core.plugins.editor.bufferline")
 require("core.plugins.editor.colorizer")

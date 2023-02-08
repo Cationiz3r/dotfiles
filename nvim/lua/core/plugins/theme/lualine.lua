@@ -1,4 +1,4 @@
-local colors = require("core.plugins.editor.colorscheme").colors
+local colors = require("core.plugins.theme.colorscheme").colors
 
 local normal = {
 	a = { bg = colors.bright_white, fg = colors.black, gui = "bold" },
