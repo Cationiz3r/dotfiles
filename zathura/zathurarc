@@ -1,12 +1,12 @@
 ## Appeareance
 set font 'JetBrains Mono bold 10'
 
-set default-bg              '#222'
-set inputbar-bg             '#222'
+set default-bg              '#181818'
+set inputbar-bg             '#181818'
 set notification-bg         '#777'
 set notification-warning-bg '#777'
 set notification-error-bg   '#800'
-set statusbar-bg            '#222'
+set statusbar-bg            '#181818'
 
 set default-fg              '#fff'
 set inputbar-fg             '#fff'
@@ -24,7 +24,7 @@ set window-width  800
 # Dark mode
 set recolor true
 set recolor-darkcolor  '#eee'
-set recolor-lightcolor '#222'
+set recolor-lightcolor '#181818'
 set recolor-keephue true
 
 ## Behaviors
