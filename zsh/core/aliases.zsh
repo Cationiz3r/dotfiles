@@ -62,6 +62,10 @@ alias py='python'
 alias play='mpv --profile=music'
 alias g='git'
 alias nv='nvim'
+alias wifi='nmcli dev wifi con'
+alias wfls='nmcli dev wifi re; nmcli dev wifi'
+alias con='nmcli dev con'
+alias dis='nmcli dev dis'
 
 # Utilities
 alias path='tr : \\n <<<$PATH'
