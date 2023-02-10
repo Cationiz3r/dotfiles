@@ -53,7 +53,7 @@ du() {
 	command du -ahd1 --apparent-size "$@"|\
 		sort -h|\
 		sed 's:\t\./:\t:'|\
-		column -ts$'\t' 
+		column -ts$'\t'
 }
 
 # Shortcuts
@@ -104,16 +104,16 @@ share() {
 	fi
 }
 
-die() { 
+die() {
 	# Remove current dir and back out
 	rm "$@" "$PWD"
-	cd .. 
+	cd ..
 }
 
-mkcd() { 
+mkcd() {
 	# Make many dirs and cd into the first valid one
 	mkdir "$@"
-	while [ $# -gt 0 ]; do 
+	while [ $# -gt 0 ]; do
 		if [ -d "$1" ]; then
 			cd "$1"
 			return
