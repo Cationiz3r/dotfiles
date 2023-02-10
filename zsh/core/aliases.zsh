@@ -64,7 +64,7 @@ alias g='git'
 alias nv='nvim'
 
 # Utilities
-alias path='tr :\n <<<$PATH'
+alias path='tr : \\n <<<$PATH'
 alias pubip='curl https://ifconfig.me && echo'
 alias now='date +%y%m%d_%H%M%S'
 alias printq='printf "%q\n"'
