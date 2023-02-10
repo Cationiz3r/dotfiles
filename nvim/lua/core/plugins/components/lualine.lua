@@ -5,6 +5,7 @@ local mode_icons = {
 	INSERT = " ",
 	REPLACE = " ",
 	COMMAND = " ",
+	SELECT = " ",
 	["O-PENDING"] = " "
 }
 
