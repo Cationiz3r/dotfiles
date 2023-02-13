@@ -24,7 +24,6 @@ require("lualine").setup {
 		lualine_a = {
 			{
 				"mode",
-				icons_enabled = true,
 				fmt = function(mode)
 					return mode_icons[mode] .. mode
 				end,
@@ -54,6 +53,17 @@ require("lualine").setup {
 				},
 			},
 		},
+		lualine_y = {
+			{
+				"fileformat",
+				icons_enabled = false,
+			},
+			{
+				"filetype",
+				colored = false,
+			},
+			"progress",
+		},
 	},
 	inactive_sections = {
 		lualine_b = {
@@ -61,7 +71,7 @@ require("lualine").setup {
 		},
 		lualine_x = {},
 		lualine_y = {
-			"location",
+			"progress",
 		},
 	},
 }
