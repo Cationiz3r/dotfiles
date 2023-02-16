@@ -5,12 +5,6 @@
 --no-mtime
 --output "%(artist,uploader|Unknown)s - %(title|Unknown)s.%(ext)s"
 
-## Workaround
---sleep-requests 1
---min-sleep-interval 5
---max-sleep-interval 20
---sleep-subtitles 2
-
 ## Subtitle
 --sub-lang "en,vi"
 
