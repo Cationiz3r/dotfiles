@@ -1,6 +1,12 @@
 #!/bin/sh
 cd "$(dirname "$0")"
 pgrep polybar && killall polybar
+
+# Wait for window manager, fixes empty xworkspace module
+while ! pgrep openbox >/dev/null; do
+	sleep 1
+done
+
 export \
 	POLYBAR_ROOT=$(pwd) \
 	POLYBAR_RUN="$XDG_RUNTIME_DIR/polybar" \
