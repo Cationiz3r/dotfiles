@@ -9,8 +9,6 @@
 
 preexec() {
 	tput sgr0
-	# kitty reset tab size on terminal resize
-	tabs -2
 }
 precmd() {
 	promptUpdate
