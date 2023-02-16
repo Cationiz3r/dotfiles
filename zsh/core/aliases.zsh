@@ -66,6 +66,8 @@ alias wf='nmcli dev wifi con'
 alias wfls='nmcli dev wifi re; nmcli dev wifi'
 alias con='nmcli dev con'
 alias dis='nmcli dev dis'
+alias yt='ytfzf'
+alias ytc='ytfzf --sort -cS'
 
 # Utilities
 alias path='tr : \\n <<<$PATH'
