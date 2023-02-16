@@ -164,7 +164,7 @@
 		<application class="Vlc" title="VLC (TopWindow)"><layer>above</layer><iconic>yes</iconic></application>
 		<application class="Leafpad" type="normal"><layer>above</layer><size><width>400</width><height>300</height></size></application>
 		<application class="Wrapper-2.0" type="normal"><position><x>835</x><y>0</y></position></application>
-		<application class="Thunar" type="normal"><size><width>1280</width><height>720</height></size></application> <!--Fixed size even when snapping-->
+		<application class="Thunar" type="normal"><size><width>1280</width><height>721</height></size></application> <!--Fixed size even when snapping-->
 
 		<application class="Geany"><desktop>1</desktop></application>
 		<application class="LibreWolf" name="Navigator"><desktop>2</desktop><maximized>true</maximized></application>
