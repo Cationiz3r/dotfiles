@@ -1,0 +1,8 @@
+#!/bin/sh
+err() { echo "err: $@"; exit 1; }
+while [ $# -ne 0 ]; do
+	mpc add "$(echo "$1"|perl -pe "s:.*$HOME/music/::")"
+	[ $# -eq 1 ] || { shift; continue; }
+	mpc play $(mpc playlist|wc -l)
+	shift
+done

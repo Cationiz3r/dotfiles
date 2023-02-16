@@ -1,0 +1,22 @@
+#!/bin/bash
+log() { echo "[$(date +%Y-%m-%d\ %H:%M:%S)] newlock: $@"; }
+log lock
+dunstctl rule lockscreen enable
+trap 'dunstctl rule lockscreen disable; log unlock' EXIT
+i3lock -n -c 00000022 \
+	--indicator --force-clock --radius=32 --ring-width=6 \
+	--{time,date}-font=Poppins \
+	--date-str="%a, %Y %B %-d" \
+	--time-size=60 --date-size=18 \
+	--{time,date}-align=1 \
+	--ind-pos="x+w/2-125:y+h*.65" \
+	--time-pos="ix+50:iy+15" \
+	--date-pos="tx+5:ty+15" \
+	--{date,time,line,keyhl,modif,ringver}-color=ffffffdd \
+	--{date,time,modif}outline-color=00000055 \
+	--{date,time,modifier}outline-width=.5 \
+	--{verif,wrong,noinput,lock,lockfailed}-text= \
+	--inside{,ver,wrong}-color=00000000 \
+	--ring-color=aaaaaadd \
+	--{ringwrong,bshl}-color=ff0000dd \
+	--pass-{media,screen,power}-keys "$@"

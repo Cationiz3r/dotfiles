@@ -1,0 +1,55 @@
+#!/bin/sh
+[ -z "$(acpi -b 2>/dev/null)" ] && exit
+
+notify() { dunstify -h string:x-dunst-stack-tag:overcharge -u critical -t 65000 "$@"; }
+
+get_state()  { acpi -a|grep -q 'on-line'; }
+get_charge() { acpi -b|grep -Eo '[0-9]+%'|head -c-2; }
+get_conf() {
+	conf_low=40
+	conf_critlow=10
+	conf_high=80
+
+	local conf_file="$XDG_CONFIG_HOME/_custom/overcharge.conf"
+	[ -r "$conf_file" ] && . "$conf_file"
+}
+
+ignore_file=/tmp/overcharge_ignore
+resolve_time=180
+resolve_notify() {
+	[ -f "$ignore_file" ] && return
+	local action=$(notify -t 5000 -h int:value:$(($1*100/$resolve_time)) \
+		-A 'dismiss,Dismiss' $1)
+	[ "$action" = dismiss ] && touch "$ignore_file"
+}
+resolve_suspend() {
+	touch "$ignore_file"
+	newlock & sleep 2
+	systemctl suspend
+}
+resolve_power() {
+	local dismiss=false now timeleft action \
+		deadline=$(($(date +%s)+$resolve_time))
+	while ! get_state; do
+		now=$(date +%s)
+		[ $now -gt $deadline ] && resolve_suspend
+		timeleft=$((deadline-now))
+		resolve_notify $timeleft &
+		[ -f "$ignore_file" ] && break
+		sleep .1
+	done;
+}
+
+get_conf
+while true; do
+	[ -f "$ignore_file" ] &&
+		[ $(($(date +%s)-$(date +%s -r"$ignore_file"))) -gt 300 ] && rm "$ignore_file"
+	power_level=$(get_charge)
+	if ! get_state && [ $power_level -le $conf_low ]; then
+		notify 'Low'
+	elif get_state && [ $power_level -ge $conf_high ]; then
+		notify 'Full'
+	fi
+	! get_state && [ $power_level -le $conf_critlow ] && resolve_power
+	sleep 1m
+done

@@ -1,0 +1,24 @@
+#!/bin/sh
+#Give count when version differs
+
+_die() { >&2 echo "failed: $@!"; exit 1; }
+confFile="$XDG_CONFIG_HOME/_custom/pkgwatch.conf"
+
+([ -r "$confFile" ] && [ -s "$confFile" ]) || exit
+
+getVer() { pacman "$1" "$2" 2>/dev/null|grep Version|awk '{print $3}'; }
+checkVerDiff() {
+	local downVer=$(getVer -Qi "$1") upVer=$(getVer -Si "$2")
+	[ -z "$downVer" ] || [ -z "$upVer" ] && { echo "$1 ?"; return; }
+	[ $(vercmp "$downVer" "$upVer") -lt 0 ] && { echo "$1 $downVer -> $upVer"; return; }
+	return 1
+}
+
+while read l; do
+	[ "$(echo "$l"|head -c1)" = \# ] && continue
+	out=$(echo "$l"|{ IFS=: read down up; checkVerDiff $down $up; })
+	[ -z "$out" ] && continue
+	packages="$packages$out/"
+done <"$confFile"
+
+printf '%s' "$packages"|tr / \\n

@@ -1,0 +1,27 @@
+#!/bin/sh
+_die() { >&2 echo "failed: $@!"; exit 1; }
+_root=$PWD
+if [ "$1" = -v ]; then
+	opt_verbose=yes
+	shift
+fi
+while [ $# -gt 0 ]; do
+	cd "$_root"
+	[ -r "$1" ] || _die 'can not read'
+	echo "$1"|grep -qE '.pkg.tar.zst$' ||\
+		_die 'may not be a package'
+	tempdir=$(mktemp -d)
+	cat "$1"|unzstd|tar xf - -C "$tempdir"
+	cd "$tempdir"
+	find -mindepth 2 -type f -exec sha256sum {} + >sum.256
+	cd /
+	if [ -n "$opt_verbose" ]; then
+		sha256sum -c "$tempdir/sum.256"
+	else
+		sha256sum -c "$tempdir/sum.256" >/dev/null 2>&1
+	fi
+	ret=$?
+	[ $ret -eq 0 ] && echo "good: $1" || echo "$(tput setaf 15)bad:  $1$(tput sgr0)"
+	rm -rf "$tempdir"
+	shift
+done

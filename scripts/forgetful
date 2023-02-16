@@ -1,0 +1,26 @@
+#!/bin/sh
+notif=false
+([ "$1" = -g ] && >/dev/null 2>&1 xset q) && notif=true
+
+while true; do
+
+for i in "$XDG_CONFIG_HOME/_custom/forgetful"/*; do
+	[ -f $i ] || continue
+	head=$(head -1 "$i"|cut -b2-):
+	body=$(<"$i" sed -E 's/^REM.*/& (%b)/'|\
+		remind -hk'echo %s' -|\
+		awk '{print "  " $0}')
+	count=$(echo "$body"|wc -l)
+	[ -z "$body" ] && continue
+	if $notif; then
+		[ $count -ge 5 ] && head="$head ($count)"
+		dunstify -h string:x-dunst-stack-tag:"$head" -t 20000 "$head" "$body" &
+		continue
+	fi
+	echo "$head
+$body"
+done
+
+$notif || break
+sleep 3h
+done

@@ -1,0 +1,15 @@
+#!/bin/sh
+file="/home/cationiz3r/Pictures/Screenshots/$(date +%y%m%d_%H%M%S).png"
+opt="-m"
+[ -w "${file%/*}" ] || exit 1
+case "$1" in
+	-a|--area) opt="-s -lmode=edge,opacity=70,color=#ddd";;
+	-w|--window) opt="-u";;
+esac
+dunstctl close-all
+scrot -p $opt "$file"
+[ -f "$file" ] || { echo failed; exit 1; }
+dunstify "$(basename "$file" .png)"
+optipng "$file"
+chmod 400 "$file"
+echo "saved to: $file"

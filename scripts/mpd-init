@@ -1,0 +1,11 @@
+#!/bin/sh
+
+start_mpd() {
+	mpd
+	mpc repeat on
+	mpc random on
+	mpc crossfade 4
+} >/dev/null 2>&1
+
+killall mpd
+start_mpd

@@ -1,0 +1,25 @@
+#!/bin/sh
+flip=0 #force dunst to use different icon
+notify() {
+	local \
+		title=$(mpc current -f %title%) \
+		artist=$(mpc current -f %artist%) \
+		icon=/tmp/__mpdart$flip
+	set -- -i #need arg
+	if ([ -z "$title" ] || [ -z "$artist" ]); then
+		title='Playing...'
+		artist=$(basename "$(mpc current -f %file%)")
+	fi
+	[ "$(mpc readpicture "$(mpc current -f %file%)" 2>&1 >"$icon")" = "No data" ] &&
+		set -- "$@" none || set -- "$@" "$icon"
+	echo dunstify "$@" -h string:x-dunst-stack-tag:mpd-notify "$title" "$artist"
+	dunstify "$@" -h string:x-dunst-stack-tag:mpd-notify "$title" "$artist"
+	flip=$((1-flip))
+}
+[ $(pgrep mpd-notify|wc -l) -gt 2 ] && { echo running; exit 1; }
+while true; do
+	cur=$(mpc current)
+	([ -z "$cur" ] || [ "$cur" = "$last" ]) || notify
+	last="$cur"
+	mpc idle player >/dev/null
+done

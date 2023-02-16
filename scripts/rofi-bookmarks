@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Bookmark file
+file="$XDG_DATA_HOME/bookmarks.txt"
+[ -r "$file" ] || exit 1
+
+# Select a non-comment-or-empty line and take everything before comment
+select=$(cat "$file"|\
+	grep -Ev '^(#.*|\s*)$'|\
+	rofi -theme list -dmenu|\
+	cut -d\# -f1|\
+	sed -E 's/\s+$//'
+)
+
+# Type selected bookmark
+xdotool type "$select"

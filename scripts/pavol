@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Send notification
+read_vol() {
+	# Skip if there is no X11 session
+	>/dev/null 2>&1 xset q || exit
+
+	# Read volume percentage
+	local volume=$(pactl get-sink-volume @DEFAULT_SINK@|awk '{print $12}')
+
+	# Build message
+	local message="$volume"
+	if pactl get-sink-mute @DEFAULT_SINK@|grep -q yes; then
+		# Add M if muted
+		message="$volume M"
+		# Dim dunst bar color
+		set -- -h string:hlcolor:\#777
+	fi
+
+	# Quick burst notification, no duplicates if button is held
+	dunstify "$@" \
+		-a volume \
+		-h int:value:$(echo "$volume"|head -c-2) \
+		-h string:x-dunst-stack-tag:pavol \
+		-u low \
+		-t 500 \
+		"$message"
+}
+
+# Main
+if [ "$1" = -m ]; then
+	# Toggle mute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+elif [ $# -gt 0 ]; then
+	# Pass all to pactl
+	pactl set-sink-volume @DEFAULT_SINK@ "$@"
+fi
+
+# Avoid spam/lag if there is currently an instance
+[ $(pgrep pavol|wc -l) -gt 2 ] && exit
+
+read_vol

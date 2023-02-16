@@ -1,0 +1,4 @@
+#!/bin/sh
+[ $# -eq 0 ] && { xhost|tail +2|cut -d: -f3; exit; }
+echo "$1"|grep -qE '^[\+\-][a-zA-Z0-9\-]+$' || { echo invalid; exit 1; }
+xhost $(echo "$1"|cut -b1)si:localuser:$(echo "$1"|cut -b2-)

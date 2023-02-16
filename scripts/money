@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Parse args
+m="$1"
+s=0
+
+# Number shortcuts
+while [ ${#m} -gt 0 ]; do
+	case $(echo "$m"|cut -b1) in
+	1) s=$s+1;;
+	2) s=$s+2;;
+	3) s=$s+5;;
+	4) s=$s+10;;
+	5) s=$s+20;;
+	6) s=$s+50;;
+	7) s=$s+100;;
+	8) s=$s+200;;
+	9) s=$s+500;;
+	esac
+	m=$(echo "$m"|cut -b2-)
+done
+
+# Print with separator
+/bin/printf "%'.f\n" $(echo "$s"|bc)

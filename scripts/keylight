@@ -1,0 +1,32 @@
+#!/bin/sh
+_self=$(basename "$0")
+_err() { >&2 echo "_self: err: $@!"; exit 1; }
+
+conf_file="$XDG_CONFIG_HOME/_custom/keylight.conf"
+set_state() { echo $1 >"$scr_file"; }
+get_state()	{ cat "$scr_file"; }
+chk_config() {
+	[ -r "$conf_file" ] || _err 'Unable to read config file'
+	. "$conf_file"
+	([ -r "$scr_file" ] && [ -w "$scr_file" ]) || _err 'Light denied'
+}
+toggle() {
+	[ $(get_state) -eq 1 ] && { set_state 0; exit; }
+	set_state 1
+	exit
+}
+flash() {
+	[ $(get_state) -eq 1 ] && exit
+	set_state 1
+	sleep .2
+	set_state 0
+}
+
+chk_config
+case "$1" in
+-t) toggle;;
+-f) flash & exit;;
+esac
+
+[ $# -eq 0 ] && { get_state; exit; }
+set_state $1
