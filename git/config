@@ -16,11 +16,13 @@
 [alias]
 	root = rev-parse --show-toplevel
 	ls = ls-tree -r --name-only HEAD
-	l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(bold brightwhite)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold brightred)%d%C(reset)' --all
+	l = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(bold brightwhite)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold brightred)%d%C(reset)'
+	la = l --all
 	br = branch  --sort=-committerdate --format='%(color:bold blue)%(HEAD) %(color:bold brightred)%(refname:short)%(color:reset) %(color:bold green)(%(committerdate:relative))%(color:reset) %(color:bold brightwhite)%(contents:subject)%(color:reset) %(color:dim white)- %(authorname)%(color:reset)'
 	cm = commit -m
 	cma = commit --amend
-	re = rebase -i HEAD~5
+	r5 = rebase -i HEAD~5
+	re = rebase -i
 	s = status -sb
 	co = checkout
 	cob = checkout -b
@@ -28,13 +30,14 @@
 	ud = reset --soft HEAD~1
 	fg = reset --hard
 	d = diff --staged
-	ds = diff --stat --staged
+	dc = diff --stat --staged
 	dd = diff
-	dds = diff --stat
+	ds = diff --stat
 	last = log -1 --stat HEAD
 	cc = shortlog -sen
 	p = push
 	pl = pull
+	a = add
 [pull]
 	rebase = true
 [commit]
