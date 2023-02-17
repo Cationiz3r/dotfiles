@@ -28,6 +28,7 @@ require("nvim-tree").setup({
 		icons = {
 			webdev_colors = false,
 			git_placement = "after",
+			symlink_arrow = " -> ",
 			show = {
 				folder = false,
 			},
