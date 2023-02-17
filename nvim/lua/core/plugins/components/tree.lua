@@ -34,8 +34,17 @@ require("nvim-tree").setup({
 			glyphs = {
 				default = "",
 				folder = {
-					arrow_closed = "",
-					arrow_open = "",
+					arrow_closed = "", -- E930
+					arrow_open = "", -- E92E
+				},
+				git = {
+					unstaged = "", -- EA11
+					staged = "", -- E92B
+					unmerged = "", -- E974
+					renamed = "", -- E912
+					untracked = "", -- E9E1
+					deleted = "", -- E955
+					ignored = "", -- E937
 				},
 			},
 		}
