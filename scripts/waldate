@@ -10,7 +10,6 @@ is_day() {
 	local day_begin=06:00
 	local day_end=19:00
 	local now=$(date '+%H:%M')
-	now="$1"
 
 	# Check if in range
 	[ ! "$now" \< "$day_begin" ] && [ "$now" \< "$day_end" ]
