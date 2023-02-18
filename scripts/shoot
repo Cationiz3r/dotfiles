@@ -1,15 +1,39 @@
 #!/bin/sh
-file="/home/cationiz3r/Pictures/Screenshots/$(date +%y%m%d_%H%M%S).png"
-opt="-m"
-[ -w "${file%/*}" ] || exit 1
+
+# Get XDG picture dir
+. "$XDG_CONFIG_HOME/user-dirs.dirs"
+dir="$XDG_PICTURES_DIR/screenshots"
+
+# Quit if dir doesn't exist
+if ! ([ -d "$dir" ] && [ -w "$dir" ]); then
+	echo dir not exist or writable
+	exit 1
+fi
+
+# Parse file name
+file="$dir/$(date +%y%m%d_%H%M%S).png"
+
+# Parse arguments
 case "$1" in
-	-a|--area) opt="-s -lmode=edge,opacity=70,color=#ddd";;
-	-w|--window) opt="-u";;
+-a) set -- -s -lmode=edge;; # area
+-w) set -- -u;; # window
+*) set -- -m;; # full
 esac
+
+# Hide all active notification
 dunstctl close-all
-scrot -p $opt "$file"
-[ -f "$file" ] || { echo failed; exit 1; }
+
+# Take screenshot
+scrot -p "$@" "$file"
+if ! [ -f "$file" ]; then
+	echo cancelled
+	exit 1
+fi
+
+# Send notification
 dunstify "$(basename "$file" .png)"
+
+# Optimize saved file
 optipng "$file"
 chmod 400 "$file"
 echo "saved to: $file"
