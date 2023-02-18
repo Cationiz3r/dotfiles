@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# Go into music folder
+. "$XDG_CONFIG_HOME/user-dirs.dirs"
+cd "$XDG_MUSIC_DIR"
+
+# Ignore control & SFX dirs
+select=$(
+	find -mindepth 1|\
+	cut -b3-|\
+	grep -vE '^_'|\
+	sort|\
+	rofi -theme list -dmenu
+)
+
+# Add to current playlist
+mpc add "$select"
+
+# Play last item in play list
+mpc play "$(mpc playlist|wc -l)"
