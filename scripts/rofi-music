@@ -13,6 +13,9 @@ select=$(
 	rofi -theme list -dmenu
 )
 
+# Quit if empty
+[ -z "$select" ] && exit
+
 # Add to current playlist
 mpc add "$select"
 
