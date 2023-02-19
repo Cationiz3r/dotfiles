@@ -24,7 +24,7 @@ window {
 }
 mainbox {
 	children: [listview, inputbar];
-	spacing: 8;
+	spacing: 10;
 }
 listview {
 	border: @border-single;
@@ -32,8 +32,6 @@ listview {
 	background-color: @bg;
 	lines: @lines;
 	columns: @columns;
-	spacing: 5;
-	padding: 3;
 	fixed-columns: true;
 }
 inputbar {
@@ -52,7 +50,7 @@ error-message {
 	border-color: @red;
 	expand: true;
 	background-color: @bg;
-	padding: 3;
+	padding: 5;
 }
 element {
 	padding: 2;
