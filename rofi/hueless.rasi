@@ -5,6 +5,8 @@
 	bg: #181818;
 	fg: #fff;
 	selection: #555;
+	red: #f00;
+	border-single: 0 0 0 3px;
 	border: 0;
 	padding: 0;
 
@@ -25,6 +27,8 @@ mainbox {
 	spacing: 8;
 }
 listview {
+	border: @border-single;
+	border-color: @fg;
 	background-color: @bg;
 	lines: @lines;
 	columns: @columns;
@@ -33,19 +37,21 @@ listview {
 	fixed-columns: true;
 }
 inputbar {
+	border: @border-single;
+	border-color: @fg;
 	background-color: @bg;
 	children: [textbox-prompt, entry];
 	padding: 3;
 }
 textbox-prompt {
 	expand: false;
-	str: "❯";
 	margin: 0px 0.3em 0em 0em;
 }
 error-message {
+	border: @border-single;
+	border-color: @red;
 	expand: true;
 	background-color: @bg;
-	border: 2px;
 	padding: 3;
 }
 element {
