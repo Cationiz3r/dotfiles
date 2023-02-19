@@ -68,18 +68,17 @@ mouse_right_click = close_all
 ## Appearance
 timeout = 10
 foreground = "#fff"
-background = "#222"
-frame_color = "#222"
-highlight = "#eee"
+background = "#181818"
+frame_color = "#181818"
+highlight = "#fff"
 
 [experimental]
 per_monitor_dpi = false
 
 [urgency_critical]
-background = "#222"
-frame_color = "#d32"
+background = "#181818"
+frame_color = "#f00"
 timeout = 0
-highlight = "#e00"
 
 [lockscreen]
 appname = .*
