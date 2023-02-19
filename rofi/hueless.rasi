@@ -20,7 +20,7 @@ window {
 	width: 30%;
 	location: southwest;
 	x-offset: 0;
-	y-offset: -15;
+	y-offset: -50;
 }
 mainbox {
 	children: [listview, inputbar];
