@@ -23,7 +23,8 @@ separator_height = 1
 padding = 4
 horizontal_padding = 8
 text_icon_padding = 0
-frame_width = 1
+frame_width = 3
+gap_size = 4
 separator_color = frame
 sort = yes
 idle_threshold = 120
@@ -69,7 +70,7 @@ mouse_right_click = close_all
 timeout = 10
 foreground = "#fff"
 background = "#181818"
-frame_color = "#181818"
+frame_color = "#fff"
 highlight = "#fff"
 
 [experimental]
