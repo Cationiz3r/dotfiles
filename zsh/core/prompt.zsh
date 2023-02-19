@@ -45,7 +45,7 @@ promptUpdate() {
 
 	local sign=❯
 	[ "$EUID" -eq 0 ] && sign=#
-	PS1="%B%F{15}██ %F{14}$userhost $pwd$git%F{15}$sign "
+	PS1="%B%F{15}▍%F{14}$userhost $pwd$git%F{15}$sign " # 258D
 }
 
 promptInit() {
