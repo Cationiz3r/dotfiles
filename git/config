@@ -29,9 +29,9 @@
 	del = branch -D
 	ud = reset --soft HEAD~1
 	fg = reset --hard
-	d = diff --staged
+	d = diff --staged --color-words
 	dc = diff --stat --staged
-	dd = diff
+	dd = diff --color-words
 	ds = diff --stat
 	last = log -1 --stat HEAD
 	cc = shortlog -sen
