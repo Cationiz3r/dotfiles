@@ -34,7 +34,8 @@
 	dd = diff --color-words
 	ds = diff --stat
 	last = log -1 --stat HEAD
-	cc = shortlog -sen
+	cc = rev-list --count HEAD
+	ct = shortlog -sen
 	p = push
 	pl = pull
 	a = add
