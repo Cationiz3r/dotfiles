@@ -26,18 +26,27 @@ nonNullAcceptLine() {
 }
 
 # File explorers like navigation
+cd() {
+	# Reset DIRSTACK on manual cd
+	DIRSTACK=()
+	pushd "$1"
+}
 cdBack() {
+	# Return to last dir, ignore errors (eg: deleted)
 	[ $(dirs -v|wc -l) -eq 1 ] && return
 	local o_PWD="$PWD"
 	&>/dev/null popd
+
+	# Append old dir to stack if different
 	[ "$o_PWD" = "$PWD" ] && return
 	DIRSTACK+=("$o_PWD")
 	promptReset
 }
 cdNext() {
+	# Pop return stack
 	[ $#DIRSTACK -eq 0 ] && return
-	pushd "$DIRSTACK[1]"
-	DIRSTACK=(${DIRSTACK:1})
+	pushd "$DIRSTACK[-1]"
+	DIRSTACK=(${DIRSTACK:0:-1})
 	promptReset
 }
 cdUp()   { cd ..; promptReset }
