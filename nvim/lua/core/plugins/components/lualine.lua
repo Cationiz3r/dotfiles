@@ -34,7 +34,10 @@ require("lualine").setup {
 			"diff",
 		},
 		lualine_c = {
-			{ "filename", path = 3 },
+			{
+				"filename",
+				path = 1,
+			},
 		},
 		lualine_x = {
 			{
