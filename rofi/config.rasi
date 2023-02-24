@@ -5,6 +5,4 @@ configuration {
 	modi: "run";
 	font: "JetBrains Mono Bold 10";
 	kb-row-tab: "";
-	sort: true;
-	sorting-method: "fzf";
 }
