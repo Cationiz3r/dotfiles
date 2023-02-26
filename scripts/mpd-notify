@@ -1,22 +1,58 @@
 #!/bin/sh
+
+get_cur() {
+	# Get current song's info
+	mpc current -f "%$1%"
+}
+
 flip=0 #force dunst to use different icon
-notify() {
-	local \
-		title=$(mpc current -f %title%) \
-		artist=$(mpc current -f %artist%) \
-		icon=/tmp/__mpdart$flip
-	set -- -i #need arg
-	if ([ -z "$title" ] || [ -z "$artist" ]); then
-		title='Playing...'
-		artist=$(basename "$(mpc current -f %file%)")
+get_mpd_art() {
+	# User temp dir
+	local art_file="$XDG_RUNTIME_DIR/mpd_art_$flip"
+
+	# Get stderr output of readpicture, pipe any real pic into file
+	local out=$(mpc readpicture "$(get_cur file)" 2>&1 >"$art_file")
+	if [ "$out" = "No data" ]; then
+		echo none
 	fi
-	[ "$(mpc readpicture "$(mpc current -f %file%)" 2>&1 >"$icon")" = "No data" ] &&
-		set -- "$@" none || set -- "$@" "$icon"
-	echo dunstify "$@" -h string:x-dunst-stack-tag:mpd-notify "$title" "$artist"
-	dunstify "$@" -h string:x-dunst-stack-tag:mpd-notify "$title" "$artist"
+
+	# Output icon on successful read, and flip art bit
+	echo "$art_file"
 	flip=$((1-flip))
 }
-[ $(pgrep mpd-notify|wc -l) -gt 2 ] && { echo running; exit 1; }
+
+is_single_album() {
+	# Detect if the current playlist is only 1 album
+	local albums_count=$(mpc playlist -f %album%|sort -u|wc -l)
+	[ "$albums_count" -eq 1 ]
+	return $?
+}
+
+notify() {
+	local summary=$(get_cur title)
+	local content=$(get_cur artist)
+	local file=$(get_cur file)
+
+	# Check if either summary or content is empty
+	if ! [ -n "$summary$content" ]; then
+		summary='Music'
+		content=$(basename "$(get_cur file)")
+	fi
+
+	# Append index if 1 album and summary doesn't have inline index
+	if is_single_album && ! echo "$summary"|grep -q ' - '; then
+		local track=$(get_cur track)
+		[ -n "$track" ] && summary="$track. $summary"
+	fi
+
+	# Send notif to dunst
+	dunstify \
+		-h string:x-dunst-stack-tag:mpd-notify \
+		-i "$(get_mpd_art)" \
+		"$summary" \
+		"$content"
+}
+
 while true; do
 	cur=$(mpc current)
 	([ -z "$cur" ] || [ "$cur" = "$last" ]) || notify
