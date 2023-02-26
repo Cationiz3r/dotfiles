@@ -2,4 +2,5 @@
 
 link=$(xclip -o)
 echo "$link"|grep -Eq "^https?://" || exit 1
+dunstify "mpv" "$link"
 mpv --profile=youtube "$link" >/dev/null 2>&1
