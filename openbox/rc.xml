@@ -93,19 +93,18 @@
 		<keybind key="  W-1"><action name="Execute"><command>kitty</command></action></keybind>
 		<keybind key="  W-2"><action name="Execute"><command>librewolf</command></action></keybind>
 		<keybind key="  W-3"><action name="Execute"><command>steam</command></action></keybind>
-		<keybind key="  W-q"><action name="Execute"><command>discord</command></action></keybind>
-		<keybind key="  W-w"><action name="Execute"><command>pavucontrol</command></action></keybind>
-		<keybind key="  W-e"><action name="Execute"><command>thunar</command></action></keybind>
+		<keybind key="  W-4"><action name="Execute"><command>discord</command></action></keybind>
 		<keybind key="S-W-1"><action name="Execute"><command>leafpad</command></action></keybind>
 		<keybind key="S-W-2"><action name="Execute"><command>tor-browser</command></action></keybind>
 		<keybind key="S-W-3"><action name="Execute"><command>krita</command></action></keybind>
+		<keybind key="S-W-4"><action name="Execute"><command>pavucontrol</command></action></keybind>
 	<!-- Function keys -->
 		<keybind key="XF86AudioMute         C-Insert">   <action name="Execute"><command>pavol -m</command></action></keybind>
 		<keybind key="XF86AudioLowerVolume  C-End">      <action name="Execute"><command>pavol -5%</command></action></keybind>
 		<keybind key="XF86AudioRaiseVolume  C-Home">     <action name="Execute"><command>pavol +5%</command></action></keybind>
 		<keybind key="XF86MonBrightnessDown C-Page_Down"><action name="Execute"><command>snaplight -d</command></action></keybind>
 		<keybind key="XF86MonBrightnessUp   C-Page_Up">  <action name="Execute"><command>snaplight -u</command></action></keybind>
-		<keybind key="XF86Display"><action name="Execute"><command>sh -c 'pgrep arandr || arandr'</command></action></keybind>
+		<keybind key="XF86Display"><action name="Execute"><command>arandr</command></action></keybind>
 		<keybind key="  Print"><action name="Execute"><command>shoot</command></action></keybind>
 		<keybind key="S-Print"><action name="Execute"><command>shoot -a</command></action></keybind>
 		<keybind key="C-Print"><action name="Execute"><command>shoot -w</command></action></keybind>
@@ -116,16 +115,15 @@
 		<keybind key="S-F10"><action name="Execute"><command>mpc prev</command></action></keybind>
 	<!-- Misc. -->
 		<keybind key="Scroll_Lock"><action name="Execute"><command>keylight -t</command></action></keybind>
-		<keybind key="A-F2 W-x"><action name="Execute"><command>rofi -show run</command></action></keybind>
-		<keybind key="S-W-x"><action name="Execute"><command>rofi-bookmarks</command></action></keybind>
-		<keybind key="W-m"><action name="Execute"><command>rofi-music</command></action></keybind>
 		<keybind key="C-Escape"><action name="Execute"><command>keylight -f</command></action></keybind>
+		<keybind key="  W-x"><action name="Execute"><command>rofi -show run</command></action></keybind>
+		<keybind key="S-W-x"><action name="Execute"><command>rofi-bookmarks</command></action></keybind>
+		<keybind key="  W-m"><action name="Execute"><command>rofi-music</command></action></keybind>
 		<keybind key="W-grave"><action name="Execute"><command>yt-xclip</command></action></keybind>
-		<keybind key="  Pause"><action name="Execute"><prompt>Suspend?</prompt><command>sh -c 'newlock &amp; sleep 2s; systemctl suspend'</command></action></keybind>
-		<keybind key="S-Pause"><action name="Execute"><prompt>Unlocked?</prompt><command>systemctl suspend</command></action></keybind>
+		<keybind key="  Pause"><action name="Execute"><command>sh -c 'newlock &amp; sleep 2s; systemctl suspend'</command></action></keybind>
+		<keybind key="S-Pause"><action name="Execute"><command>systemctl suspend</command></action></keybind>
 		<keybind key="Help"><action name="Execute"><command>dunstify -r 182 'No.'</command></action></keybind>
 		<keybind key="W-l"><action name="Execute"><command>newlock</command></action></keybind>
-		<keybind key="A-F5"><action name="Execute"><command>pkill sleep</command></action></keybind>
 	</keyboard>
 	<mouse>
 		<dragThreshold>10</dragThreshold>
