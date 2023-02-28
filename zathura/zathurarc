@@ -29,7 +29,6 @@ set recolor-keephue true
 
 ## Behaviors
 set statusbar-home-tilde true
-set incremental-search true
 set scroll-step 80
 set database null
 
