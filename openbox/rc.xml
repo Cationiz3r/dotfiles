@@ -58,7 +58,7 @@
 	<!-- Openbox control -->
 		<keybind key="S-W-F5"><action name="Restart"/></keybind>
 		<keybind key="  W-F5"><action name="Reconfigure"/></keybind>
-		<keybind key="W-Esc"><action name="SessionLogout"><prompt>no</prompt></action></keybind>
+		<keybind key="W-Escape"><action name="SessionLogout"><prompt>no</prompt></action></keybind>
 
 	<!-- Desktop control -->
 		<keybind key="  W-z"> <action name="GoToDesktop"><wrap>no</wrap><to>previous</to></action></keybind>
