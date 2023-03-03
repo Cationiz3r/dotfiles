@@ -58,7 +58,7 @@
 	<!-- Openbox control -->
 		<keybind key="S-W-F5"><action name="Restart"/></keybind>
 		<keybind key="  W-F5"><action name="Reconfigure"/></keybind>
-		<keybind key="C-A-Delete C-S-W-q"><action name="SessionLogout"><prompt>no</prompt></action></keybind>
+		<keybind key="W-Esc"><action name="SessionLogout"><prompt>no</prompt></action></keybind>
 
 	<!-- Desktop control -->
 		<keybind key="  W-z"> <action name="GoToDesktop"><wrap>no</wrap><to>previous</to></action></keybind>
@@ -75,12 +75,12 @@
 		<keybind key="S-W-c"> <action name="SendToDesktop"><wrap>no</wrap><to>next</to></action></keybind>
 
 	<!-- Window control -->
-		<keybind key="A-F4"><action name="Close"/></keybind>
-		<keybind key="C-A-d W-d"><action name="ToggleShowDesktop"/></keybind>
+		<keybind key="  W-q"><action name="Close"/></keybind>
+		<keybind key="  W-d"><action name="ToggleShowDesktop"/></keybind>
 		<keybind key="S-W-f"><action name="ToggleDecorations"/></keybind>
 		<keybind key="C-W-p"><action name="ToggleAlwaysOnTop"/></keybind>
 		<keybind key="C-W-o"><action name="ToggleOmnipresent"/></keybind>
-		<keybind key="A-F11"><action name="ToggleFullscreen"/></keybind>
+		<keybind key="  W-F"><action name="ToggleFullscreen"/></keybind>
 		<keybind key="  A-Tab"><action name="NextWindow">    <dialog>none</dialog><raise>yes</raise></action></keybind>
 		<keybind key="S-A-Tab"><action name="PreviousWindow"><dialog>none</dialog><raise>yes</raise></action></keybind>
 		<keybind key="W-Up    C-W-s"><action name="ToggleMaximize"/></keybind>
