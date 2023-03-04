@@ -8,7 +8,7 @@ alias \
 	pY="${up}pacman -Syu --noconfirm" \
 	pU="${up}pacman -U" \
 	pS="${up}pacman -S" \
-	pR="${up}pacman -Rns" \
+	pR="${up}pacman -Rs" \
 
 unset up
 
