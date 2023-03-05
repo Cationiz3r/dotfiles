@@ -1,51 +1,109 @@
 #!/bin/sh
-# white
-bgw='#[bg=brightwhite]'
-fgw='#[fg=brightwhite]'
-# black
-bg233='#[bg=color233]'
-fg233='#[fg=color233]'
-fgb='#[fg=black]'
-
 
 datetime() {
-	local format=%-H:%M:%S
-	date +"$format"
+	# Print time, this is also the final component, so
+	# a space is added
+	printf ' #[bg=brightwhite,fg=black]'
+	local time=$(date '+%-H:%M:%S')
+	printf " $time "
 }
 
 temp() {
 	local file=/sys/class/thermal/thermal_zone1/temp
 	[ -r "$XDG_CONFIG_HOME/cputemp" ] && file=$(cat "$XDG_CONFIG_HOME/cputemp")
-	cat "$file"|awk '{print $1/1000}'
+	local degree=$(cat "$file"|awk '{print $1/1000}')
+	printf "$degree°C"
 }
 
-cpu_raw() { grep 'cpu ' /proc/stat; }
+sum() {
+	# Calculate sum of numbers separated by space
+	local select="$1"
+	cut -d' ' -f"$select"|tr ' ' +|bc
+}
+round() {
+	# Round result using bc & cut
+	echo "$1+.5"|bc -l|cut -d. -f1
+}
+
+cpu_raw() {
+	# Read from /proc and parse the used/total amount
+	local data=$(head -1 /proc/stat|cut -b6-)
+	used=$(echo "$data"|sum 1,3)
+	total=$(echo "$data"|sum 1,3,4)
+	echo "$used $total"
+}
+cpu_read() {
+	# Read raw data twice with delay between
+	cpu_raw
+	sleep .2
+	cpu_raw
+}
 cpu() {
-	local i=$(cpu_raw; sleep .2s; cpu_raw)
-	echo "$i" |\
-		awk '{u=$2+$4; t=$2+$4+$5; if (NR==1) {u1=u; t1=t;} else printf("C  %d%%", ($2+$4-u1)*100/(t-t1)+.5); }'
+	eval set -- $(cpu_read)
+	local usage=$(round "($3-$1)*100/($4-$2)")
+	printf "c.$usage"
 }
 
-mem() { free|awk 'NR==2 {printf("M  %d%%", ($2-$7)/$2*100+.5)}'; }
+mem() {
+	## Parse RAM usage from command free
+	local raw_read=$(free|grep '^Mem:')
+	# Parse into array
+	eval set -- $raw_read
+	local usage=$(round "($2-$7)*100/$2")
+	printf "m.$usage"
+}
 
 battery() {
+	## Print battery state & percentage
+	# Exit if no battery is detected
 	local bat=$(acpi -b 2>/dev/null)
 	[ -z "$bat" ] && return
-	acpi -a|grep -q "on-line" && printf %s "↑ "
-	acpi -b|grep -Eo "[0-9]+%"
+
+	# Parse state into icon
+	acpi -a|grep -q "on-line" && local icon="↑ "
+
+	# Percentage
+	local percentage=$(acpi -b|grep -Eo "[0-9]+%"|head -c-2)
+	printf "$icon$percentage"
+}
+
+sep() {
+	printf '#[fg=black] \ #[default]'
+}
+
+sys_info() {
+	[ -n "$DISPLAY" ] && return
+	cpu
+	printf ' ' # space separator
+	temp
+	sep
+	mem
+}
+
+non_datetime() {
+	# bro??
+	local a=$(sys_info)
+	local b=$(battery)
+	printf "$a"
+	[ -n "$a" ] && [ -n "$b" ] && sep
+	printf "$b"
 }
 
 status() {
-	for cmd in $@; do
-		local out=$(eval "$cmd")
-		[ -z "$out" ] && continue
-		printf %s "$bg233$fgw$bgw$fgb $out$fg233"
-		[ "$cmd" = datetime ] && printf ' ' || printf ' '
-	done
-}
+	# Get non_datetime modules
+	local others=$(non_datetime)
 
-if [ -z "$DISPLAY" ]; then
-	status temp cpu mem
-fi
-status battery datetime
-echo # Flush tmux buffer
+	# Begin
+	if [ -n "$others" ]; then
+		printf '#[fg=brightblack]#[default]' # triangle
+		printf '#[bg=brightblack]#[push-default] ' # set style
+		printf "$others"
+	fi
+
+	datetime
+
+	# End
+	printf '#[pop-default]'
+	echo
+}
+status
