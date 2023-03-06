@@ -14,10 +14,14 @@ get_mpd_art() {
 	local out=$(mpc readpicture "$(get_cur file)" 2>&1 >"$art_file")
 	if [ "$out" = "No data" ]; then
 		echo none
+		return
 	fi
 
 	# Output icon on successful read, and flip art bit
 	echo "$art_file"
+}
+flip_bit() {
+	# Variable can't be changed from subshell
 	flip=$((1-flip))
 }
 
@@ -45,10 +49,14 @@ notify() {
 		[ -n "$track" ] && summary="$track. $summary"
 	fi
 
+	# Get art icon & flip if valid
+	local icon="$(get_mpd_art)"
+	[ "$icon" = "none" ] || flip_bit
+
 	# Send notif to dunst
 	dunstify \
 		-h string:x-dunst-stack-tag:mpd-notify \
-		-i "$(get_mpd_art)" \
+		-i "$icon" \
 		"$summary" \
 		"$content"
 }
