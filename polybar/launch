@@ -3,7 +3,7 @@ cd "$(dirname "$0")"
 pgrep polybar && killall polybar
 
 # Wait for window manager, fixes empty xworkspace module
-while ! pgrep openbox >/dev/null; do
+while ! pgrep i3 >/dev/null; do
 	sleep 1
 done
 
