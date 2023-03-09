@@ -20,9 +20,8 @@ bindkey '^Q' fastExit
 bindkey '^D' fastExit
 bindkey '^M' nonNullAcceptLine
 bindkey '^[1' cdBack
-bindkey '^[2' cdNext
-bindkey '^[3' cdUp
-bindkey '^[4' cdHome
+bindkey '^[2' cdUp
+bindkey '^[3' cdHome
 
 # Macros
 bindkey -s '\ew' '\C-a$(\C-e)'
