@@ -19,4 +19,4 @@ done
 rm -rf "$XDG_CACHE_HOME/thumbnails"
 ln -s "$XDG_RUNTIME_DIR/thumbnails" "$XDG_CACHE_HOME"
 
-exec openbox
+exec i3 -V
