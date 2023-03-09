@@ -61,7 +61,7 @@ alias re=rename
 alias py='python'
 alias play='mpv --profile=music'
 alias g='git'
-alias nv='nvim'
+alias n='nvim'
 alias wf='nmcli dev wifi con'
 alias wfls='nmcli dev wifi re; nmcli dev wifi'
 alias con='nmcli dev con'
