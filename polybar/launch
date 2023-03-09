@@ -6,6 +6,7 @@ pgrep polybar && killall polybar
 while ! pgrep i3 >/dev/null; do
 	sleep 1
 done
+sleep 1 # give wm headstart
 
 export \
 	POLYBAR_ROOT=$(pwd) \
