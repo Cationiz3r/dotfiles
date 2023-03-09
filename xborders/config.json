@@ -1,0 +1,9 @@
+{
+	"border-rgba": "0xFFFFFFFF",
+	"border-radius": 0,
+	"border-width": 2,
+	"border-mode": "center",
+	"disable-version-warning": true,
+
+	"positive-y-offset": 1
+}
