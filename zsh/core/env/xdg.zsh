@@ -8,7 +8,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 ## Applications
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export XAUTHORITY="$XDG_RUNTIME_DIR/xorg/auth"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 export XSERVERRC="$XDG_CONFIG_HOME/X11/xserverrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/pythonrc"
@@ -28,7 +28,7 @@ export UNISON="$XDG_DATA_HOME/unison"
 export DIRCOLORS="$XDG_CONFIG_HOME/dircolors"
 
 # X11 logfile
-XLOG="$XDG_RUNTIME_DIR/Xorg/$XDG_VTNR"
+XLOG="$XDG_RUNTIME_DIR/xorg/$XDG_VTNR"
 
 # Specific dir
 export ZSPECDIR="$XDG_CONFIG_HOME/zsh-spec"
