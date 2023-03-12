@@ -9,4 +9,4 @@ while [ $# -ne 0 ]; do
 done
 
 # Play last item
-mpc play $(mpc playlist|wc -l)
+mpc play -q $(mpc playlist|wc -l)

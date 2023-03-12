@@ -20,4 +20,4 @@ select=$(
 mpc add "$select"
 
 # Play last item in play list
-mpc play "$(mpc playlist|wc -l)"
+mpc play -q "$(mpc playlist|wc -l)"
