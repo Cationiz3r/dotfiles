@@ -1,5 +1,5 @@
 #!/bin/sh
 
-killall dunst
+killall -q dunst
 dunst &
 dunstctl rule lockscreen disable
