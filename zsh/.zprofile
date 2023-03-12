@@ -10,8 +10,8 @@
 # Autostart Xserver
 if [ -z "$DISPLAY$TERM_PROGRAM" -a "$XDG_VTNR" = 1 ]; then
 	mpd-init &>/dev/null &|
-	mkdir -p $XDG_RUNTIME_DIR/Xorg
-	startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
+	command mkdir -p "$(dirname "$XLOG")"
+	command startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
 fi
 
 # Temporary fix for plymouth
