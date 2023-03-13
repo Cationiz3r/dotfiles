@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-source "$ZDOTDIR/core/inputrc.zsh"
+source "$ZDOTDIR/interactive/inputrc.zsh"
 
 # Substring search
 source "$ZDOTDIR/modules/substring-search"
@@ -8,7 +8,7 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Define addition function and bind
-source "$ZDOTDIR/core/key_functions.zsh"
+source "$ZDOTDIR/interactive/key_functions.zsh"
 bindkey '^H' backward-delete-word
 bindkey '^Z' undo
 bindkey '^[^?' deleteFullWord
