@@ -7,10 +7,10 @@
 #
 
 # Load environment modules
-source "$ZDOTDIR/core/env/xdg.zsh" # load first
-source "$ZDOTDIR/core/env/ibus.zsh"
-source "$ZDOTDIR/core/env/locale.zsh"
-source "$ZDOTDIR/core/env/misc.zsh"
-source "$ZDOTDIR/core/env/path.zsh"
-source "$ZDOTDIR/core/env/specific.zsh"
-source "$ZDOTDIR/core/env/theme.zsh"
+source "$ZDOTDIR/environment/xdg.zsh" # load first
+source "$ZDOTDIR/environment/ibus.zsh"
+source "$ZDOTDIR/environment/locale.zsh"
+source "$ZDOTDIR/environment/misc.zsh"
+source "$ZDOTDIR/environment/path.zsh"
+source "$ZDOTDIR/environment/specific.zsh"
+source "$ZDOTDIR/environment/theme.zsh"
