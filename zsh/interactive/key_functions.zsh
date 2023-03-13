@@ -26,7 +26,7 @@ nonNullAcceptLine() {
 }
 
 resume_or_undo() {
-	if [ $#BUFFER -eq 0 ]; then
+	if [ $#BUFFER -eq 0 ] && [ $(jobs|wc -l) -gt 0 ]; then
 		BUFFER=fg
 		zle accept-line
 	else
