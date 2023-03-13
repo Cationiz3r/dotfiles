@@ -10,7 +10,7 @@ bindkey '^[[B' history-substring-search-down
 # Define addition function and bind
 source "$ZDOTDIR/interactive/key_functions.zsh"
 bindkey '^H' backward-delete-word
-bindkey '^Z' undo
+bindkey '^Z' resume_or_undo
 bindkey '^[^?' deleteFullWord
 bindkey '^[[1;3C' forwardFullWord
 bindkey '^[[1;3D' backwardFullWord

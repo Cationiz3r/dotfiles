@@ -25,6 +25,15 @@ nonNullAcceptLine() {
 	zle accept-line
 }
 
+resume_or_undo() {
+	if [ $#BUFFER -eq 0 ]; then
+		BUFFER=fg
+		zle accept-line
+	else
+		zle undo
+	fi
+}
+
 # File explorers like navigation
 cdBack() {
 	# Return to last dir, ignore errors (eg: deleted)
@@ -46,6 +55,7 @@ for func in \
 	clearBuffer \
 	clearHistory \
 	nonNullAcceptLine \
+	resume_or_undo \
 	cdBack \
 	cdUp \
 	cdHome \
