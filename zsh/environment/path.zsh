@@ -1,10 +1,11 @@
 #!/bin/zsh
 
-typeset -U PATH="\
-/usr/lib/ccache/bin:\
-$XDG_CONFIG_HOME/scripts:\
-$HOME/.local/bin:\
-$HOME/.local/bin-firejail:\
-$HOME/.bin:\
-/bin:\
-$PATH"
+typeset -U path PATH
+path=(
+	/usr/lib/ccache/bin
+	"$XDG_CONFIG_HOME"/scripts
+	~/.local/bin
+	~/.local/bin-firejail
+	/bin
+	$path
+)
