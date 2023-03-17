@@ -64,6 +64,7 @@ require("lualine").setup {
 			{
 				"filetype",
 				colored = false,
+				icons_enabled = false,
 			},
 			"progress",
 		},

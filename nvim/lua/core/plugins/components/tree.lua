@@ -30,6 +30,7 @@ require("nvim-tree").setup({
 			git_placement = "after",
 			symlink_arrow = " -> ",
 			show = {
+				file = false,
 				folder = false,
 			},
 			glyphs = {
