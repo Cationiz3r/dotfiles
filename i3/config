@@ -1,12 +1,18 @@
 # Workspace names
-set $ws1 1:Work
-set $ws2 2:Web
-set $ws3 3:Games
-set $ws4 4:Chat
-set $ws5 5:Music
-set $ws6 6:Art
-set $ws7 7:Torrent
-set $ws8 8:Misc
+set $ws1 10:Console
+set $ws1_1 11:Office
+set $ws2 20:Web
+set $ws2_1 21:Flask
+set $ws2_2 22:Tor
+set $ws3 30:Games
+set $ws3_1 31:Fullscreen
+set $ws4 40:Chat
+set $ws5 50:Music
+set $ws5_1 51:FLStudio
+set $ws5_2 52:Pavucontrol
+set $ws6 60:Art
+set $ws7 70:Torrent
+set $ws8 80:Misc
 
 # Default workspace
 exec --no-startup-id i3-msg workspace "$ws1"
