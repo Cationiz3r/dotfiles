@@ -1,0 +1,6 @@
+require("plugins.editor.autopairs")
+require("plugins.editor.colorizer")
+require("plugins.editor.comment")
+require("plugins.editor.gitsigns")
+require("plugins.editor.illuminate")
+require("plugins.editor.syntax")
