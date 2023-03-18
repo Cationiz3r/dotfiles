@@ -39,7 +39,7 @@ promptUpdate() {
 	local git=$(2>/dev/null git branch|grep \*|cut -b3-)
 	if [ -n "$git" ]; then
 		git="%F{10}$git"
-		[ -z "$(git diff 2>/dev/null)" ] || git+=\*
+		[ -z "$(git diff 2>/dev/null)" ] || git+="%F{9}*"
 		git+=' '
 	fi
 
