@@ -1,4 +1,4 @@
-noblacklist ${HOME}/.config/firefox/chrome
-whitelist ${HOME}/.config/firefox/chrome
+noblacklist ${HOME}/.config/firefox
+whitelist ${HOME}/.config/firefox
 noblacklist ${HOME}/downloads
 whitelist ${HOME}/downloads
