@@ -17,7 +17,7 @@
 	root = rev-parse --show-toplevel
 	ls = ls-tree -r --name-only HEAD
 	l = ll --max-count=20
-	ll = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) %C(bold green)(%ar)%C(reset) %C(bold brightwhite)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold brightred)%d%C(reset)'
+	ll = log --graph --abbrev-commit --decorate --date=format-local:'%y/%m/%d %H:%M' --format=format:'%C(bold blue)%h %C(reset)%C(green)%ad %C(reset)%C(bold brightwhite)%s %C(reset)%C(dim white)- %an%C(reset)%C(bold brightred)%d'
 	la = ll --all
 	br = branch  --sort=-committerdate --format='%(color:bold blue)%(HEAD) %(color:bold brightred)%(refname:short)%(color:reset) %(color:bold green)(%(committerdate:relative))%(color:reset) %(color:bold brightwhite)%(contents:subject)%(color:reset) %(color:dim white)- %(authorname)%(color:reset)'
 	cm = commit -m
