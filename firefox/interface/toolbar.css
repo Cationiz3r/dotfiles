@@ -1,0 +1,8 @@
+/* Hide menu when pressing alt */
+#toolbar-menubar { display: none !important; }
+
+/* Remove border at bottom of toolbar (tab + nav bar) */
+#navigator-toolbox-background,
+#navigator-toolbox {
+	border: none !important;
+}

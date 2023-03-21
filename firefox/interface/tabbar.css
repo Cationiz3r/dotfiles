@@ -1,0 +1,49 @@
+/* Consise tab button */
+.tabbrowser-tab {
+	padding: 0 !important;
+}
+.tab-background {
+	margin: 0 !important;
+	border-radius: 0 !important;
+}
+:root {
+	--tab-min-height: 20px !important;
+}
+
+/* Height */
+.tab-content,
+.tab-label-container {
+	max-height: 30px;
+}
+
+/* Text */
+.tab-label {
+	font-weight: bold;
+	color: var(--foreground-dimmed);
+}
+.tabbrowser-tab[selected] .tab-label {
+	color: var(--foreground);
+}
+
+/* Button width */
+.tabbrowser-tab[fadein]:not([pinned])[selected] {
+	min-width: 250px !important;
+}
+.tabbrowser-tab[fadein]:not([pinned]):not([selected]) {
+	max-width: 150px !important;
+}
+
+/* Animation */
+.tabbrowser-tab {
+	transition-timing-function: linear;
+	transition-duration: 1ms !important;
+}
+
+/* Hide tab shadow */
+.tab-background {
+	box-shadow: none !important;
+}
+
+/* Hide some elements */
+.tab-close-button,
+#alltabs-button { display: none !important; }

@@ -1,0 +1,25 @@
+@import "config.css";
+
+:root {
+	--lwt-accent-color: var(--background-dimmed) !important;
+
+	/* Active tab */
+	--lwt-selected-tab-background-color: var(--background) !important;
+
+	/* Nav bar */
+	--toolbar-bgcolor: var(--background-light) !important;
+	--button-hover-bgcolor: var(--background-light) !important;
+	--button-active-bgcolor: var(--background-light) !important;
+	--toolbar-color: var(--foreground) !important;
+
+	/* Search bar */
+	--toolbar-field-background-color: var(--background) !important;
+	--toolbar-field-color: var(--foreground) !important;
+	--toolbar-field-focus-background-color: var(--background) !important;
+	--toolbar-field-focus-color: var(--foreground) !important;
+
+	/* Panels & Popups */
+  --arrowpanel-background: var(--background-light) !important;
+  --arrowpanel-color: var(--foreground) !important;
+  --arrowpanel-border-color: var(--background-light) !important;
+}

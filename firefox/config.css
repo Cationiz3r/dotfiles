@@ -1,0 +1,8 @@
+:root {
+	--background: #181818;
+	--background-light: #333;
+	--foreground: #fff;
+
+	--background-dimmed: #0c0c0c;
+	--foreground-dimmed: #888;
+}

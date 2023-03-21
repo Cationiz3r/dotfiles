@@ -1,0 +1,33 @@
+@import "colors.css";
+@import "interface/toolbar.css";
+@import "interface/tabbar.css";
+@import "interface/navbar.css";
+
+/* Square supremacy */
+* {
+	border-radius: 0 !important;
+}
+
+/* Hueless icons */
+tab .tab-icon,
+.tab-icon-image,
+.menu-iconic-left,
+.urlbarView,
+#userContext-icons,
+#downloads-button,
+.sidebar-placesTreechildren,
+#identity-icon,
+.toolbarbutton-icon,
+.tab-throbber { filter: grayscale(1); }
+
+/* Letterbox */
+#tabbrowser-tabpanels {
+	background-color: var(--background) !important;
+}
+
+/* URL preview */
+#statuspanel-label {
+	background-color: var(--background) !important;
+	color: var(--foreground) !important;
+	font-weight: 500 !important;
+}
