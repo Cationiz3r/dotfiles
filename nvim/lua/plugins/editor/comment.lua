@@ -1,6 +1,5 @@
 require('Comment').setup({
 	toggler = {
-		block = "/",
 		line = "?"
 	},
 	opleader = {
