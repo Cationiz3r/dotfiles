@@ -7,9 +7,9 @@
 	--lwt-selected-tab-background-color: var(--background) !important;
 
 	/* Nav bar */
-	--toolbar-bgcolor: var(--background-light) !important;
-	--button-hover-bgcolor: var(--background-light) !important;
-	--button-active-bgcolor: var(--background-light) !important;
+	--toolbar-bgcolor: var(--background) !important;
+	--button-hover-bgcolor: var(--background) !important;
+	--button-active-bgcolor: var(--background) !important;
 	--toolbar-color: var(--foreground) !important;
 
 	/* Search bar */
@@ -19,7 +19,7 @@
 	--toolbar-field-focus-color: var(--foreground) !important;
 
 	/* Panels & Popups */
-  --arrowpanel-background: var(--background-light) !important;
+  --arrowpanel-background: var(--background) !important;
   --arrowpanel-color: var(--foreground) !important;
-  --arrowpanel-border-color: var(--background-light) !important;
+  --arrowpanel-border-color: var(--background) !important;
 }

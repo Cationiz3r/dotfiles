@@ -9,15 +9,15 @@
 	--in-content-primary-button-background-hover: var(--foreground) !important;
 
 	/* Button */
-  --button-bgcolor: var(--background-light) !important;
-  --button-hover-bgcolor: var(--background-light) !important;
-	--button-active-bgcolor: var(--background-light) !important;
-	--in-content-button-background: var(--background-light) !important;
-	--in-content-button-background-hover: var(--background-light) !important;
+  --button-bgcolor: var(--background) !important;
+  --button-hover-bgcolor: var(--background) !important;
+	--button-active-bgcolor: var(--background) !important;
+	--in-content-button-background: var(--background) !important;
+	--in-content-button-background-hover: var(--background) !important;
 	--in-content-button-background-active: var(--foreground) !important; /* clicked */
 
 	/* List/Box */
-	--in-content-box-background: var(--background-light) !important;
-	--in-content-box-border-color: var(--background-light) !important;
+	--in-content-box-background: var(--background) !important;
+	--in-content-box-border-color: var(--background) !important;
 	--in-content-box-background-odd: var(--background) !important;
 }
