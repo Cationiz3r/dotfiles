@@ -31,3 +31,8 @@ tab .tab-icon,
 	color: var(--foreground) !important;
 	font-weight: 500 !important;
 }
+
+/* Allow transparent element */
+html {
+  background: transparent !important;
+}

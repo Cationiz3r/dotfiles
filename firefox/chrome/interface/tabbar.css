@@ -47,3 +47,22 @@
 /* Hide some elements */
 .tab-close-button,
 #alltabs-button { display: none !important; }
+
+/* Transparent bar ancestors background */
+#navigator-toolbox {
+	background: transparent !important;
+}
+
+/* Bar background */
+#tabbrowser-tabs {
+	background: rgba(24, 24, 24, .7) !important; /* DEBUG: transparent */
+}
+
+/* Tab background */
+.tab-background {
+	background-image: none !important;
+	background-color: var(--background) !important;
+}
+.tabbrowser-tab:not([selected]) .tab-background {
+	background-color: var(--background-dimmed) !important;
+}
