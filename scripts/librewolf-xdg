@@ -1,0 +1,4 @@
+#!/bin/sh
+export HOME="$HOME/.local/share/librewolf_home"
+mkdir -p "$HOME"
+librewolf "$@"
