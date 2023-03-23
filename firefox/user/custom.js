@@ -6,3 +6,4 @@ user_pref("browser.download.dir", "/home/cationiz3r/downloads");
 user_pref("browser.download.useDownloadDir", true);
 user_pref("general.autoScroll", true);
 user_pref("general.smoothScroll", false);
+user_pref("keyword.enabled", true);
