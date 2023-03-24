@@ -15,7 +15,7 @@ return require("packer").startup(function(use)
 	use "wbthomason/packer.nvim"
 
 	-- Editor
-	use "nvim-tree/nvim-tree.lua"
+	use { "nvim-tree/nvim-tree.lua", commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c" }
 	use "nvim-lualine/lualine.nvim"
 	use "lewis6991/gitsigns.nvim"
 	use "nvim-treesitter/nvim-treesitter"
