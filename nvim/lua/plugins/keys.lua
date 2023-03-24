@@ -12,6 +12,7 @@ whichkey.register({
 	-- vim.keymap.set("n", "e", require("core.utils").close_buffer)
 	["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "previous buffer" },
 	["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "next buffer" },
+	["<a-t>"] = { ":NvimTreeFocus<CR>", "tree" },
 	s = { "<cmd>:w<CR>", "save buffer" },
 	K = { vim.lsp.buf.hover, "hover" },
 

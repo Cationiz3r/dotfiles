@@ -2,16 +2,16 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local api = require("nvim-tree.api")
+local open_no_focus = function()
+	api.node.open.edit()
+	api.tree.focus()
+end
+
 local function on_attach(bufnr)
 	vim.keymap.set("n", "<Tab>", "<c-w>p", { buffer = bufnr })
-	vim.keymap.set("n", "<s-Tab>", "<c-w>p", { buffer = bufnr })
-	vim.keymap.set("n", "t", ":NvimTreeClose<CR>", { buffer = bufnr })
-	vim.keymap.set("n", "e", function()
-		api.tree.expand_all()
-	end, { buffer = bufnr })
-	vim.keymap.set("n", "<s-e>", function()
-		api.tree.collapse_all()
-	end, { buffer = bufnr })
+	vim.keymap.set("n", "<a-t>", "<cmd>NvimTreeClose<CR>", { buffer = bufnr })
+	vim.keymap.set("n", "<s-CR>", open_no_focus, { buffer = bufnr })
+	vim.keymap.set("n", "<s-o>", open_no_focus, { buffer = bufnr })
 end
 
 require("nvim-tree").setup({
