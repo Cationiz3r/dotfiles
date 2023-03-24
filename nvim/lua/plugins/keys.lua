@@ -40,6 +40,7 @@ whichkey.register({
 		W = {"<cmd>wincmd o<CR>", "all other windows"},
 		b = { utils.close_buffer, "buffer" },
 		B = { "<cmd>BufOnly!<CR>", "all other buffers" },
+		t = { "<cmd>NvimTreeClose<CR>", "tree" }
 	},
 
 	w = {
