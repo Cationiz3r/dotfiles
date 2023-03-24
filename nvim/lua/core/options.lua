@@ -11,6 +11,7 @@ vim.opt.smartcase = true -- ignore case when search unless contains upper
 vim.opt.showmode = false -- hide mode in bottom line
 vim.opt.fillchars = "vert: "
 vim.opt.cmdheight = 0 -- Hide bottom line
+vim.opt.splitright = true -- Split to right half
 
 local tab_size = 2
 vim.opt.shiftwidth = tab_size -- indent on pressing tab
