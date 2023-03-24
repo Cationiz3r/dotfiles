@@ -41,6 +41,9 @@ return require("packer").startup(function(use)
 	use "saadparwaiz1/cmp_luasnip"
 	use "rafamadriz/friendly-snippets" -- Extra snippets
 
+	-- Keymaps
+	use "folke/which-key.nvim"
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
