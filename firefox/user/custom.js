@@ -7,3 +7,6 @@ user_pref("browser.download.useDownloadDir", true);
 user_pref("general.autoScroll", true);
 user_pref("general.smoothScroll", false);
 user_pref("keyword.enabled", true);
+user_pref("font.name.sans-serif.x-western", "Poppins");
+user_pref("font.name.serif.x-western", "Poppins");
+user_pref("font.name.monospace.x-western", "JetBrains Mono");
