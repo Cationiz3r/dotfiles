@@ -24,10 +24,13 @@ end
 local M = {}
 M.close_buffer = function()
 	local bufTable = count_bufs_by_type()
-	if (bufTable.normal <= 1) then
+	if (bufTable.normal <= 1 or vim.fn.exists(":BufferLineCycleNext") == 0) then
 		vim.api.nvim_exec([[:qa]], false)
 	else
-		vim.api.nvim_exec([[:bp|sp|bn|bd"]], false)
+		vim.api.nvim_exec("BufferLineCycleNext", false)
+		vim.api.nvim_exec(":sp", false)
+		vim.api.nvim_exec("BufferLineCyclePrev", false)
+		vim.api.nvim_exec(":bd", false)
 	end
 end
 
