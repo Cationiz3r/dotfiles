@@ -55,7 +55,7 @@
 
 /* Bar background */
 #tabbrowser-tabs {
-	background: rgba(24, 24, 24, .7) !important; /* DEBUG: transparent */
+	background: rgba(10, 10, 10, .7) !important; /* DEBUG: transparent */
 }
 
 /* Tab background */
