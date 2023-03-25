@@ -127,3 +127,11 @@ mkcd() {
 		shift
 	done
 }
+
+# Create alias if in tmux (fix neovim exit)
+if [ -n "$TMUX" ]; then
+	nvim() {
+		command nvim "$@"
+		printf '\e[3 q' # blinking underscore
+	}
+fi
