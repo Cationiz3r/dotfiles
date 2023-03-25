@@ -12,5 +12,8 @@ select=$(cat "$file"|\
 	sed -E 's/\s+$//'
 )
 
-# Type selected bookmark
-xdotool type "$select"
+# Copy to buffer
+echo "$select"|xclip -r -selection clipboard
+
+# Paste
+xdotool key Ctrl+v
