@@ -10,11 +10,12 @@ require("bufferline").setup {
 		},
 		modified_icon = "",
 
-		max_name_length = 18,
+		max_name_length = 30,
 		tab_size = 0,
 		show_buffer_icons = false, -- on tab buttons
 		show_buffer_close_icons = false, -- on tab buttons
 		show_close_icon = false, -- end of bar
+		sort_by = "directory",
 
 		separator_style = { "", "" },
 	}
