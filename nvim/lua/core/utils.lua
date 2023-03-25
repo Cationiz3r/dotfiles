@@ -31,4 +31,8 @@ M.close_buffer = function()
 	end
 end
 
+M.visual_range = function()
+	return { vim.fn.line("."), vim.fn.line("v") }
+end
+
 return M

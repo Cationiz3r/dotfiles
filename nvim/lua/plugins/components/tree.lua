@@ -9,9 +9,8 @@ end
 
 local function on_attach(bufnr)
 	vim.keymap.set("n", "<Tab>", "<c-w>p", { buffer = bufnr })
-	vim.keymap.set("n", "<a-t>", "<cmd>NvimTreeClose<CR>", { buffer = bufnr })
-	vim.keymap.set("n", "<s-CR>", open_no_focus, { buffer = bufnr })
-	vim.keymap.set("n", "<s-o>", open_no_focus, { buffer = bufnr })
+	vim.keymap.set("n", "<a-e>", "<cmd>NvimTreeClose<CR>", { buffer = bufnr })
+	vim.keymap.set("n", "\\", open_no_focus, { buffer = bufnr })
 end
 
 require("nvim-tree").setup({

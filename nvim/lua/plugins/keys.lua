@@ -12,7 +12,10 @@ whichkey.register({
 	-- vim.keymap.set("n", "e", require("core.utils").close_buffer)
 	["<S-Tab>"] = { "<cmd>BufferLineCyclePrev<CR>", "previous buffer" },
 	["<Tab>"] = { "<cmd>BufferLineCycleNext<CR>", "next buffer" },
-	["<a-t>"] = { ":NvimTreeFocus<CR>", "tree" },
+	["<a-e>"] = { ":NvimTreeFocus<CR>", "tree" },
+	["<a-z>"] = { "<c-w><", "minus width" },
+	["<a-c>"] = { "<c-w>>", "add width" },
+	q = { utils.close_buffer, "buffer" },
 	s = { "<cmd>:w<CR>", "save buffer" },
 	K = { vim.lsp.buf.hover, "hover" },
 
@@ -42,12 +45,6 @@ whichkey.register({
 		b = { utils.close_buffer, "buffer" },
 		B = { "<cmd>BufOnly!<CR>", "all other buffers" },
 		t = { "<cmd>NvimTreeClose<CR>", "tree" }
-	},
-
-	w = {
-		name = "+window",
-		r = { "<cmd>vs<CR>", "split right" },
-		v = { "<cmd>vs<CR>", "split down" },
 	},
 
 	s = {
@@ -112,7 +109,11 @@ whichkey.register({
 whichkey.register({
 	g = {
 		name = "+git",
-		s = { gitsigns.stage_hunk, "stage hunk" },
-		r = { gitsigns.reset_hunk, "reset hunk" },
+		s = { function()
+			gitsigns.stage_hunk(utils.visual_range())
+		end, "stage hunk" },
+		r = { function()
+			gitsigns.reset_hunk(utils.visual_range())
+		end, "stage hunk" },
 	},
 }, { prefix = "<leader>", mode = "v" })
