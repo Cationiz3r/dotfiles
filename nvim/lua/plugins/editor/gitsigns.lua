@@ -1,4 +1,9 @@
-require("gitsigns").setup()
+require("gitsigns").setup({
+	signs = {
+		delete = { text = "" }, -- E92E
+		topdelete = { text = "" }, -- temp
+	},
+})
 
 -- Update nvimtree
 vim.api.nvim_create_autocmd("User", {
