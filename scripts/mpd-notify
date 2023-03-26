@@ -28,8 +28,7 @@ flip_bit() {
 is_single_album() {
 	# Detect if the current playlist is only 1 album
 	local albums_count=$(mpc playlist -f %album%|sort -u|wc -l)
-	[ "$albums_count" -eq 1 ]
-	return $?
+	[ "$albums_count" -eq 1 ] && [ -n "$(get_cur album)" ]
 }
 
 notify() {
