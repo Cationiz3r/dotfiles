@@ -1,11 +1,11 @@
 require('Comment').setup({
 	ignore = "^$",
 	toggler = {
-		line = "<leader>c",
-		block = "<leader>C",
+		line = "<a-x>",
+		block = "<a-X>",
 	},
 	opleader = {
-		line = "<leader>c",
-		block = "<leader>C",
+		line = "<a-x>",
+		block = "<a-X>",
 	}
 })
