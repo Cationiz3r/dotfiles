@@ -16,6 +16,5 @@ set $ws8 80:Misc
 
 # Default workspace
 exec --no-startup-id i3-msg workspace "$ws1"
-exec --no-startup-id $XDG_CONFIG_HOME/i3/scripts/x_settings.sh
 
 include *.conf
