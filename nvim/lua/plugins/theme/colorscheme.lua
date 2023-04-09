@@ -23,7 +23,7 @@ local colors = {
 	bright_cyan = "#d6d6d6",
 	bright_white = "#ffffff",
 
-	menu = "#444444",
+	menu = "#282828",
 	visual = "#333333",
 	gutter_fg = "#00ff00",
 	nontext = "#eeeeee",
@@ -70,6 +70,11 @@ require("dracula").setup({
 		NvimTreeWindowPicker = { bg = colors.selection, fg = colors.white, bold = true },
 		NvimTreeGitDirty = { fg = colors.bright_red, bold = true },
 		NvimTreeGitStaged = { fg = colors.bright_white, bold = true },
+
+		Float = { bg = colors.menu },
+		LspFloatWinNormal = { link = "Float" },
+		NormalFloat = { link = "Float" },
+		NvimFloat = { link = "Float" },
 	},
 
 	italic_comments = true,
