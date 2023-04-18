@@ -25,6 +25,7 @@
 	r5 = rebase -i HEAD~5
 	re = rebase -i
 	s = status -sb
+	ss = s .
 	co = checkout
 	cob = checkout -b
 	del = branch -D
