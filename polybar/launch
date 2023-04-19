@@ -2,11 +2,14 @@
 cd "$(dirname "$0")"
 killall -q polybar
 
-# Wait for window manager, fixes empty xworkspace module
+# Wait for i3 to start and create socket
 while ! pgrep i3 >/dev/null; do
 	sleep 1
 done
-sleep 1 # give wm headstart
+i3_pid=$(pgrep i3)
+while ! [ -S "$XDG_RUNTIME_DIR/i3/ipc-socket.$i3_pid" ]; do
+	sleep 1
+done
 
 export \
 	POLYBAR_ROOT=$(pwd) \
