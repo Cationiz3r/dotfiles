@@ -26,6 +26,10 @@ export MAKEPKG_CONF="$XDG_CONFIG_HOME/makepkg.conf"
 export MYSQL_HISTFILE="$XDG_RUNTIME_DIR/mysql"
 export UNISON="$XDG_DATA_HOME/unison"
 export DIRCOLORS="$XDG_CONFIG_HOME/dircolors"
+export GOPATH="$XDG_DATA_HOME/go"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 
 # X11 logfile
 XLOG="$XDG_RUNTIME_DIR/xorg/$XDG_VTNR"
