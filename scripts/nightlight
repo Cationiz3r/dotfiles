@@ -1,0 +1,19 @@
+#!/bin/sh
+
+is_running() {
+	pgrep redshift >/dev/null
+}
+
+stop_light() {
+	killall redshift
+}
+
+start_light() {
+	redshift >/dev/null &
+}
+
+if is_running; then
+	stop_light
+else
+	start_light
+fi
