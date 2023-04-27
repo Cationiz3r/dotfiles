@@ -14,10 +14,4 @@ numlockx &
 waldate &
 xborders --config "$XDG_CONFIG_HOME/xborders/config.json" &
 
-for d in thumbnails tordownload; do
-	mkdir -p "$XDG_RUNTIME_DIR/$d" &
-done
-rm -rf "$XDG_CACHE_HOME/thumbnails"
-ln -s "$XDG_RUNTIME_DIR/thumbnails" "$XDG_CACHE_HOME"
-
 exec i3
