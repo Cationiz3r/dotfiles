@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Get numbers of songs in current playlist
+get_playlist_length() {
+	mpc playlist|wc -l
+}
+before_add=$(get_playlist_length)
+
 # Go into music folder
 . "$XDG_CONFIG_HOME/user-dirs.dirs"
 cd "$XDG_MUSIC_DIR"
@@ -19,5 +25,9 @@ select=$(
 # Add to current playlist
 mpc add "$select"
 
-# Play last item in play list
-mpc play -q "$(mpc playlist|wc -l)"
+# Play random item from new items
+after_add=$(get_playlist_length)
+[ $before_add -eq $after_add ] && exit
+item=$(seq $((before_add + 1)) $after_add|shuf -n1)
+echo $before_add $after_add $item
+mpc play -q "$item"
