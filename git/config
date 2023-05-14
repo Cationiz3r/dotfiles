@@ -45,6 +45,7 @@
 	rs = restore --staged
 [pull]
 	rebase = true
+	ff = only
 [commit]
 	gpgsign = true
 [tag]
@@ -64,3 +65,5 @@
 	insteadOf = aur:
 [url "aur@aur.archlinux.org:"]
 	pushInsteadOf = aur:
+[merge]
+	ff = false
