@@ -1,0 +1,86 @@
+@-moz-document
+	domain("vid.puffyan.us"),
+	domain("yewtu.be")
+{
+	html, body {
+		background-color: #181818 !important;
+		color: white !important;
+	}
+
+	/* Hide padge padding */
+	.pure-u-md-2-24 { display: none !important; }
+	#contents { width: 100% !important; }
+
+	/* Hide divider */
+	hr { display: none !important; }
+
+	/* Lighter navbar */
+	.navbar {
+		margin: 0 !important;
+		padding: 20px 40px !important;
+		background-color: #222 !important;
+	}
+
+	/* Bigger feedmenu */
+	.feed-menu {
+		margin: 10px 0 !important;
+	}
+
+	/* Feedmenu button */
+	.feed-menu-item {
+		padding: 10px 20px !important;
+		font-weight: bold !important;
+		background-color: #222 !important;
+	}
+	.feed-menu-item:hover {
+		background-color: #444 !important;
+		color: white !important;
+	}
+
+	/* Video box */
+	.pure-u-md-1-4 > .h-box {
+		padding: 0 !important;
+		padding-bottom: 10px !important;
+		background-color: #222 !important;
+	}
+	.pure-u-md-1-4 > .h-box:hover {
+		background-color: #444 !important;
+		color: white !important;
+	}
+
+	/* Video box text */
+	.h-box > a > p,
+	.video-card-row {
+		margin: 0 !important;
+		padding: 0 20px !important;
+		color: white !important;
+	}
+
+	.h-box > a > p {
+		margin-top: 5px !important;
+		font-weight: bold !important;
+		font-size: 20px !important;
+	}
+	.video-card-row a {
+		font-weight: normal !important;
+		color: white !important;
+	}
+	.video-card-row a:hover {
+		color: white !important;
+	}
+	.video-card-row:last-child {
+		margin-top: 3px !important;
+		font-weight: normal !important;
+	}
+
+	/* Video duration */
+	.length {
+		padding: 3px 8px !important;
+		font-weight: bold !important;
+	}
+
+	/* Hide some video icons */
+	.ion-logo-youtube,
+	.ion-md-headset,
+	.ion-md-jet { display: none !important; }
+}
