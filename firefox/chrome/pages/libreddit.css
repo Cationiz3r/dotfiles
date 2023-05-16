@@ -1,0 +1,47 @@
+@-moz-document
+	domain("safereddit.com"),
+	domain("libreddit.pussthecat.org"),
+	domain("libreddit.tiekoetter.com"),
+	domain("libreddit.strongthany.cc")
+{
+	:root, .dark {
+		--nsfw: #f00 !important;
+		--admin: #f00 !important;
+
+		--accent: white !important;
+		--green: white !important;
+		--text: white !important;
+		--foreground: #444 !important;
+		--background: #181818 !important;
+		--outside: #222 !important;
+		--post: #222 !important;
+		--panel-border: none !important;
+		--highlighted: #222 !important;
+		--visited: #aaa !important;
+		--shadow: 0 0 5px 2px #181818 !important;
+	}
+
+	/* Override comment bg */
+	.comment_score, .line {
+		background-color: #222 !important;
+	}
+
+	/* Disable color transition */
+	* {
+		transition: none !important;
+	}
+
+	/* Hide link underline in post box */
+	.post a {
+		text-decoration: none !important;
+	}
+
+	/* Retheme sort bar */
+	#sort_options {
+		font-weight: bold !important;
+	}
+	.selected {
+		background-color: #444 !important;
+		color: white !important;
+	}
+}

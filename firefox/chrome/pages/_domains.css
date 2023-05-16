@@ -1,0 +1,6 @@
+@-moz-document
+	domain("safereddit.com"),
+	domain("libreddit.pussthecat.org"),
+	domain("libreddit.tiekoetter.com"),
+	domain("libreddit.strongthany.cc")
+{ @import libreddit.css; }

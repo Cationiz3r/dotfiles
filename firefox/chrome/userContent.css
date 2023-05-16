@@ -1,4 +1,5 @@
 @import "contentColors.css";
+@import "pages/_all.css";
 @-moz-document
 	url("about:about"),
 	url("about:addons"),
