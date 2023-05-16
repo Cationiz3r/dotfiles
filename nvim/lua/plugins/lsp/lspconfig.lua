@@ -28,4 +28,11 @@ require("lspconfig").jedi_language_server.setup {
 }
 require("lspconfig").lemminx.setup {
 	capabilities = capabilities,
+	settings = {
+		xml = {
+			server = {
+				workDir = "$XDG_CACHE_HOME/lemminx",
+			},
+		},
+	},
 }
