@@ -31,7 +31,7 @@ require("lspconfig").lemminx.setup {
 	settings = {
 		xml = {
 			server = {
-				workDir = "$XDG_CACHE_HOME/lemminx",
+				workDir = os.getenv("XDG_CACHE_HOME") .. "/lemminx",
 			},
 		},
 	},
