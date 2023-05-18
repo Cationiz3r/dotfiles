@@ -66,4 +66,13 @@
 		background-color: #444 !important;
 		color: white !important;
 	}
+
+	/* Retheme footer buttons */
+	main footer {
+		font-weight: bold !important;
+	}
+	main footer a:hover {
+		background-color: #444 !important;
+		text-decoration: none !important;
+	}
 }
