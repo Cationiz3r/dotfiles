@@ -78,4 +78,16 @@
 		background-color: #444 !important;
 		text-decoration: none !important;
 	}
+
+	/* Search hover background */
+	#search:hover, #search:focus,
+	#inside:hover,
+	.submit:hover {
+		background-color: var(--foreground) !important;
+	}
+
+	/* No search outline */
+	#search {
+		outline: none !important;
+	}
 }
