@@ -21,6 +21,11 @@
 		--shadow: 0 0 5px 2px #181818 !important;
 	}
 
+	/* Page footer background */
+	body footer {
+		background-color: var(--background) !important;
+	}
+
 	/* Override comment bg */
 	.comment_score, .line {
 		background-color: #222 !important;
@@ -29,6 +34,18 @@
 	/* Disable color transition */
 	* {
 		transition: none !important;
+		border-radius: 0 !important;
+	}
+
+	/* Remargin items */
+	body {
+		padding-top: 50px !important;
+	}
+	#sort, .post {
+		margin-bottom: 10px !important;
+	}
+	main footer {
+		margin-top: 10px !important;
 	}
 
 	/* Hide link underline in post box */
@@ -36,12 +53,41 @@
 		text-decoration: none !important;
 	}
 
+	/* Center sort bar */
+	#sort {
+		justify-content: center !important;
+	}
+
 	/* Retheme sort bar */
 	#sort_options {
 		font-weight: bold !important;
 	}
+	#sort_options a {
+		text-decoration: none !important;
+	}
 	.selected {
 		background-color: #444 !important;
 		color: white !important;
+	}
+
+	/* Retheme footer buttons */
+	main footer {
+		font-weight: bold !important;
+	}
+	main footer a:hover {
+		background-color: #444 !important;
+		text-decoration: none !important;
+	}
+
+	/* Search hover background */
+	#search:hover, #search:focus,
+	#inside:hover,
+	.submit:hover {
+		background-color: var(--foreground) !important;
+	}
+
+	/* No search outline */
+	#search {
+		outline: none !important;
 	}
 }
