@@ -29,6 +29,7 @@
 	/* Disable color transition */
 	* {
 		transition: none !important;
+		border-radius: 0 !important;
 	}
 
 	/* Hide link underline in post box */
