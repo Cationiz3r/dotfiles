@@ -11,11 +11,12 @@ while ! [ -S "$XDG_RUNTIME_DIR/i3/ipc-socket.$i3_pid" ]; do
 	sleep 1
 done
 
-export \
-	POLYBAR_ROOT=$(pwd) \
-	POLYBAR_RUN="$XDG_RUNTIME_DIR/polybar" \
-	BACKGROUND=$(grep background\          colors.ini|head -1|cut -d\  -f3) \
-	BACKGROUND_ALT=$(grep background-alt\  colors.ini|head -1|cut -d\  -f3)
-mkdir -vp "$POLYBAR_RUN"
-export SEP="    %{B$BACKGROUND F$BACKGROUND}  %{B$BACKGROUND_ALT F-}    "
+# Work dirs
+export POLYBAR_ROOT=$(pwd)
+export POLYBAR_RUN="$XDG_RUNTIME_DIR/polybar"
+mkdir -p "$POLYBAR_RUN"
+
+# For shell scripts
+export DANGER="%{T2}%{F#f00}"
+
 exec polybar
