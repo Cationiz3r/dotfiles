@@ -37,6 +37,17 @@
 		border-radius: 0 !important;
 	}
 
+	/* Remargin items */
+	body {
+		padding-top: 50px !important;
+	}
+	#sort, .post {
+		margin-bottom: 10px !important;
+	}
+	main footer {
+		margin-top: 10px !important;
+	}
+
 	/* Hide link underline in post box */
 	.post a {
 		text-decoration: none !important;
