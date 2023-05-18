@@ -2,7 +2,7 @@
 # polybar weather module, powered by openweather
 
 force() {	ps -p $SLEEP_PID >/dev/null && kill $SLEEP_PID; }
-trap force USR1
+trap force USR1 EXIT
 
 CACHE="$POLYBAR_RUN/openweather"
 
