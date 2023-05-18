@@ -9,7 +9,7 @@ marker:#999999,spinner:#a5a5a5,header:#ffffff \
 --prompt='  ' --pointer='❯'"
 
 # Java theme unification
-export _JAVA_OPTIONS="\
+export _JAVA_OPTIONS="$_JAVA_OPTIONS \
 -Dawt.useSystemAAFontSettings=on \
 -Dswing.aatext=true \
 -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel \
