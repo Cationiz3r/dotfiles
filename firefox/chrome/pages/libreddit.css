@@ -42,6 +42,11 @@
 		text-decoration: none !important;
 	}
 
+	/* Center sort bar */
+	#sort {
+		justify-content: center !important;
+	}
+
 	/* Retheme sort bar */
 	#sort_options {
 		font-weight: bold !important;
