@@ -74,6 +74,11 @@
 		font-weight: normal !important;
 	}
 
+	/* Right align channel */
+	.channel-name {
+		text-align: right !important;
+	}
+
 	/* Video duration */
 	.length {
 		padding: 3px 8px !important;
