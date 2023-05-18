@@ -1,30 +1,56 @@
 #!/bin/sh
-out() { echo "$@"; }
-waitonline() {
+
+CACHE="$POLYBAR_RUN/updates"
+
+out() { echo " $@ "; }
+
+wait_online() {
 	out ..\?
-	for i in $(seq 1 30); do
-		ping -c1 archlinux.org >/dev/null 2>&1 && break; sleep 2
+	for i in $(seq 0 7); do
+		ping -c1 archlinux.org >/dev/null 2>&1 && break
+		sleep 15
 	done
 }
-cache="$POLYBAR_RUN/updates"
-force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
-trap 'force; exit' INT
-trap force USR1 USR2 EXIT
+
+get_packages() {
+	# Returns number of updatable packages
+	if grep -q 'ERROR' "$CACHE"; then
+		echo 0
+		return 1
+	fi
+	cat "$CACHE"|wc -l
+}
+
+get_external() {
+	# Custom script pkgwatch
+	if ! command -v pkgwatch >/dev/null; then
+		echo 0
+		return 1
+	fi
+	pkgwatch|wc -l
+}
+
+get_info() {
+	wait_online
+	out ...
+	[ -f "$CACHE" ] || checkupdates 2>&1 >"$CACHE"
+
+	local pkgs=$(get_packages)
+	local ext=$(get_external)
+
+	if [ $((pkgs + ext)) -eq 0 ]; then
+		echo
+		return
+	fi
+
+	local ext_str
+	[ $ext -gt 0 ] && ext_str=".$ext"
+	out "$pkgs$ext_str"
+}
+
 while true; do
-	waitonline; out ...
-	[ -f "$cache" ] || checkupdates 2>&1 >"$cache"
-	[ -f "$cache.pw" ] || command -v pkgwatch >/dev/null 2>&1 && pkgwatch >"$cache.pw"
-	(
-		PKGS=$(cat "$cache"|wc -l)
-		PKGS_EX=$(cat "$cache.pw"|wc -l)
-		TOT=$((PKGS + PKGS_EX))
-		[ $TOT -eq 0 ] && { echo; exit; }
-		[ $PKGS -eq 1 ] && [ "$(cat "$cache")" = '==>' ] &&
-			{ out '%{T2}?'; exit; }
-		[ $PKGS_EX -gt 0 ] && TOT="$TOT ($PKGS_EX)"
-		out "$TOT"
-	)
-	sleep 30m & sleep_pid=$!
-	wait
-	rm -f "$cache" "$cache.pw"
+	get_info
+	rm "$CACHE"
+
+	sleep 3h
 done
