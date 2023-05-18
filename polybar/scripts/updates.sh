@@ -9,9 +9,9 @@ out() { echo " $@ "; }
 
 wait_online() {
 	out ..\?
-	for i in $(seq 0 7); do
+	for delay in $(seq 2 4 30); do
 		ping -c1 archlinux.org >/dev/null 2>&1 && break
-		sleep 15
+		sleep $delay
 	done
 }
 
