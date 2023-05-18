@@ -21,6 +21,11 @@
 		--shadow: 0 0 5px 2px #181818 !important;
 	}
 
+	/* Page footer background */
+	body footer {
+		background-color: var(--background) !important;
+	}
+
 	/* Override comment bg */
 	.comment_score, .line {
 		background-color: #222 !important;
