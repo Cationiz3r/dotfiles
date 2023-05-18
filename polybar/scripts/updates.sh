@@ -1,5 +1,8 @@
 #!/bin/sh
 
+force() {	ps -p $SLEEP_PID >/dev/null && kill $SLEEP_PID; }
+trap force USR1
+
 CACHE="$POLYBAR_RUN/updates"
 
 out() { echo " $@ "; }
@@ -50,7 +53,8 @@ get_info() {
 
 while true; do
 	get_info
-	rm "$CACHE"
 
-	sleep 3h
+	sleep 3h & SLEEP_PID=$!
+	wait
+	rm "$CACHE"
 done
