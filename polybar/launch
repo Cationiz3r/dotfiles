@@ -16,4 +16,7 @@ export POLYBAR_ROOT=$(pwd)
 export POLYBAR_RUN="$XDG_RUNTIME_DIR/polybar"
 mkdir -p "$POLYBAR_RUN"
 
+# For shell scripts
+export DANGER="%{T2}%{F#f00}"
+
 exec polybar
