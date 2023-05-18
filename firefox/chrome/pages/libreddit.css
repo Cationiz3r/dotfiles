@@ -62,6 +62,9 @@
 	#sort_options {
 		font-weight: bold !important;
 	}
+	#sort_options a {
+		text-decoration: none !important;
+	}
 	.selected {
 		background-color: #444 !important;
 		color: white !important;
