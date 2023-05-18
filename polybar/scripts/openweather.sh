@@ -1,31 +1,30 @@
 #!/bin/sh
 # polybar weather module, powered by openweather
 
-# Output
-out() { echo "$@"; }
-out_simple() { out "$data_icon %{T2}$data_feel%{T-}°C"; }
-out_detailed() {
-	out "$data_desc %{T2}$data_feel%{T-}($data_temp)°C $data_humid%"
-}
+force() {	ps -p $SLEEP_PID >/dev/null && kill $SLEEP_PID; }
+trap force USR1
 
-# Source private config
-. $POLYBAR_ROOT/.priv/openweather.conf
-[ -z "$conf_apikey" ] || [ -z "conf_cityid" ] && { echo "err: missing config"; exit 1; }
-cache="$POLYBAR_RUN/openweather"
+CACHE="$POLYBAR_RUN/openweather"
 
-# Network
-waitonline() {
+out() { echo " $@"; }
+out_info() { echo "$data_icon $data_feel°C  $data_humid%"; }
+
+wait_online() {
 	out ..\?
-	for i in $(seq 1 30); do
-		ping -c1 archlinux.org >/dev/null 2>&1 && break; sleep 2
+	for delay in $(seq 2 4 30); do
+		ping -c1 archlinux.org >/dev/null 2>&1 && break
+		sleep $delay
 	done
 }
-getdata() {
-	curl -s "https://api.openweathermap.org/data/2.5/weather?\
-appid=$conf_apikey&id=$conf_cityid&units=metric" >"$cache"
+
+read_config() {
+	. .priv/openweather.conf
+	if [ -z "$conf_apikey" ] || [ -z "conf_cityid" ]; then
+		echo "err: missing config"
+		exit 1
+	fi
 }
 
-# Parsing
 icon() {
 	case "$1" in
 	01d) echo ;; #Clear
@@ -39,9 +38,15 @@ icon() {
 	*)   echo ;; #Unknown
 	esac
 }
-parsejson() {
-	<"$cache" jq -r '.cod, (.main|.temp, .feels_like, .humidity), (.weather[0]|.description, .icon)'|\
-		for var in data_cod data_temp data_feel data_humid data_desc data_icon; do
+
+download_json() {
+	curl -s "https://api.openweathermap.org/data/2.5/weather?\
+appid=$conf_apikey&id=$conf_cityid&units=metric"
+} >"$CACHE"
+
+parse_json() {
+	<"$CACHE" jq -r '.cod, (.main|.temp, .feels_like, .humidity), (.weather[0]|.description, .icon)'|\
+	for var in data_cod data_temp data_feel data_humid data_desc data_icon; do
 		read data
 		printf $var=
 		case $var in
@@ -53,30 +58,21 @@ parsejson() {
 	done
 }
 
-# Signal handling
-force() { ps -p $sleep_pid >/dev/null && kill $sleep_pid; }
-switch() {
-	force
-	touch "$cache.skip"
-	echo $((1-$(cat "$cache.mode"))) >"$cache.mode"
-}
-trap 'force; exit' INT
-trap force USR2 EXIT
-trap switch USR1
+is_valid() { [ "$data_cod" = 200 ]; }
 
-# Main loop
-echo 0 >"$cache.mode"
+get_info() {
+	wait_online
+	out ...
+	[ -f "$CACHE" ] || download_json
+	eval $(parse_json)
+	is_valid && out_info || echo
+}
+
+read_config
 while true; do
-	[ -f "$cache.skip" ] || { waitonline; out ...; }
-	mode=$(cat "$cache.mode")
-	rm -f "$cache.skip"
-	[ -s "$cache" ] || { getdata; }
-	eval $(parsejson)
-	if [ "$data_cod" = 200 ]; then
-		[ $mode -eq 0 ] && out_simple || out_detailed
-	else echo #Hide module if parse is empty
-	fi
-	sleep 10m & sleep_pid=$!
+	get_info
+	rm -f "$CACHE"
+
+	sleep 1h & SLEEP_PID=$!
 	wait
-	[ -f "$cache.skip" ] || rm -f "$cache"
 done
