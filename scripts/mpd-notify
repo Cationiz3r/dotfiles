@@ -42,10 +42,15 @@ notify() {
 		content=$(basename "$(get_cur file)")
 	fi
 
-	# Append index if 1 album and summary doesn't have inline index
-	if is_single_album && ! echo "$summary"|grep -q ' - '; then
-		local track=$(get_cur track)
-		[ -n "$track" ] && summary="$track. $summary"
+	# Single album
+	if is_single_album ; then
+		# Append index if ummary doesn't have inline index
+		if ! echo "$summary"|grep -q ' - '; then
+			local track=$(get_cur track)
+			[ -n "$track" ] && summary="$track. $summary"
+		fi
+		# Append album name to content
+		content="$content - $(get_cur album)"
 	fi
 
 	# Get art icon & flip if valid
