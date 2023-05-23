@@ -5,6 +5,7 @@ local whichkey = require("which-key")
 local telescope = require("telescope.builtin")
 local gitsigns = package.loaded.gitsigns
 local illuminate = require("illuminate")
+local snip = require("luasnip")
 local utils = require("core.utils")
 
 -- Quick (no leader)
@@ -23,11 +24,13 @@ whichkey.register({
 		name = "+previous",
 		c = { gitsigns.prev_hunk, "hunk" },
 		r = { illuminate.goto_prev_reference, "reference" },
+		s = { function() snip.jump(-1) end, "selection" },
 	},
 	["]"] = {
 		name = "+next",
 		c = { gitsigns.next_hunk, "hunk" },
 		r = { illuminate.goto_next_reference, "reference" },
+		s = { function() snip.jump(1) end, "selection" },
 	},
 })
 
