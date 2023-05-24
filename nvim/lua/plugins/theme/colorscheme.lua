@@ -75,6 +75,9 @@ require("dracula").setup({
 		LspFloatWinNormal = { link = "Float" },
 		NormalFloat = { link = "Float" },
 		NvimFloat = { link = "Float" },
+
+		CmpItemMenu = { fg = colors.comment },
+		CmpItemMenuDefault = { link = "CmpItemMenu" },
 	},
 
 	italic_comments = true,
