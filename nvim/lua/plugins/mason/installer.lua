@@ -3,8 +3,8 @@ require("mason-tool-installer").setup({
 		-- LSP
 		"clangd", -- C, C++
 		"jdtls", -- Java
-		"lua_ls", -- Lua
-		"jedi_language_server", -- Python
+		"lua-language-server", -- Lua
+		"jedi-language-server", -- Python
 		"lemminx", -- XML
 
 		-- Linter
