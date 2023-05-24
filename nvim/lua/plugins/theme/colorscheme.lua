@@ -76,6 +76,9 @@ require("dracula").setup({
 		NormalFloat = { link = "Float" },
 		NvimFloat = { link = "Float" },
 
+		PmenuSel = { fg = colors.bright_white, bg = colors.selection, bold = true },
+
+		CmpItemAbbrMatch = { fg = colors.bright_white, bold = true },
 		CmpItemMenu = { fg = colors.comment },
 		CmpItemMenuDefault = { link = "CmpItemMenu" },
 	},
