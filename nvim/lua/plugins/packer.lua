@@ -31,7 +31,7 @@ return require("packer").startup(function(use)
 
 	-- Mason
 	use "williamboman/mason.nvim"
-	use "williamboman/mason-lspconfig.nvim"
+	use "WhoIsSethDaniel/mason-tool-installer.nvim"
 	use "neovim/nvim-lspconfig"
 	use "mfussenegger/nvim-lint" -- lint
 
