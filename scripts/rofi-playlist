@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Select index number from current playlist
+select=$(
+	mpc playlist|\
+	sed 's/ - / /g'|\
+	tr A-Z a-z|\
+	cat -n|\
+	rofi -theme list -dmenu -case-insensitive|\
+	awk '{print $1}'
+)
+
+# Quit if empty
+[ -z "$select" ] && exit
+
+# Add to current playlist
+mpc play "$select"
