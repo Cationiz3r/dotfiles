@@ -37,6 +37,7 @@ require("dracula").setup({
 	overrides = {
 		MoreMsg = { fg = colors.comment, bold = true },
 		Error = { fg = colors.bright_red, bold = true },
+		CursorLine = { bg = colors.selection, bold = true },
 
 		DiagnosticError = { link = "Error" },
 		DiagnosticVirtualTextError = { link = "Error" },
