@@ -1,3 +1,5 @@
+require("plugins.completion.dictionary")
+
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
@@ -12,6 +14,7 @@ cmp.setup({
 				nvim_lsp = "[LSP]",
 				luasnip = "[Snip]",
 				nvim_lua = "[Lua]",
+				dictionary = "[Dict]",
 				latex_symbols = "[Latex]",
 			})
 		}),
@@ -31,6 +34,10 @@ cmp.setup({
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{
+			name = "dictionary",
+			keyword_length = 2,
+		},
 	}, {
 		{ name = "buffer" },
 	}),
