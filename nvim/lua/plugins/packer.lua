@@ -27,7 +27,7 @@ return require("packer").startup(function(use)
 	use "windwp/nvim-autopairs"
 	use "RRethy/vim-illuminate"
 	use "norcalli/nvim-colorizer.lua"
-	use "Mofiqul/dracula.nvim"
+	use { "Mofiqul/dracula.nvim", commit = "26d04c8" }
 	use "lukas-reineke/indent-blankline.nvim"
 
 	-- Mason
