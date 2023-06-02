@@ -28,6 +28,7 @@ return require("packer").startup(function(use)
 	use "RRethy/vim-illuminate"
 	use "norcalli/nvim-colorizer.lua"
 	use "Mofiqul/dracula.nvim"
+	use "lukas-reineke/indent-blankline.nvim"
 
 	-- Mason
 	use "williamboman/mason.nvim"
