@@ -30,6 +30,8 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 # X11 logfile
 XLOG="$XDG_RUNTIME_DIR/xorg/$XDG_VTNR"
