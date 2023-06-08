@@ -6,6 +6,7 @@ path=(
 	"$XDG_CONFIG_HOME"/scripts
 	~/.local/bin
 	~/.local/bin-firejail
+	"$CARGO_HOME"/bin
 	/bin
 	$path
 )
