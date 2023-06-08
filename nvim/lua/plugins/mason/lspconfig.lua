@@ -29,6 +29,9 @@ require("lspconfig").lua_ls.setup {
 require("lspconfig").jedi_language_server.setup {
 	capabilities = capabilities,
 }
+require("lspconfig").rust_analyzer.setup {
+	capabilities = capabilities,
+}
 require("lspconfig").lemminx.setup {
 	capabilities = capabilities,
 	settings = {

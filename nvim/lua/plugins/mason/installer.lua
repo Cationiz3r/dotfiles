@@ -6,6 +6,7 @@ require("mason-tool-installer").setup({
 		"emmet-ls", -- HTML, CSS
 		"lua-language-server", -- Lua
 		"jedi-language-server", -- Python
+		"rust-analyzer", -- Rust
 		"lemminx", -- XML
 
 		-- Linter

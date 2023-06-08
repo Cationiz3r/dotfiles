@@ -17,6 +17,7 @@ require("nvim-treesitter.configs").setup {
 		"make",
 		"markdown",
 		"python",
+		"rust",
 		"vim",
 	},
 	highlight = {
