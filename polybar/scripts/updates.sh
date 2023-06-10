@@ -5,7 +5,7 @@ trap force USR1 EXIT
 
 CACHE="$POLYBAR_RUN/updates"
 
-out() { echo " $@ "; }
+out() { echo " $@"; }
 
 wait_online() {
 	out ..\?
