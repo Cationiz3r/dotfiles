@@ -19,4 +19,4 @@ mkdir -p "$POLYBAR_RUN"
 # For shell scripts
 export DANGER="%{T2}%{F#f00}"
 
-exec polybar
+exec polybar "$@"

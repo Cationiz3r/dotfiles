@@ -29,5 +29,5 @@ while true; do
 	get_charge
 	get_info
 
-	sleep 1
+	sleep 5
 done
