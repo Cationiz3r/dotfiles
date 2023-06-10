@@ -41,6 +41,7 @@ alias shred='shred -vu --random-source=/dev/urandom'
 alias ps='ps aux'
 alias speedtest='speedtest --secure --bytes'
 alias sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep'
+alias sqlite3='sqlite3 -init "$XDG_CONFIG_HOME"/sqlite3/sqliterc'
 
 df() {
 	# Sort disk free content results
