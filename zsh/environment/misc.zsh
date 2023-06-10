@@ -3,6 +3,7 @@
 export EDITOR='nvim'
 export PAGER='less -FRx2'
 export LESSHISTFILE=- # No less history
+export SQLITE_HISTORY=/dev/null
 export GPG_TTY=$(tty)
 
 # For xinitrc
