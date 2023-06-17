@@ -13,5 +13,8 @@ export PICOM_CONF="$HOME/.config/picom/picom.conf"
 unset HISTFILE # No history
 HISTSIZE=200
 
+# Use pipenv in current dir as the project dir
+export PIPENV_VENV_IN_PROJECT=1
+
 # No share
 umask 0077
