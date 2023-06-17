@@ -32,8 +32,14 @@ cmp.setup({
 		end,
 	},
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		{
+			name = "nvim_lsp",
+			score = 5,
+		},
+		{
+			name = "luasnip",
+			score = 3,
+		},
 		{
 			name = "dictionary",
 			keyword_length = 2,
