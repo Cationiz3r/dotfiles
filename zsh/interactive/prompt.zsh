@@ -34,6 +34,8 @@ promptUpdate() {
 	[ "$EUID" -eq 0 ] && user="%U%F{15}$user%u%F{14}"
 	[ -n "$PROMPT_PRIV" ] && userhost="$user@$userhost"
 	[ -n "$PROMPT_SSH" ] && userhost="ssh:$userhost"
+	local venv
+	[ -n "$PIPENV_ACTIVE" ] && venv=" venv"
 	local pwd=$(promptPwd)
 	[ -n "$pwd" ] && pwd="%F{12}$pwd "
 	local git=$(2>/dev/null git branch|grep \*|cut -b3-)
@@ -45,7 +47,7 @@ promptUpdate() {
 
 	local sign=❯
 	[ "$EUID" -eq 0 ] && sign=#
-	PS1="%B%F{15}▍%F{14}$userhost $pwd$git%F{15}$sign " # 258D
+	PS1="%B%F{15}▍%F{14}$userhost$venv $pwd$git%F{15}$sign " # 258D
 }
 
 promptInit() {
