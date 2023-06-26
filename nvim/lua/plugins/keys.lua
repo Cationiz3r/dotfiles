@@ -65,7 +65,7 @@ whichkey.register({
 
 	f = {
 		name = "+find",
-		f = { telescope.current_buffer_fuzzy_find, "in file" },
+		f = { "<cmd>NvimTreeFindFile<CR>", "file in tree" },
 		d = { telescope.live_grep, "in directory" },
 		w = { telescope.grep_string, "word" },
 		s = { telescope.lsp_document_symbols, "document symbols" },
@@ -73,7 +73,6 @@ whichkey.register({
 		q = { telescope.quickfix, "in quickfix list" },
 		h = { telescope.help_tags, "in help" },
 		r = { telescope.lsp_references, "references" },
-		-- t = { t_ext.todo.todo, "todos" },
 	},
 
 	g = {
