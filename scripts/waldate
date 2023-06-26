@@ -1,14 +1,11 @@
 #!/bin/sh
 
 set_wallpaper() {
-	root="$XDG_CONFIG_HOME/_custom/waldate"
-	echo "waldate: $1"
-	xwallpaper --zoom "$root/$1"
+	xwallpaper --zoom "$1"
 }
 
+# Compare current time to day range
 is_day() {
-	local day_begin=06:00
-	local day_end=19:00
 	local now=$(date '+%H:%M')
 
 	# Check if in range
@@ -16,13 +13,21 @@ is_day() {
 	return $?
 }
 
-# parse args
-wal=night
+# Source config file
+. "$XDG_CONFIG_HOME/_custom/waldate.conf"
+
+# Main
+wal="$night_wallpapers"
 if [ $# -gt 0 ]; then
 	# ignore check if args
-	[ "$1" = "day" ] && wal=day
+	[ "$1" = "day" ] && wal="$day_wallpapers"
 elif is_day; then
-	wal=day
+	wal="$day_wallpapers"
+fi
+
+# Expand if target is a directory
+if [ -d "$wal" ]; then
+	wal=$(find "$wal" -type f|shuf -n1)
 fi
 
 set_wallpaper "$wal"
