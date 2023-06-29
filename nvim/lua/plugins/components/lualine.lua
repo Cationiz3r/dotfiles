@@ -2,6 +2,7 @@ local mode_icons = {
 	NORMAL = " ",
 	VISUAL = " ",
 	["V-LINE"] = " ",
+	["V-BLOCK"] = " ",
 	INSERT = " ",
 	REPLACE = " ",
 	COMMAND = " ",
