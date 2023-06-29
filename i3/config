@@ -13,7 +13,7 @@ set $ws3_1 31:Fullscreen
 set $ws4 40:Chat
 set $ws5 50:Music
 set $ws5_1 51:FLStudio
-set $ws5_2 52:Pavucontrol
+set $ws5_2 52:Mixer
 set $ws6 60:Art
 set $ws7 70:Torrent
 set $ws8 80:Misc
