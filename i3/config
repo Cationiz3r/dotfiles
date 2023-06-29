@@ -1,6 +1,10 @@
 # Workspace names
 set $ws1 10:Work
-set $ws1_1 11:Office
+set $ws1_1 11:Work
+set $ws1_2 12:Work
+set $ws1_3 13:Office
+set $ws1_4 14:Office
+set $ws1_5 15:Database
 set $ws2 20:Web
 set $ws2_1 21:Flask
 set $ws2_2 22:Tor
