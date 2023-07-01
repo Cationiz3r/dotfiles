@@ -10,6 +10,11 @@ while [ $# -gt 0 ]; do
 	[ -r "$1" ] || _die 'can not read'
 	echo "$1"|grep -qE '.pkg.tar.zst$' ||\
 		_die 'may not be a package'
+	if ! pacman -Qi "$(pacman -Qp "$1"|cut -d' ' -f1)" >/dev/null 2>&1; then
+		echo "not:  $1"
+		shift
+		continue
+	fi
 	tempdir=$(mktemp -d)
 	cat "$1"|unzstd|tar xf - -C "$tempdir"
 	cd "$tempdir"
