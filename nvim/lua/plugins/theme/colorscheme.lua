@@ -85,6 +85,9 @@ require("dracula").setup({
 
 		IndentBlanklineContextStart = { underline = true, sp = colors.bright_yellow, bold = true },
 		IndentBlanklineContextChar = { fg = colors.bright_yellow, bold = true, },
+
+		[ "@text.diff.add.diff" ] = { fg = colors.bright_white, bold = true },
+		[ "@text.diff.delete.diff" ] = { fg = colors.bright_red, bold = true },
 	},
 
 	italic_comments = true,
