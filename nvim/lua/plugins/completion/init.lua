@@ -32,14 +32,8 @@ cmp.setup({
 		end,
 	},
 	sources = cmp.config.sources({
-		{
-			name = "nvim_lsp",
-			score = 5,
-		},
-		{
-			name = "luasnip",
-			score = 3,
-		},
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
 		{
 			name = "dictionary",
 			keyword_length = 2,
@@ -47,4 +41,17 @@ cmp.setup({
 	}, {
 		{ name = "buffer" },
 	}),
+	sorting = {
+		comparators = {
+			cmp.config.compare.recently_used,
+			cmp.config.compare.score,
+			cmp.config.compare.kind,
+			cmp.config.compare.locality,
+
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		}
+	},
 })
