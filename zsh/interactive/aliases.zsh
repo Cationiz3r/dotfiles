@@ -42,6 +42,7 @@ alias ps='ps aux'
 alias speedtest='speedtest --secure --bytes'
 alias sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep'
 alias sqlite3='sqlite3 -init "$XDG_CONFIG_HOME"/sqlite3/sqliterc'
+alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 
 df() {
 	# Sort disk free content results
