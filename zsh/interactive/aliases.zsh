@@ -64,13 +64,24 @@ alias py='python'
 alias play='mpv --profile=music'
 alias g='git'
 alias n='nvim'
-alias v='spawn mpv --no-terminal --profile=gallery'
 alias wf='nmcli dev wifi con'
 alias wfls='nmcli dev wifi re; nmcli dev wifi'
 alias con='nmcli dev con'
 alias dis='nmcli dev dis'
 alias yt='ytfzf'
 alias ytc='ytfzf --sort -cS'
+
+# Background processes
+detach() { nohup "$@" &>/dev/null &| }
+alias v='detach mpv --no-terminal --profile=gallery'
+startx() command startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
+if [ -n "$DISPLAY" ]; then
+	detach() { nohup "$@" &>"$XLOG" &| }
+	alias \
+		kr='detach krita' \
+		lp='detach leafpad' \
+		za='detach zathura'
+fi
 
 # Utilities
 alias path='tr : \\n <<<$PATH'
