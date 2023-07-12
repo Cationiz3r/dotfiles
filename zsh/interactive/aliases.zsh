@@ -76,7 +76,7 @@ detach() { nohup "$@" &>/dev/null &| }
 alias v='detach mpv --no-terminal --profile=gallery'
 startx() command startx "$XINITRC" -- "$XSERVERRC" &>"$XLOG"
 if [ -n "$DISPLAY" ]; then
-	detach() { nohup "$@" &>"$XLOG" &| }
+	detach() { nohup "$@" &>>"$XLOG" &| }
 	alias \
 		kr='detach krita' \
 		lp='detach leafpad' \
