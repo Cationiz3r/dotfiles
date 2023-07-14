@@ -34,24 +34,3 @@
 /pavucontrol.ini
 /QtProject.conf
 /user-dirs.locale
-
-# Specifics
-/geany/filedefs/filetypes.README
-/geany/plugins
-/geany/tags
-/geany/templates
-/geany/geany.conf
-/geany/keybindings.conf
-/geany/geany_socket_*
-/git/credentials
-/gtk-2.0/gtkfilechooser.ini
-/gtk-3.0/bookmarks
-/mpd/database
-/mpd/pid
-/mpv/watch_later
-/polybar/.priv/*.conf
-/pulse/*.tdb
-/pulse/*-default-sink
-/pulse/*-default-source
-/pulse/cookie
-/ytfzf/subscriptions
