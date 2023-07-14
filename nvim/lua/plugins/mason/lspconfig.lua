@@ -6,6 +6,13 @@ require("lspconfig").bashls.setup {
 }
 require("lspconfig").clangd.setup {
 	capabilities = capabilities,
+	cmd = {
+		"clangd",
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=iwyu",
+		"--header-insertion-decorators",
+	},
 }
 require("lspconfig").jdtls.setup {
 	capabilities = capabilities,
