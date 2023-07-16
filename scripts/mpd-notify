@@ -49,8 +49,12 @@ notify() {
 			local track=$(get_cur track)
 			[ -n "$track" ] && summary="$track. $summary"
 		fi
-		# Append album name to content
-		content="$content - $(get_cur album)"
+	fi
+
+	# Append album name to content
+	album=$(get_cur album)
+	if [ -n "$album" ]; then
+		content="<span size='7pt' rise='7pt'><b>$album</b></span>\\n$content"
 	fi
 
 	# Get art icon & flip if valid
