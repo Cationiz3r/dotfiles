@@ -16,5 +16,9 @@ HISTSIZE=200
 # Use pipenv in current dir as the project dir
 export PIPENV_VENV_IN_PROJECT=1
 
+# Fix steam client blank/white rendering on NVIDIA driver
+# https://github.com/ValveSoftware/steam-for-linux/issues/9306
+export QT_X11_NO_MITSHM=1
+
 # No share
 umask 0077
