@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
 	use "norcalli/nvim-colorizer.lua"
 	use { "Mofiqul/dracula.nvim", commit = "26d04c8" }
 	use "lukas-reineke/indent-blankline.nvim"
+	use { "kylechui/nvim-surround", tag = "*" }
 
 	-- Mason
 	use "williamboman/mason.nvim"
