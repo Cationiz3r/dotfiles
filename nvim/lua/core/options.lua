@@ -22,6 +22,7 @@ vim.opt.shiftround = true -- round indent to multiple of shiftwidth
 vim.opt.expandtab = false -- replace tab with space
 vim.opt.smartindent = true
 vim.g.python_recommended_style = 0
+vim.g.rust_recommended_style = 0
 
 -- Python indent
 vim.g.python_indent = {
