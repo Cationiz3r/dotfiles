@@ -5,11 +5,3 @@ vim.api.nvim_create_autocmd(
 		command = ":%s/\\s\\+$//e|noh"
 	}
 )
-
--- Max line length for python
-vim.api.nvim_create_autocmd(
-	"FileType", {
-		pattern = "python",
-		command = "set colorcolumn=80"
-	}
-)
