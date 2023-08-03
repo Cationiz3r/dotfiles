@@ -36,6 +36,7 @@ return require("packer").startup(function(use)
 	use "WhoIsSethDaniel/mason-tool-installer.nvim"
 	use "neovim/nvim-lspconfig"
 	use "mfussenegger/nvim-lint" -- lint
+	use "mhartington/formatter.nvim" -- formatter
 
 	-- Completion
 	use "hrsh7th/nvim-cmp"
