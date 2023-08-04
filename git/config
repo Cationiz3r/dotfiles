@@ -1,57 +1,100 @@
 [user]
-	name = Martin Cation
 	email = martincation@protonmail.com
+	name = Martin Cation
 	signingkey = D0DABDF1E1EA085D
-[core]
-	pager = less -FRx2
-[init]
-	defaultBranch = main
-[color "diff"]
-	meta = bold blue
-	frag = bold brightmagenta
-	old = brightred
-	new = bold brightwhite
-[log]
-	graphColors = bold blue
+
 [alias]
-	root = rev-parse --show-toplevel
-	ls = ls-tree -r --name-only HEAD
-	l = ll --max-count=20
-	ll = log --graph --abbrev-commit --decorate --date=format-local:'%y/%m/%d %H:%M' --format=format:'%C(bold blue)%h %C(reset)%C(green)%ad%C(reset)%C(bold brightwhite) %s %C(reset)%C(dim white)- %an %C(reset)%C(bold italic brightred)%D'
-	la = l --all
-	lla = ll --all
-	br = branch  --sort=-committerdate --format='%(color:bold blue)%(HEAD) %(color:bold brightred)%(refname:short)%(color:reset) %(color:bold green)(%(committerdate:relative))%(color:reset) %(color:bold brightwhite)%(contents:subject)%(color:reset) %(color:dim white)- %(authorname)%(color:reset)'
+	a = add
+	ac = merge --abort
+	ap = cherry-pick --abort
+	ar = rebase --abort
+	b = branch \
+		--sort=-committerdate \
+		--format='%(color:bold blue)%(HEAD) \
+%(color:bold brightred)%(refname:short)%(color:reset) \
+%(color:bold green)(%(committerdate:relative))%(color:reset) \
+%(color:bold brightwhite)%(contents:subject)%(color:reset) \
+%(color:dim white)- %(authorname)%(color:reset)'
+	ba = b -a
+	c = clone
+	cc = rev-list --count HEAD
 	cm = commit -m
 	cma = commit --amend
-	r5 = rebase -i HEAD~5
+	cb = co -b
+	co = checkout
+	ct = shortlog -sen
+	d = dd --staged
+	dc = ds --staged
+	dd = diff --color-words
+	del = branch -D
+	ds = diff --stat
+	e = remote -v
+	f = fetch
+	fa = f --all
+	fg = reset --hard
+	fp = fa --prune
+	i = init
+	l = ll --max-count=20
+	la = l --all
+	last = log -1 --stat HEAD
+	ll = log --graph \
+		--abbrev-commit \
+		--decorate \
+		--date=format-local:'%y/%m/%d %H:%M' \
+		--format=format:'%C(bold blue)%h \
+%C(reset)%C(green)%ad\
+%C(reset)%C(bold brightwhite) %s \
+%C(reset)%C(dim white)- %an \
+%C(reset)%C(bold italic brightred)%D'
+	lla = ll --all
+	ls = ls-tree -r --name-only HEAD
+	m = merge -m
+	p = push
+	pa = p --all
+	pk = cherry-pick
+	pl = pull
+	pp = pa --prune
 	re = rebase -i
+	root = rev-parse --show-toplevel
+	rs = restore --staged
 	s = status -sb
 	ss = s .
-	co = checkout
-	cob = checkout -b
-	del = branch -D
+	st = show --stat
+	sw = show --color-words
+	t = tag
 	ud = reset --soft HEAD~1
-	fg = reset --hard
-	d = diff --staged --color-words
-	dc = diff --stat --staged
-	dd = diff --color-words
-	ds = diff --stat
-	last = log -1 --stat HEAD
-	cc = rev-list --count HEAD
-	ct = shortlog -sen
-	p = push
-	pl = pull
-	a = add
-	rs = restore --staged
-[pull]
-	rebase = true
-	ff = only
+[color "diff"]
+	frag = bold brightmagenta
+	meta = bold blue
+	new = bold brightwhite
+	old = brightred
+[color "status"]
+	added = bold white
+	changed = bold red
+	header = white
+	localBranch = bold red
+	nobranch = bold red ul
+	remoteBranch = bold red
+	unmerged = bold red
+	untracked = bold red
+	updated = bold white
 [commit]
 	gpgsign = true
-[tag]
-	gpgSign = true
+[core]
+	pager = less -FRx2
 [credential]
 	helper = store
+[init]
+	defaultBranch = main
+[log]
+	graphColors = bold blue
+[merge]
+	ff = false
+[pull]
+	ff = only
+	rebase = true
+[tag]
+	gpgSign = true
 
 [url "https://github.com/"]
 	insteadOf = gh:
@@ -65,5 +108,3 @@
 	insteadOf = aur:
 [url "aur@aur.archlinux.org:"]
 	pushInsteadOf = aur:
-[merge]
-	ff = false
