@@ -68,6 +68,16 @@
 	meta = bold blue
 	new = bold brightwhite
 	old = brightred
+[color "status"]
+	added = bold white
+	changed = bold red
+	header = white
+	localBranch = bold red
+	nobranch = bold red ul
+	remoteBranch = bold red
+	unmerged = bold red
+	untracked = bold red
+	updated = bold white
 [commit]
 	gpgsign = true
 [core]
