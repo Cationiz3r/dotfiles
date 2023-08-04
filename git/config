@@ -5,6 +5,9 @@
 
 [alias]
 	a = add
+	ac = merge --abort
+	ap = cherry-pick --abort
+	ar = rebase --abort
 	b = branch \
 		--sort=-committerdate \
 		--format='%(color:bold blue)%(HEAD) \
@@ -12,18 +15,25 @@
 %(color:bold green)(%(committerdate:relative))%(color:reset) \
 %(color:bold brightwhite)%(contents:subject)%(color:reset) \
 %(color:dim white)- %(authorname)%(color:reset)'
+	ba = b -a
+	c = clone
 	cc = rev-list --count HEAD
 	cm = commit -m
 	cma = commit --amend
+	cb = co -b
 	co = checkout
-	cob = checkout -b
 	ct = shortlog -sen
-	d = diff --staged --color-words
-	dc = diff --stat --staged
+	d = dd --staged
+	dc = ds --staged
 	dd = diff --color-words
 	del = branch -D
 	ds = diff --stat
+	e = remote -v
+	f = fetch
+	fa = f --all
 	fg = reset --hard
+	fp = fa --prune
+	i = init
 	l = ll --max-count=20
 	la = l --all
 	last = log -1 --stat HEAD
@@ -38,13 +48,20 @@
 %C(reset)%C(bold italic brightred)%D'
 	lla = ll --all
 	ls = ls-tree -r --name-only HEAD
+	m = merge -m
 	p = push
+	pa = p --all
+	pk = cherry-pick
 	pl = pull
+	pp = pa --prune
 	re = rebase -i
 	root = rev-parse --show-toplevel
 	rs = restore --staged
 	s = status -sb
 	ss = s .
+	st = show --stat
+	sw = show --color-words
+	t = tag
 	ud = reset --soft HEAD~1
 [color "diff"]
 	frag = bold brightmagenta
