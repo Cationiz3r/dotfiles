@@ -1,0 +1,3 @@
+[submodule "firefox/user/arkenfox"]
+	path = firefox/user/arkenfox
+	url = https://github.com/arkenfox/user.js
