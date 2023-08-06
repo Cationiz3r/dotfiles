@@ -64,8 +64,8 @@
 	t = tag
 	ud = reset --soft HEAD~1
 [color "diff"]
-	frag = bold brightmagenta
-	meta = bold blue
+	frag = bold brightmagenta ul
+	meta = bold black blue
 	new = bold brightwhite
 	old = brightred
 [color "status"]
