@@ -41,8 +41,8 @@
 		--abbrev-commit \
 		--decorate \
 		--date=format-local:'%y/%m/%d %H:%M' \
-		--format=format:'%C(bold blue)%h \
-%C(reset)%C(green)%ad\
+		--format=format:'%C(bold black blue) %h \
+%C(reset)%C(green) %ad\
 %C(reset)%C(bold brightwhite) %s \
 %C(reset)%C(dim white)- %an \
 %C(reset)%C(bold italic brightred)%D'
