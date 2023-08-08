@@ -60,7 +60,7 @@ register({
 
 		o = {
 			b = telescope.buffers,
-			f = telescope.find_files,
+			f = "<cmd>Telescope find_files find_command=fd,-u,-tf<CR>",
 			g = {
 				b = telescope.git_branches,
 				c = telescope.git_commits,
