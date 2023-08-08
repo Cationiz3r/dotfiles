@@ -1,5 +1,23 @@
 -- This should include plugins-independent keybindings
-local map = vim.keymap.set
+local M = {}
+M.register = function(mappings, opts)
+	opts = opts or {}
+	opts = {
+		mode = opts.mode or "n",
+		prefix = opts.prefix or "",
+	}
+
+	if type(mappings) == "table" then
+		for k, v in pairs(mappings) do
+			M.register(v, {
+				mode = opts.mode,
+				prefix = opts.prefix .. k,
+			})
+		end
+	else
+		vim.keymap.set(opts.mode, opts.prefix, mappings)
+	end
+end
 
 map("n", "<leader>qd", ":qa!<CR>")
 map("n", "<leader>qq", ":wqa<CR>")
