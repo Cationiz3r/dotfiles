@@ -47,3 +47,5 @@ M.register({
 	U = "<c-r>",
 	s = "<cmd>:w<CR>",
 })
+
+return M
