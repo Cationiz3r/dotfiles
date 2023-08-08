@@ -88,6 +88,18 @@ require("dracula").setup({
 
 		[ "@text.diff.add.diff" ] = { fg = colors.bright_white, bold = true },
 		[ "@text.diff.delete.diff" ] = { fg = colors.bright_red, bold = true },
+
+		TelescopeNormal = { bg = colors.menu },
+		TelescopePromptBorder = { bg = colors.menu, fg = colors.menu },
+		TelescopePromptPrefix = { link = "TelescopePromptNormal" },
+		TelescopePromptTitle = { link = "TelescopePromptNormal" },
+		TelescopePromptNormal = { bg = colors.menu, fg = colors.bright_white, bold = true },
+		TelescopeResultsBorder = { link = "TelescopePromptBorder" },
+		TelescopeResultsTitle = { link = "TelescopePromptTitle" },
+		TelescopePreviewBorder = { link = "TelescopePromptBorder" },
+		TelescopePreviewTitle = { link = "TelescopePromptTitle" },
+		TelescopeSelection = { bg = colors.selection, fg = colors.bright_white, bold = true },
+		TelescopeMatching = { link = "TelescopeSelection" },
 	},
 
 	italic_comments = true,
