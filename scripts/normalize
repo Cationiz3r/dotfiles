@@ -1,0 +1,14 @@
+#!/bin/sh
+
+while [ $# -gt 0 ]; do
+	file="$1"
+	normalized=$(echo "$file"|
+		sed \
+			-e's/([^\)]*)//g' \
+			-e's/ \+/ /g'|
+		iconv -fUTF8 -tASCII//TRANSLIT|
+		tr A-Z' ' a-z_
+	)
+	mv -iv "$file" "$normalized"
+	shift
+done
