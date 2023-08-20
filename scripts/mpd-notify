@@ -25,12 +25,6 @@ flip_bit() {
 	flip=$((1-flip))
 }
 
-is_single_album() {
-	# Detect if the current playlist is only 1 album
-	local albums_count=$(mpc playlist -f %album%|sort -u|wc -l)
-	[ "$albums_count" -eq 1 ] && [ -n "$(get_cur album)" ]
-}
-
 notify() {
 	local summary=$(get_cur title)
 	local content=$(get_cur artist)
@@ -42,19 +36,12 @@ notify() {
 		content=$(basename "$(get_cur file)")
 	fi
 
-	# Single album
-	if is_single_album ; then
-		# Append index if ummary doesn't have inline index
-		if ! echo "$summary"|grep -q ' - '; then
-			local track=$(get_cur track)
-			[ -n "$track" ] && summary="$track. $summary"
-		fi
-	fi
-
 	# Append album name to content
-	album=$(get_cur album)
+	local album=$(get_cur album)
 	if [ -n "$album" ]; then
-		content="<span size='7pt' rise='7pt'><b>$album</b></span>\\n$content"
+		local track=$(get_cur track)
+		content="<span size='7pt' rise='7pt'><b>$album / $track\
+</b></span>\\n$content"
 	fi
 
 	# Get art icon & flip if valid
