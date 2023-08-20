@@ -1,7 +1,8 @@
 #!/bin/zsh
 
 export EDITOR='nvim'
-export PAGER='less -FRx2'
+export PAGER='less -FRix2'
+export BAT_PAGER="$PAGER"
 export LESSHISTFILE=- # No less history
 export SQLITE_HISTORY=/dev/null
 export GPG_TTY=$(tty)

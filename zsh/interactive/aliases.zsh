@@ -33,7 +33,7 @@ alias pactree='pactree -c'
 alias diff='diff --color=auto -uT --palette "hd=34;1:rs=95;1:de=91;2:ad=97;1"'
 
 # Misc replace
-alias less='less -FRix2'
+alias less="$PAGER"
 alias bat='bat --tabs 2'
 alias time='command time -p'
 alias wget='wget -c --show-progress --hsts-file /dev/null'
