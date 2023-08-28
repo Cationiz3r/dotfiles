@@ -56,7 +56,7 @@ error-message {
 	padding: 5;
 }
 element {
-	padding: 2;
+	padding: 2 5;
 }
 element.selected.normal {
 	background-color: @selection;
