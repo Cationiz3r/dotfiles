@@ -3,7 +3,7 @@
 
 ## Filesystem
 --no-mtime
---output "%(artist,uploader|Unknown)s - %(title|Unknown)s.%(ext)s"
+--output "%(artist,uploader|unknown)s_%(title|unknown)s.%(ext)s"
 
 ## Subtitle
 --sub-lang "en,vi"
