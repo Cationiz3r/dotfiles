@@ -3,6 +3,6 @@
 
 configuration {
 	modi: "run";
-	font: "JetBrains Mono Bold 10";
+	font: "Fira Code cv01 cv02 cv06 cv25 cv26 cv28 cv29 cv30 cv31 cv32 ss01 ss04 ss07 ss09 ss10 zero SemiBold 10";
 	kb-row-tab: "";
 }
