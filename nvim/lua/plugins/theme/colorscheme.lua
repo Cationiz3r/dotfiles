@@ -23,7 +23,7 @@ local colors = {
 	bright_cyan = "#d6d6d6",
 	bright_white = "#ffffff",
 
-	menu = "#282828",
+	menu = "#202020",
 	visual = "#333333",
 	gutter_fg = "#00ff00",
 	nontext = "#eeeeee",
