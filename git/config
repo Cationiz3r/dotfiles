@@ -36,6 +36,7 @@
 	i = init
 	l = ll --max-count=20
 	la = l --all
+	lb = l --branches
 	last = log -1 --stat HEAD
 	ll = log --graph \
 		--abbrev-commit \
@@ -47,6 +48,7 @@
 %C(reset)%C(dim white)- %an \
 %C(reset)%C(bold italic brightred)%D'
 	lla = ll --all
+	llb = ll --branches
 	ls = ls-tree -r --name-only HEAD
 	m = merge -m
 	p = push
