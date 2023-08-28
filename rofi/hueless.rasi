@@ -1,5 +1,5 @@
 * {
-	highlight: bold underline #fff;
+	highlight: bold #fff;
 	none: #00000000;
 	almost-none: #1818181f;
 	bg: #181818;
@@ -44,6 +44,9 @@ inputbar {
 textbox-prompt {
 	expand: false;
 	margin: 0px 0.3em 0em 0em;
+}
+entry {
+	text-transform: bold;
 }
 error-message {
 	border: @border-single;
