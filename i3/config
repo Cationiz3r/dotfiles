@@ -21,4 +21,7 @@ set $ws8 80:Misc
 # Default workspace
 exec --no-startup-id i3-msg workspace "$ws1"
 
+# Layout control
+exec_always --no-startup-id $XDG_CONFIG_HOME/i3/scripts/columns_layout.py
+
 include *.conf
