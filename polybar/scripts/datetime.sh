@@ -9,7 +9,7 @@ render() {
 
 	local icons_dir="$POLYBAR_RUN/dates"
 	local output="$icons_dir/$day.png"
-	mkdir -vp "$icons_dir"
+	mkdir -vp "$icons_dir" >&2
 
 	# Skip rendered images
 	if ! [ -r "$output" ]; then
