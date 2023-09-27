@@ -63,7 +63,7 @@ notify() {
 show() {
 	local sync=$(./scripts/timesync.sh)
 	local dow=$(date '+%a')
-	local time=$(date '+%H:%M:%S')
+	local time=$(date '+%-H:%M:%S')
 
 	echo "$dow$PRIMARY_THEME$sync$time  "
 }
