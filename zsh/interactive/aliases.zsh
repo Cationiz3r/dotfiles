@@ -68,6 +68,7 @@ alias wf='nmcli dev wifi con'
 alias wfls='nmcli dev wifi re; nmcli dev wifi'
 alias con='nmcli dev con'
 alias dis='nmcli dev dis'
+alias net='nmcli dev'
 alias yt='ytfzf'
 alias ytc='ytfzf --sort -cS'
 
