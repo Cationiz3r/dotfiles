@@ -1,25 +1,25 @@
 #!/bin/zsh
 
-deleteFullWord()   { WORDCHARS= zle backward-delete-word; }
-forwardFullWord()  { WORDCHARS= zle forward-word; }
-backwardFullWord() { WORDCHARS= zle backward-word; }
+delete_full_word() { WORDCHARS= zle backward-delete-word; }
+forward_full_word() { WORDCHARS= zle forward-word; }
+backward_full_word() { WORDCHARS= zle backward-word; }
 
-clearBuffer() {
+clear_buffer() {
 	echo -n $'\e[H\e[3J'
 	clear
-	promptReset
+	prompt_reset
 }
-clearHistory() {
+clear_history() {
 	local i OLDHISTSIZE=$HISTSIZE
 	for i in $(seq 2 $(dirs -v|wc -l)); do popd; done
 	history -p
 	HISTSIZE=$OLDHISTSIZE
-	clearBuffer
+	clear_buffer
 }
 
-fastExit() exit
+fast_exit() exit
 
-nonNullAcceptLine() {
+non_null_accept_line() {
 	[ -z "$BUFFER" ] && return
 	&>/dev/null unset -f TRAPINT
 	zle accept-line
@@ -35,30 +35,30 @@ resume_or_undo() {
 }
 
 # File explorers like navigation
-cdBack() {
+cd_back() {
 	# Return to last dir, ignore errors (eg: deleted)
 	[ $(dirs -v|wc -l) -eq 1 ] && return
 	local o_PWD="$PWD"
 	&>/dev/null popd
 
 	[ "$o_PWD" = "$PWD" ] && return
-	promptReset
+	prompt_reset
 }
-cdUp()   { cd ..; promptReset }
-cdHome() { cd; promptReset }
+cd_up() { cd ..; prompt_reset }
+cd_home() { cd; prompt_reset }
 
 for func in \
-	deleteFullWord \
-	forwardFullWord \
-	backwardFullWord \
-	fastExit \
-	clearBuffer \
-	clearHistory \
-	nonNullAcceptLine \
+	delete_full_word \
+	forward_full_word \
+	backward_full_word \
+	fast_exit \
+	clear_buffer \
+	clear_history \
+	non_null_accept_line \
 	resume_or_undo \
-	cdBack \
-	cdUp \
-	cdHome \
+	cd_back \
+	cd_up \
+	cd_home \
 	exit
 do zle -N $func; done
 unset func

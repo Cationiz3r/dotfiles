@@ -23,17 +23,17 @@ unset module
 source "$ZDOTDIR/interactive/key_functions.zsh"
 bindkey '^H' backward-delete-word
 bindkey '^Z' resume_or_undo
-bindkey '^[^?' deleteFullWord
-bindkey '^[[1;3C' forwardFullWord
-bindkey '^[[1;3D' backwardFullWord
-bindkey '^L' clearBuffer
-bindkey '^K' clearHistory
-bindkey '^Q' fastExit
-bindkey '^D' fastExit
-bindkey '^M' nonNullAcceptLine
-bindkey '^[1' cdBack
-bindkey '^[2' cdUp
-bindkey '^[3' cdHome
+bindkey '^[^?' delete_full_word
+bindkey '^[[1;3C' forward_full_word
+bindkey '^[[1;3D' backward_full_word
+bindkey '^L' clear_buffer
+bindkey '^K' clear_history
+bindkey '^Q' fast_exit
+bindkey '^D' fast_exit
+bindkey '^M' non_null_accept_line
+bindkey '^[1' cd_back
+bindkey '^[2' cd_up
+bindkey '^[3' cd_home
 
 # Macros
 bindkey -s '\ew' '\C-a$(\C-e)'
@@ -50,7 +50,7 @@ bindkey -s '\es' '\C-e|sed '
 bindkey -s '\er' '{,}'
 
 # Macros (app launcher)
-widget-launcher() {
+widget_launcher() {
 	local CMD=""
 	case "$KEYS" in
 	$'\ec') CMD=spclock;;
@@ -66,11 +66,12 @@ widget-launcher() {
 		eval $CMD <$TTY
 		zle redisplay
 	fi
-}; zle -N widget-launcher
-bindkey '\ec' widget-launcher
-bindkey '\ev' widget-launcher
-bindkey '\eb' widget-launcher
-bindkey '\en' widget-launcher
+}
+zle -N widget_launcher
+bindkey '\ec' widget_launcher
+bindkey '\ev' widget_launcher
+bindkey '\eb' widget_launcher
+bindkey '\en' widget_launcher
 
 #Better macros
 doas_() { BUFFER="doas $BUFFER"; CURSOR+=5 }

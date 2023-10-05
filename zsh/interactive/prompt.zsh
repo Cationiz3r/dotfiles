@@ -11,14 +11,14 @@ preexec() {
 	tput sgr0
 }
 precmd() {
-	promptUpdate
+	prompt_update
 	TRAPINT() {
 		zle kill-whole-line
-		promptReset
+		prompt_reset
 	}
 }
 
-promptPwd() { # shorten: 2=maxlength
+prompt_pwd() { # shorten: 2=maxlength
 	local cutoff='..'
 	local pwd="${PWD/#$HOME/~}"
 	local offset=$((${#pwd} - $PROMPT_MAX_PWDLEN + ${#cutoff}))
@@ -29,14 +29,14 @@ promptPwd() { # shorten: 2=maxlength
 	[ "$pwd" = "~" ] && echo || echo "$pwd"
 }
 
-promptUpdate() {
+prompt_update() {
 	local userhost="$PROMPT_HOST" user="$PROMPT_USER"
 	[ "$EUID" -eq 0 ] && user="%U%F{15}$user%u%F{14}"
 	[ -n "$PROMPT_PRIV" ] && userhost="$user@$userhost"
 	[ -n "$PROMPT_SSH" ] && userhost="ssh:$userhost"
 	local venv
 	[ -n "$PIPENV_ACTIVE" ] && venv=" venv"
-	local pwd=$(promptPwd)
+	local pwd=$(prompt_pwd)
 	[ -n "$pwd" ] && pwd="%F{12}$pwd "
 	local git=$(2>/dev/null git branch|grep \*|cut -b3-)
 	if [ -n "$git" ]; then
@@ -50,7 +50,7 @@ promptUpdate() {
 	PS1="%B%F{15}▍%F{14}$userhost$venv $pwd$git%F{15}$sign " # 258D
 }
 
-promptInit() {
+prompt_init() {
 	PROMPT_USER="$USER"
 	PROMPT_HOST="$HOST"
 	local shorthn=$(grep -oP '(?<=short:).*' /etc/hostname|head -1)
@@ -72,9 +72,9 @@ promptInit() {
 	fi
 }
 
-promptReset() {
-	promptUpdate
+prompt_reset() {
+	prompt_update
 	zle reset-prompt
 }
 
-promptInit
+prompt_init
