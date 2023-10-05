@@ -34,6 +34,7 @@ bindkey '^M' non_null_accept_line
 bindkey '^[1' cd_back
 bindkey '^[2' cd_up
 bindkey '^[3' cd_home
+bindkey '^[4' cd_next
 
 # Macros
 bindkey -s '\ew' '\C-a$(\C-e)'

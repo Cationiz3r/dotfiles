@@ -46,6 +46,34 @@ cd_back() {
 }
 cd_up() { cd ..; prompt_reset }
 cd_home() { cd; prompt_reset }
+cd_next() {
+	# Cycles between siblings of current dir
+	local found_cur
+	local cur=${PWD##*/}
+
+	# Check if we're in /
+	[ -z "$cur" ] && return 1
+
+	local i
+	for i in ../*/; do
+		if [ -n "$found_cur" ]; then
+			if [ -d "$i" ]; then
+				cd "$i"
+				prompt_reset
+				return
+			fi
+		elif [ "${i#../}" == "$cur/" ]; then
+			found_cur=true
+		fi
+	done
+
+	# Loop back to first sibling
+	for i in ../*/; do
+		cd "$i"
+		prompt_reset
+		return
+	done
+}
 
 for func in \
 	delete_full_word \
@@ -59,6 +87,7 @@ for func in \
 	cd_back \
 	cd_up \
 	cd_home \
+	cd_next \
 	exit
 do zle -N $func; done
 unset func
