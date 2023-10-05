@@ -41,7 +41,7 @@ send_notification() {
 }
 
 copy() {
-	local day=$(date '+%d')
+	local day=$(date '+%-d')
 	local text=$(date '+%y%m%d_%H%M%S')
 
 	printf '%s' "$text"|xclip
@@ -50,7 +50,7 @@ copy() {
 
 # Send a notification about date of today
 notify() {
-	eval set -- $(date '+%d %B %Y %A')
+	eval set -- $(date '+%-d %B %Y %A')
 	local day="$1"
 	local month="$2"
 	local year="$3"
