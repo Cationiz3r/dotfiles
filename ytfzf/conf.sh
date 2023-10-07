@@ -9,6 +9,7 @@ enable_hist=0
 enable_search_hist=0
 
 show_thumbnails=1
+fzf_preview_side=up
 
 mpv_yt() {
 	set -- mpv --profile=youtube "$@"
