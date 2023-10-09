@@ -5,11 +5,10 @@ is_loop=1 # returns to list
 sub_link_count=5
 pages_to_scrape=3
 
-enable_hist=0
-enable_search_hist=0
-
 show_thumbnails=1
 fzf_preview_side=up
+
+keep_cache=1
 
 mpv_yt() {
 	set -- mpv --profile=youtube "$@"
