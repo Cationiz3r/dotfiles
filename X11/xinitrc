@@ -1,6 +1,5 @@
 #!/bin/sh
 xset m 20/10 10 r rate 300 30 b on
-xhost +si:localuser:$USER
 
 $XDG_CONFIG_HOME/dunst/launch &
 ibus-daemon -drx &
