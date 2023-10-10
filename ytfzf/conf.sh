@@ -54,3 +54,12 @@ download_thumbnails() {
 		-d"$download_dir" \
 		-i-
 }
+
+custom_shortcut_binds=alt-x
+
+handle_keypress_alt_x() {
+	local url=$(cat "$ytfzf_selected_urls"|head -1)
+	echo "recommend: $url"
+	ytfzf -cR "$url"
+	return 3
+}
