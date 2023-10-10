@@ -70,7 +70,9 @@ alias con='nmcli dev con'
 alias dis='nmcli dev dis'
 alias net='nmcli dev'
 alias yt='ytfzf'
-alias ytc='ytfzf --sort -cSI'
+alias ytc='yt -cSI --sort'
+alias ytr='yt -cfrom-cache'
+alias ytv='yt -cfrom-cache --sort'
 
 # Background processes
 detach() { nohup "$@" &>/dev/null &| }
