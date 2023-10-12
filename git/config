@@ -5,9 +5,9 @@
 
 [alias]
 	a = add
-	ac = merge --abort
-	ap = cherry-pick --abort
-	ar = rebase --abort
+	a1 = r --abort
+	a2 = merge --abort
+	a3 = pk --abort
 	b = branch \
 		--sort=-committerdate \
 		--format='%(color:bold blue)%(HEAD) \
@@ -17,6 +17,9 @@
 %(color:dim white)- %(authorname)%(color:reset)'
 	ba = b -a
 	c = clone
+	c1 = r --continue
+	c2 = merge --continue
+	c3 = pk --continue
 	cc = rev-list --count HEAD
 	cm = commit -m
 	cma = commit --amend
@@ -56,6 +59,7 @@
 	pk = cherry-pick
 	pl = pull
 	pp = pa --prune
+	r = rebase
 	re = rebase -i
 	root = rev-parse --show-toplevel
 	rs = restore --staged
@@ -65,6 +69,12 @@
 	sw = show --color-words
 	t = tag
 	ud = reset --soft HEAD~1
+	z = stash -m
+	zk = stash -km
+	zl = stash list
+	zt = stash show --stat
+	zw = stash show --color-words
+	zz = stash pop
 [color "diff"]
 	frag = bold brightmagenta ul
 	meta = bold black blue
