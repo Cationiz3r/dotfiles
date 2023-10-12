@@ -74,6 +74,17 @@ register({
 			W = "<cmd>wincmd o<CR>",
 			w = "<cmd>q<CR>",
 		},
+
+		u = {
+			m = "<cmd>MasonToolsUpdate<CR>",
+			p = "<cmd>PackerSync<CR>",
+			t = "<cmd>TSUpdateSync<CR>",
+			u = function()
+				vim.cmd "PackerSync"
+				vim.cmd "MasonToolsUpdate<CR>"
+				vim.cmd "TSUpdateSync"
+			end,
+		}
 	},
 
 	K = vim.lsp.buf.hover,
