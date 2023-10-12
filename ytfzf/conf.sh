@@ -22,30 +22,29 @@ audio_player() {
 	mpv_yt --profile=music "$@"
 }
 
-_tried_downloading_thumbnails=
 download_thumbnails() {
 	# Cache the downloaded thumbnails into a sub-directory in global cache dir
 	# If they don't exist, download in multi-thread with aria2c
-	[ -n "$_tried_downloading_thumbnails" ] && return
-	_tried_downloading_thumbnails=1
-
 	local line
 	local download_dir="$cache_dir/thumbnails"
 	local threads=8
 	mkdir -p "$download_dir"
-	for line in "$@"; do
-		local thumb_basename="${line##*';'}.jpg"
-		local thumb_path="$download_dir/$thumb_basename"
-		ln -sf -- "$thumb_path" "$thumb_dir" >&2
-		[ -f "$thumb_path" ] && continue
-		printf \
-			"%s out=%s\n" \
-			"${line%%';'*}" \
-			"$thumb_basename"
-	done|
-	sort -u|
-	sed 's/ /\n /'|
-	aria2c \
+	local data=$(
+		for line in "$@"; do
+			local thumb_basename="${line##*';'}.jpg"
+			local thumb_path="$download_dir/$thumb_basename"
+			ln -sf -- "$thumb_path" "$thumb_dir" >&2
+			[ -f "$thumb_path" ] && continue
+			printf \
+				"%s out=%s\n" \
+				"${line%%';'*}" \
+				"$thumb_basename"
+		done|
+		sort -u|
+		sed 's/ /\n /'
+	)
+	[ -z "$data" ] && return
+	echo "$data"|aria2c \
 		--console-log-level=warn \
 		--summary-interval=0 \
 		--auto-file-renaming=false \
