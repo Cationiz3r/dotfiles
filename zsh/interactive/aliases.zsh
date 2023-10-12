@@ -104,6 +104,13 @@ _OB_APP_ROLE"
 alias count='sort|uniq -c|sort -n'
 alias webcam='mpv av://v4l2:/dev/video0 --profile=low-latency --untimed'
 
+sum() {
+	{
+		tr '\n' +
+		echo 0
+	}|bc -l
+}
+
 qr() {
 	# Pipe for qrcode generation
 	tput setaf 15
