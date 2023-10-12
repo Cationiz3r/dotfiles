@@ -10,10 +10,17 @@ fzf_preview_side=up
 
 keep_cache=1
 
+_pretty_print() {
+	echo "$(tput bold)$(tput setaf 15)▍ytfzf \
+$(tput setaf 12)$1$(tput setaf 15) ❯ $2$(tput sgr0)"
+}
+
 mpv_yt() {
-	set -- mpv --profile=youtube "$@"
-	echo "$@"
-	"$@"
+	local url
+	for url in "$@"; do
+		_pretty_print 'play' "$url"
+	done
+	mpv --profile=youtube "$@"
 }
 video_player() {
 	mpv_yt "$@"
@@ -58,7 +65,7 @@ custom_shortcut_binds=alt-x
 
 handle_keypress_alt_x() {
 	local url=$(cat "$ytfzf_selected_urls"|head -1)
-	echo "recommend: $url"
+	_pretty_print 'recommend' "$url"
 	ytfzf -cR "$url"
 	return 3
 }
