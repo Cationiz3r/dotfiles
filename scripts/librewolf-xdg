@@ -1,4 +1,18 @@
 #!/bin/sh
-export HOME="$HOME/.local/share/librewolf_home"
+. "$XDG_CONFIG_HOME/user-dirs.dirs"
+
+export HOME="$XDG_DATA_HOME/librewolf_home"
 mkdir -p "$HOME"
-librewolf "$@"
+cd "$HOME"
+
+mklink() { [ -h "$(basename "$1")" ] || ln -s "$1"; }
+mklink "$XDG_DESKTOP_DIR"
+mklink "$XDG_DOWNLOAD_DIR"
+mklink "$XDG_TEMPLATES_DIR"
+mklink "$XDG_PUBLICSHARE_DIR"
+mklink "$XDG_DOCUMENTS_DIR"
+mklink "$XDG_MUSIC_DIR"
+mklink "$XDG_PICTURES_DIR"
+mklink "$XDG_VIDEOS_DIR"
+
+exec librewolf "$@"
