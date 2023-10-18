@@ -11,5 +11,6 @@ mpd-notify &
 numlockx &
 waldate &
 xborders --config "$XDG_CONFIG_HOME/xborders/config.json" &
+disk-watch &
 
 exec i3

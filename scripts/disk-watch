@@ -1,0 +1,111 @@
+#!/bin/bash
+#	Send notification on system startup & on disk change
+
+print_partitions_count() {
+	find /dev -type b -name 'sd*'|
+	rev|cut -d/ -f1|rev|
+	sed -E 's/[0-9]+$//'|
+	sort|uniq -c|
+	awk '{ print $2, $1 - 1 }'
+}
+
+save_to_last() {
+	last=()
+	for disk in "${!current[@]}"; do
+		last["$disk"]="${current["$disk"]}"
+	done
+}
+
+print_unique_disks() {
+	{
+		echo "${!last[*]}"
+		echo "${!current[*]}"
+	}|
+	sort -u|
+	sed '/^$/d'
+}
+
+style_red() { echo "<span color=\"#f00\">$(cat)</span>"; }
+style_bold() { echo "<b>$(cat)</b>"; }
+style_strike() { echo "<s>$(cat)</s>"; }
+emphasise_disk() {
+	echo "$disk"|sed -E 's#^(sd)([a-z]+)$#\1<big>\U\2\L</big>#'
+}
+emphasise() { echo "<big>$@</big>"|style_bold; }
+trim_space() { sed -E 's/^\s+//'; }
+
+show_current() {
+	for disk in "${!current[@]}"; do
+		echo -n " $(emphasise_disk).$(emphasise "${current["$disk"]}")"
+	done|
+	trim_space
+}
+
+print_diff() {
+	local disk
+	for disk in $(print_unique_disks); do
+		echo "$disk ${last["$disk"]:-0} ${current["$disk"]:-0}"
+	done
+}
+
+show_diff() {
+	for line in $(print_diff); do
+		IFS=' ' read disk before after <<< "$line"
+
+		[ "$after" -eq "$before" ] && continue
+
+		echo -n ' '
+		if [ "$after" -gt "$before" ]; then
+			echo -n "$(emphasise_disk).$(emphasise "$after")"
+		elif [ "$after" -eq 0 ]; then
+			echo -n "$(emphasise_disk|style_red|style_bold|style_strike)"
+		else
+			echo -n "$(emphasise_disk).$(emphasise "$after"|style_red)"
+		fi
+	done|
+	trim_space
+}
+
+notify() {
+	local title
+	local content
+
+	if $init; then
+		title='Disks'
+		content=$(show_current)
+	else
+		title='Disks change'
+		content=$(show_diff)
+	fi
+
+	[ -z "$content" ] && return
+
+	dunstify \
+		-u normal \
+		-t 10000 \
+		"$title" "$content"
+}
+
+main() {
+	IFS=$'\n'
+
+	init=true
+	declare -A last
+	declare -A current
+
+	while true; do
+		for line in $(print_partitions_count); do
+			IFS=' ' read disk parts <<< "$line"
+			current["$disk"]="$parts"
+		done
+
+		notify
+
+		sleep 3
+		save_to_last
+		current=()
+		init=false
+	done
+}
+
+main
