@@ -4,4 +4,4 @@
 [ -d "$ZSPECDIR/completions" ] && for i in "$ZSPECDIR/completions"/_*; do
 	. $i; done; unset i
 
-&>/dev/null which -p pacman && . "$ZDOTDIR/interactive/specific/pacman.zsh"
+&>/dev/null which -p pacman && mod pacman
