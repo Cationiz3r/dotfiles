@@ -2,7 +2,7 @@
 
 mod aliases
 mod completions
-mod key_bindings
+mod keys
 mod misc
 mod prompt
 mod options

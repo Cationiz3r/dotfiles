@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Custom zle functions
 delete_full_word() { WORDCHARS= zle backward-delete-word; }
 forward_full_word() { WORDCHARS= zle forward-word; }
 backward_full_word() { WORDCHARS= zle backward-word; }
@@ -75,6 +76,7 @@ cd_next() {
 	done
 }
 
+# Mark as zle commands
 for func in \
 	delete_full_word \
 	forward_full_word \
@@ -91,3 +93,19 @@ for func in \
 	exit
 do zle -N $func; done
 unset func
+
+# Bind commands to keys
+bindkey '^H' backward-delete-word
+bindkey '^Z' resume_or_undo
+bindkey '^[^?' delete_full_word
+bindkey '^[[1;3C' forward_full_word
+bindkey '^[[1;3D' backward_full_word
+bindkey '^L' clear_buffer
+bindkey '^K' clear_history
+bindkey '^Q' fast_exit
+bindkey '^D' fast_exit
+bindkey '^M' non_null_accept_line
+bindkey '^[1' cd_back
+bindkey '^[2' cd_up
+bindkey '^[3' cd_home
+bindkey '^[4' cd_next
