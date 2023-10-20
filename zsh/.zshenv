@@ -30,4 +30,5 @@ $_MOD_SOURCE_ROOT" >&2
 	fi
 }
 
+typeset -U path PATH
 mod environment
