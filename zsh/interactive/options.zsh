@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 setopt globdots
 setopt histignoredups
 setopt histignorespace

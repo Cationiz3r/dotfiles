@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Append to end
 bindkey -s '\ew' '\C-a$(\C-e)'
 bindkey -s '\el' '\C-e|less'

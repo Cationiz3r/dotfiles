@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 export EDITOR='nvim'
 export PAGER='less -FRix2'
 export BAT_PAGER="$PAGER"

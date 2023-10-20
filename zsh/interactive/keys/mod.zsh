@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 mod inputrc # Load first
 mod external
 mod function

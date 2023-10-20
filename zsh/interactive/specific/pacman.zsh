@@ -1,4 +1,3 @@
-#!/bin/zsh
 up=doas
 which doas &>/dev/null || up=sudo
 [ $EUID -eq 0 ] && up=

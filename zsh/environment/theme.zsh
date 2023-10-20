@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # FZF options
 export FZF_DEFAULT_OPTS="--color=\
 fg:#c7c7c7,bg:#111111,hl:#8f8f8f,\

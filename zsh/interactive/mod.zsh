@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 mod aliases
 mod completions
 mod keys

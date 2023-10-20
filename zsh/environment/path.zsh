@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 typeset -U path PATH
 if [ -z "$PATH_SET" ]; then
 	path=(

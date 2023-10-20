@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 mod xdg # Load first
 mod ibus
 mod locale

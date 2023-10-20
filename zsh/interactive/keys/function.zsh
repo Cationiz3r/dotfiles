@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Custom zle functions
 delete_full_word() { WORDCHARS= zle backward-delete-word; }
 forward_full_word() { WORDCHARS= zle forward-word; }

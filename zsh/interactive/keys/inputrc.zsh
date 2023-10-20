@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # Emacs mode
 bindkey -e
 

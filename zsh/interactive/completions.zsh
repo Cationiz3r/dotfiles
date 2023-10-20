@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 eval "$(dircolors "$DIRCOLORS")"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} #Completion dircolors
 zstyle ':completion:*' menu select

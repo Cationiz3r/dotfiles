@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 # PROMPT_USER: username to display (hidden by default)
 # PROMPT_HOST: hostname of system
 # PROMPT_PRIV: set if sudo or doas is used, shows username

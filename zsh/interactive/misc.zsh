@@ -1,5 +1,3 @@
-#!/bin/zsh
-
 command_not_found_handler() {
   local pkgs cmd="$1"
 	&>/dev/null which -p pkgfile || echo \?
