@@ -1,4 +1,4 @@
-module="/usr/share/zsh/plugins/zsh-history-substring-search/\
+local module="/usr/share/zsh/plugins/zsh-history-substring-search/\
 zsh-history-substring-search.zsh"
 if [ -r "$module" ]; then
 	source "$module"
@@ -12,4 +12,3 @@ if [ -r "$module" ]; then
 else
 	echo "warn: history substring search disabled" >&2
 fi
-unset module

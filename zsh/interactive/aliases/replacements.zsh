@@ -8,10 +8,9 @@ alias sleep='date "+[%Y-%m-%d %H:%M:%S] sleep"; sleep'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 
 # Wget aliases
-wget_alias='wget -c --show-progress --hsts-file /dev/null'
+local wget_alias='wget -c --show-progress --hsts-file /dev/null'
 alias wget="$wget_alias"
 alias twget="torsocks $wget_alias"
-unset wget_alias
 
 # Sort disk free content results
 df() {

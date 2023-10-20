@@ -1,4 +1,4 @@
-up=doas
+local up=doas
 which doas &>/dev/null || up=sudo
 [ $EUID -eq 0 ] && up=
 [ -z $up ] || up="$up "
@@ -8,8 +8,6 @@ alias \
 	pU="${up}pacman -U" \
 	pS="${up}pacman -S" \
 	pR="${up}pacman -Rs" \
-
-unset up
 
 pRO() {
 	local pkgs=($(pacman -Qdtq))

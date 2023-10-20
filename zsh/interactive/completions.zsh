@@ -8,11 +8,10 @@ zstyle ':completion:*' list-prompt "$(tput setaf 15)❯ $(tput sgr0)"
 zstyle ':completion:*' select-prompt ''
 zstyle ':completion:*' hosts off #Disable /etc/hosts lookup
 
-compdump="$XDG_CACHE_HOME/zsh/.zcompdump"
+local compdump="$XDG_CACHE_HOME/zsh/.zcompdump"
 command mkdir -p "${compdump%/*}"
 [ -f $compdump ] &&
 	[ $(($(date +%s)-$(date +%s -r$compdump))) -gt 86400 ] &&
 		command rm "$compdump"
 autoload -Uz compinit #Load completions
 compinit -d "$compdump" #Auto-completion
-unset compdump
