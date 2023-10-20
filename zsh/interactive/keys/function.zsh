@@ -33,20 +33,20 @@ resume_or_undo() {
 	fi
 }
 
-# File explorers like navigation
+## File explorers like navigation
+# Return to last dir, skip errors until current directory changes
 cd_back() {
-	# Return to last dir, ignore errors (eg: deleted)
-	[ $(dirs -v|wc -l) -eq 1 ] && return
-	local o_PWD="$PWD"
-	&>/dev/null popd
+	local old_pwd="$PWD"
+	while ([ $(dirs -v|wc -l) -gt 1 ] && [ "$old_pwd" = "$PWD" ]); do
+		popd &>/dev/null
+	done
 
-	[ "$o_PWD" = "$PWD" ] && return
-	prompt_reset
+	[ "$old_pwd" = "$PWD" ] || prompt_reset
 }
 cd_up() { cd ..; prompt_reset }
 cd_home() { cd; prompt_reset }
+# Cycles through siblings of current dir
 cd_next() {
-	# Cycles between siblings of current dir
 	local found_cur
 	local cur=${PWD##*/}
 
