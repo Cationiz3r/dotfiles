@@ -3,3 +3,4 @@ max_width = 80
 group_imports = "StdExternalCrate"
 imports_granularity = "Crate"
 imports_layout = "HorizontalVertical"
+fn_single_line = true
