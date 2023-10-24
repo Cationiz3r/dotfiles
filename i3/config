@@ -11,6 +11,7 @@ set $ws2_2 22:Tor
 set $ws3 30:Games
 set $ws3_1 31:Fullscreen
 set $ws4 40:Chat
+set $ws4_1 41:Comms
 set $ws5 50:Music
 set $ws5_1 51:FLStudio
 set $ws5_2 52:Mixer
