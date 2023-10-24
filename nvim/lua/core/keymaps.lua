@@ -48,4 +48,8 @@ M.register({
 	s = "<cmd>:w<CR>",
 })
 
+M.register({
+	p = "P",
+}, { mode = "x" })
+
 return M
