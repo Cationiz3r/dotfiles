@@ -41,6 +41,7 @@
 	la = l --all
 	lb = l --branches
 	last = log -1 --stat HEAD
+	lf = llf --max-count=20
 	ll = log --graph \
 		--abbrev-commit \
 		--decorate \
@@ -52,6 +53,7 @@
 %C(reset)%C(bold italic brightred)%D'
 	lla = ll --all
 	llb = ll --branches
+	llf = ll --first-parent
 	ls = ls-tree -r --name-only HEAD
 	m = merge -m
 	p = push
@@ -69,9 +71,12 @@
 	sw = show --color-words
 	t = tag
 	ud = reset --soft HEAD~1
-	z = stash -m
-	zk = stash -km
+	z = stash
+	za = stash apply
+	zd = stash drop
+	zk = stash save -km
 	zl = stash list
+	zm = stash save -m
 	zt = stash show --stat
 	zw = stash show --color-words
 	zz = stash pop
