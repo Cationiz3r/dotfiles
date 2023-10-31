@@ -13,6 +13,9 @@ command_not_found_handler() {
 # Disable pausing/resuming terminal
 stty -ixon
 
+# Force cursor shape if tmux is detected
+[ -n "$TMUX" ] || printf '\e[3 q'
+
 # Few completions
 _detach() {
 	local cmd="$words[1]"

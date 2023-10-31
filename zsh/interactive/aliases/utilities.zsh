@@ -40,11 +40,3 @@ die() { rm "$@" "$PWD"; cd .. }
 
 # Make a directory and move into it
 mkcd() { mkdir "$1"; [ -d "$1" ] && cd "$1" }
-
-# Create alias if in tmux (fix neovim exit)
-if [ -n "$TMUX" ]; then
-	nvim() {
-		command nvim "$@"
-		printf '\e[3 q' # blinking underscore
-	}
-fi
