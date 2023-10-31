@@ -3,7 +3,7 @@ alias m='mpv --profile=music'
 alias n='nvim'
 alias py='python'
 alias re=rename
-alias v='detach mpv --no-terminal --profile=gallery'
+alias v='detach mpv --profile=pseudo-gui --profile=gallery'
 
 # Network
 alias con='nmcli dev con'
