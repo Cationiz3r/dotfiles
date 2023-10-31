@@ -1,3 +1,4 @@
+alias dn='doas nvim'
 alias g='git'
 alias m='mpv --profile=music'
 alias n='nvim'
