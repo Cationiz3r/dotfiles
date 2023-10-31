@@ -31,3 +31,6 @@ uu=01;33:gu=01;33:un=01;31:gn=01;31"
 
 # bat replaces cat for viewing files
 export BAT_THEME='ansi'
+
+# jq (json parse)
+export JQ_COLORS='1;4;31:1;31:1;37:0;35:1;36:0;33:0;34:0;34'
