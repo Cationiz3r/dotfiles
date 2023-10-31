@@ -110,6 +110,8 @@
 [pull]
 	ff = only
 	rebase = true
+[push]
+	autoSetupRemote = true
 [tag]
 	gpgSign = true
 
