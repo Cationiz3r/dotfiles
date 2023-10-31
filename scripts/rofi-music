@@ -14,7 +14,6 @@ cd "$XDG_MUSIC_DIR"
 select=$(
 	find -mindepth 1|\
 	cut -b3-|\
-	grep -vE '^_'|\
 	sort|\
 	rofi -theme list -dmenu
 )
