@@ -28,6 +28,10 @@ prompt_pwd() { # shorten: 2=maxlength
 }
 
 prompt_update() {
+	# Update cursor when tmux or tty is dectected
+	tty|grep -q tty && printf '\e[?0c'
+	[ -n "$TMUX" ] && printf '\e[3 q'
+
 	local userhost="$PROMPT_HOST" user="$PROMPT_USER"
 	[ "$EUID" -eq 0 ] && user="%U%F{15}$user%u%F{14}"
 	[ -n "$PROMPT_PRIV" ] && userhost="$user@$userhost"
