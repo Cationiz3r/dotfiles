@@ -100,11 +100,13 @@ notify_state() {
 }
 
 loop() {
-	get_charge
-	get_info
-	notify_state
+	while true; do
+		get_charge
+		get_info
+		notify_state
 
-	sleep 5
+		sleep 5
+	done
 }
 
 main() {
