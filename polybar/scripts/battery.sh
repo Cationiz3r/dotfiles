@@ -37,12 +37,22 @@ get_info() {
 	echo "$icon$charge"
 }
 
+get_time() {
+	acpi -b|grep -Eo '[0-9]{2}(:[0-9]{2}){2}'
+}
+
 notify() {
  	dunstify \
 		-h string:x-dunst-stack-tag:polybar-battery \
 		-u "$1" \
 		-t 10000 \
 		"$2" "$3"
+}
+
+notify_time() {
+	local word
+	is_charge && word="full" || word="zero"
+	notify normal "To $word" "$(get_time)"
 }
 
 new_notify_state() {
@@ -79,6 +89,7 @@ notify_state() {
 	fi
 }
 
+trap notify_time USR1
 trap toggle_notify_state USR2
 
 while true; do
