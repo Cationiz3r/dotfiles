@@ -89,13 +89,20 @@ notify_state() {
 	fi
 }
 
-trap notify_time USR1
-trap toggle_notify_state USR2
-
-while true; do
+loop() {
 	get_charge
 	get_info
 	notify_state
 
 	sleep 5
-done
+}
+
+main() {
+	case "$1" in
+	toggle) toggle_notify_state;;
+	time) notify_time;;
+	*) loop;;
+	esac
+}
+
+main "$1"
