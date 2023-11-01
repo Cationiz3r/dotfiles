@@ -12,6 +12,7 @@ POLYBAR_BATTERY_NOTIFY="$POLYBAR_RUN/battery"
 
 CHARGE=777
 UNKNOWN=true
+NOTIFY_CYCLES=0
 
 get_charge() {
 	local output=$(acpi -b|grep -Eo '[0-9]+%'|head -c-2) last
@@ -90,6 +91,12 @@ notify_state() {
 		return
 	fi
 	get_notify_state || return
+
+	if [ $NOTIFY_CYCLES -gt 0 ]; then
+		NOTIFY_CYCLES=$(( $NOTIFY_CYCLES - 1 ))
+		return
+	fi
+	NOTIFY_CYCLES=20
 
 	if is_charge && is_full; then
 		notify critical full 'Battery full!' "$content"
