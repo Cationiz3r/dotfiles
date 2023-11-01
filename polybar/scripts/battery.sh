@@ -41,18 +41,27 @@ get_time() {
 	acpi -b|grep -Eo '[0-9]{2}(:[0-9]{2}){2}'
 }
 
+get_time_word() {
+	is_charge && echo full || echo zero
+}
+
+get_icon() {
+	echo "$POLYBAR_ROOT/icons/bat_$1.png"
+}
+
 notify() {
  	dunstify \
 		-h string:x-dunst-stack-tag:polybar-battery \
 		-u "$1" \
+		-I "$(get_icon "$2")" \
 		-t 10000 \
-		"$2" "$3"
+		"$3" "$4"
 }
 
 notify_time() {
 	local word
 	is_charge && word="full" || word="zero"
-	notify normal "To $word" "$(get_time)"
+	notify normal notify "To $(get_time_word)" "$(get_time)"
 }
 
 new_notify_state() {
@@ -70,22 +79,23 @@ toggle_notify_state() {
 	echo "$?" > "$POLYBAR_BATTERY_NOTIFY"
 	local word
 	get_notify_state && word='enabled' || word='disabled'
-	notify normal 'Battery' "Warnings $word"
+	notify normal notify 'Battery' "Warnings $word"
 }
 
 notify_state() {
+	local content="$(get_time)"
 	if is_critical && ! is_charge; then
-		notify critical 'Battery critical!' 'TIME'
+		notify critical critical 'Battery critical!' "$content"
 		return
 	fi
 	get_notify_state || return
 
 	if is_charge && is_full; then
-		notify critical 'Battery full!' 'TIME'
+		notify critical full 'Battery full!' "$content"
 	elif is_charge && is_high; then
-		notify normal 'Battery high' 'TIME'
+		notify normal high 'Battery' "$content"
 	elif ! is_charge && is_low; then
-		notify normal 'Battery low' 'TIME'
+		notify normal low 'Battery' "$content"
 	fi
 }
 
