@@ -40,14 +40,6 @@ send_notification() {
 		"$summary" "$content"
 }
 
-copy() {
-	local day=$(date '+%-d')
-	local text=$(date '+%y%m%d_%H%M%S')
-
-	printf '%s' "$text"|xclip
-	send_notification "$day" 'Polybar' "Copied: $text"
-}
-
 # Send a notification about date of today
 notify() {
 	eval set -- $(date '+%-d %B %Y %A')
@@ -55,7 +47,9 @@ notify() {
 	local month="$2"
 	local year="$3"
 	local dow="$4"
+	local text=$(date '+%y%m%d_%H%M%S')
 
+	printf '%s' "$text"|xclip
 	send_notification "$day" "$dow" "$month $year"
 }
 
