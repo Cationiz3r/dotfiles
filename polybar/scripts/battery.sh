@@ -50,8 +50,9 @@ get_icon() {
 }
 
 notify() {
+	# Maybe related: https://github.com/dunst-project/dunst/issues/1061
  	dunstify \
-		-h string:x-dunst-stack-tag:polybar-battery \
+		-r 7657 \
 		-u "$1" \
 		-I "$(get_icon "$2")" \
 		-t 10000 \
