@@ -1,5 +1,13 @@
 #!/bin/sh
 
+## Options
+POLYBAR_BATTERY_CRIT=${POLYBAR_BATTERY_CRIT:-20} # Always notify
+
+# Togglable notification
+POLYBAR_BATTERY_LOW=${POLYBAR_BATTERY_LOW:-40}
+POLYBAR_BATTERY_HIGH=${POLYBAR_BATTERY_HIGH:-80}
+POLYBAR_BATTERY_FULL=${POLYBAR_BATTERY_FULL:-95} # Used for icon display
+
 CHARGE=777
 UNKNOWN=true
 
@@ -14,13 +22,15 @@ get_charge() {
 }
 
 is_charge()  { acpi -a|grep -q 'on-line'; }
-is_low() { [ $CHARGE -le 20 ]; }
-is_full() { [ $CHARGE -ge 95 ]; }
+is_critical() { [ $CHARGE -le $POLYBAR_BATTERY_CRIT ]; }
+is_low() { [ $CHARGE -le $POLYBAR_BATTERY_LOW ]; }
+is_high() { [ $CHARGE -ge $POLYBAR_BATTERY_HIGH ]; }
+is_full() { [ $CHARGE -ge $POLYBAR_BATTERY_FULL ]; }
 
 get_info() {
 	local charge icon=
 	is_charge && icon=
-	is_low && ! is_charge && printf "%s" "$DANGER" # Bold red
+	is_critical && ! is_charge && printf "%s" "$DANGER" # Bold red
 	is_full && is_charge || charge=" $UNKNOWN$CHARGE" # Hide number
 	echo "$icon$charge"
 }
