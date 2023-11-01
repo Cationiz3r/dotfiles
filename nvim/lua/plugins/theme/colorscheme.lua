@@ -38,6 +38,8 @@ require("dracula").setup({
 		MoreMsg = { fg = colors.comment, bold = true },
 		Error = { fg = colors.bright_red, bold = true },
 		CursorLine = { bg = colors.selection, bold = true },
+		CursorLineNr = { bg = colors.selection, bold = true },
+		Search = { bg = colors.bright_yellow, fg = colors.bg, bold = true },
 
 		DiagnosticError = { link = "Error" },
 		DiagnosticVirtualTextError = { link = "Error" },
