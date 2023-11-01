@@ -20,6 +20,16 @@ M.register = function(mappings, opts)
 end
 
 M.register({
+	-- Jump
+	["<PageUp>"] = "30k",
+	["<PageDown>"] = "30j",
+	["<c-Up>"] = "10k",
+	["<c-Down>"] = "10j",
+	["<s-Up>"] = "3k",
+	["<s-Down>"] = "3j",
+	["<Home>"] = "^",
+	["<End>"] = "$",
+
 	-- Move to window
 	["<a-w>"] = "<c-w>k",
 	["<a-a>"] = "<c-w>h",
@@ -47,6 +57,18 @@ M.register({
 	U = "<c-r>",
 	s = "<cmd>:w<CR>",
 })
+
+M.register({
+	-- Jump
+	["<PageUp>"] = "30k",
+	["<PageDown>"] = "30j",
+	["<c-Up>"] = "10k",
+	["<c-Down>"] = "10j",
+	["<s-Up>"] = "3k",
+	["<s-Down>"] = "3j",
+	["<Home>"] = "^",
+	["<End>"] = "$",
+}, { mode = "v" })
 
 M.register({
 	p = "P",
