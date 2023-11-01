@@ -1,11 +1,11 @@
 #!/bin/sh
 xset m 20/10 10 r rate 300 30 b on
 
-$XDG_CONFIG_HOME/dunst/launch &
+$XDG_CONFIG_HOME/dunst/launch.sh &
 ibus-daemon -drx &
 overcharge &
 picom --config "$PICOM_CONF" &
-$XDG_CONFIG_HOME/polybar/launch &
+$XDG_CONFIG_HOME/polybar/launch.sh &
 forgetful -g &
 mpd-notify &
 numlockx &
