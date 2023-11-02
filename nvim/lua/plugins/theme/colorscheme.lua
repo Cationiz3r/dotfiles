@@ -61,8 +61,12 @@ require("dracula").setup({
 		BufferLineDuplicateVisible = { fg = colors.comment, italic = true },
 		BufferLineOffsetSeparator = { link = "VertSplit" },
 
+		LuaLineDiffAdd = { bg = colors.selection, fg = colors.bright_white, bold = true, },
+		LuaLineDiffModified = { bg = colors.selection, fg = colors.warn, bold = true, },
+		LuaLineDiffRemoved = { bg = colors.selection, fg = colors.bright_red, bold = true, },
+
 		GitSignsAdd = { fg = colors.bright_white },
-		GitSignsChange = { fg = colors.orange },
+		GitSignsChange = { fg = colors.bright_red, bold = true },
 
 		NvimTreeHeader = { link = "BufferLineBufferSelected" },
 		NvimTreeNormal = { bg = colors.bg, fg = colors.yellow },

@@ -32,7 +32,19 @@ require("lualine").setup {
 		},
 		lualine_b = {
 			"branch",
-			"diff",
+			{
+				"diff",
+				diff_color = {
+					added = 'LuaLineDiffAdd',
+					modified = 'LuaLineDiffModified',
+					removed  = 'LuaLineDiffRemoved',
+				},
+				symbols = {
+					added = "", -- E92E
+					modified = "~",
+					removed = "", -- E931
+				}
+			},
 		},
 		lualine_c = {
 			{
