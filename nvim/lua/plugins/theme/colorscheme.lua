@@ -39,6 +39,8 @@ require("dracula").setup({
 		Error = { fg = colors.bright_red, bold = true },
 		CursorLine = { bg = colors.selection, bold = true },
 		CursorLineNr = { bg = colors.selection, bold = true },
+		CursorLineSign = { bg = colors.selection },
+		CursorLineFold = { bg = colors.selection },
 		Search = { bg = colors.bright_yellow, fg = colors.bg, bold = true },
 
 		DiagnosticError = { link = "Error" },
