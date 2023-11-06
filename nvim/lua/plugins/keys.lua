@@ -96,7 +96,7 @@ register({
 			t = "<cmd>TSUpdateSync<CR>",
 			u = function()
 				vim.cmd "PackerSync"
-				vim.cmd "MasonToolsUpdate<CR>"
+				vim.cmd "MasonToolsUpdate"
 				vim.cmd "TSUpdateSync"
 			end,
 		}
