@@ -9,6 +9,17 @@ local illuminate = require("illuminate")
 local snip = require("luasnip")
 local utils = require("core.utils")
 
+local function diagnostics(severity, next)
+	local severities = {
+		Error = vim.diagnostic.severity.ERROR,
+		Warn = vim.diagnostic.severity.WARN,
+	}
+	local func = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	return function()
+		func({ severity = severities[severity] })
+	end
+end
+
 -- Normal mode
 register({
 	["<a-e>"] = ":NvimTreeFocus<CR>",
@@ -18,13 +29,17 @@ register({
 
 	["["] = {
 		c = gitsigns.prev_hunk,
+		e = diagnostics("Error"),
 		r = illuminate.goto_prev_reference,
 		s = function() snip.jump(-1) end,
+		w = diagnostics("Warn"),
 	},
 	["]"] = {
 		c = gitsigns.next_hunk,
+		e = diagnostics("Error", true),
 		r = illuminate.goto_next_reference,
 		s = function() snip.jump(1) end,
+		w = diagnostics("Warn", true),
 	},
 
 	["<leader>"] = {
