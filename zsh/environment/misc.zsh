@@ -2,7 +2,7 @@ export EDITOR='nvim'
 export PAGER='less -FRix2'
 export BAT_PAGER="$PAGER"
 export LESSHISTFILE=- # No less history
-export SQLITE_HISTORY=/dev/null
+export SQLITE_HISTORY="$XDG_RUNTIME_DIR/sqlite3_hist"
 export GPG_TTY=$(tty)
 
 # For xinitrc
