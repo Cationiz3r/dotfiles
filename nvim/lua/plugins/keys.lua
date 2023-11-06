@@ -93,6 +93,10 @@ register({
 
 -- Visual mode
 register({
+	S = ":s/\\v",
+}, { mode = "v" })
+
+register({
 	g = {
 		s = function() gitsigns.stage_hunk(utils.visual_range()) end,
 		r = function() gitsigns.reset_hunk(utils.visual_range()) end,
