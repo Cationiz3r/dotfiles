@@ -53,8 +53,16 @@ require("dracula").setup({
 		DiagnosticFloatingWarn = { link = "DiagnosticWarn" },
 		DiagnosticSignWarn = { link = "DiagnosticWarn" },
 		DiagnosticUnderlineWarn = { sp = colors.warn, undercurl = true },
+		DiagnosticUnnecessary = { link = "DiagnosticUnderlineWarn" },
 		DiagnosticInfo = { fg = colors.bright_white, bold = true },
 		DiagnosticHint = { fg = colors.bright_white, bold = true },
+		DiagnosticSignInfo = { link = "DiagnosticInfo" },
+		DiagnosticSignHint = { link = "DiagnosticHint" },
+
+		DiagnosticSignCursorError = { bg = colors.selection, fg = colors.bright_red, },
+		DiagnosticSignCursorWarn = { bg = colors.selection, fg = colors.warn, },
+		DiagnosticSignCursorInfo = { bg = colors.selection, fg = colors.bright_white, },
+		DiagnosticSignCursorHint = { bg = colors.selection, fg = colors.bright_white, },
 
 		BufferLineBufferSelected = { fg = colors.bright_white, bold = true },
 		BufferLineIndicatorSelected = { link = "BufferLineBufferSelected" },
