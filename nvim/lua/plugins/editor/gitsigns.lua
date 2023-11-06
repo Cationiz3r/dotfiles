@@ -2,8 +2,12 @@ local gitsigns = require("gitsigns")
 
 gitsigns.setup({
 	signs = {
-		delete = { text = "" }, -- E92E
-		topdelete = { text = "" }, -- temp
+		add = { text = '🮈' }, -- 1FB88
+		change = { text = '🮈' }, -- 1FB88
+		delete = { text = '▁' }, -- 2581
+		topdelete = { text = '▔' }, -- 2594
+		changedelete = { text = '🮈' }, -- 1FB88
+		untracked = { text = '🮈┆' }, -- 1FB88 2506
 	},
 	_extmark_signs = false, -- Use vimfn for cursorline highlight
 })

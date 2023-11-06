@@ -12,7 +12,7 @@ local signs = { "Error", "Warn", "Hint", "Info" }
 for _, sign in pairs(signs) do
 	local hl = "DiagnosticSign" .. sign
 	vim.fn.sign_define(hl, {
-		text = "┋", -- 250B EB70
+		text = "🮈", -- 1FB88 EB70
 		texthl = hl,
 	})
 end
