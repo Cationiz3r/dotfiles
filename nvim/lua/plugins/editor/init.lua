@@ -14,6 +14,5 @@ for _, sign in pairs(signs) do
 	vim.fn.sign_define(hl, {
 		text = "┋", -- 250B EB70
 		texthl = hl,
-		culhl = "DiagnosticSignCursor" .. sign,
 	})
 end

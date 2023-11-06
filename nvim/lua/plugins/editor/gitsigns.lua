@@ -1,10 +1,15 @@
-require("gitsigns").setup({
+local gitsigns = require("gitsigns")
+
+gitsigns.setup({
 	signs = {
 		delete = { text = "" }, -- E92E
 		topdelete = { text = "" }, -- temp
 	},
 	_extmark_signs = false, -- Use vimfn for cursorline highlight
 })
+
+-- Attach immediately so highlight forcing would work
+gitsigns.attach(0)
 
 -- Highlight cursorline in signs column
 -- Credit: https://github.com/m-wells
