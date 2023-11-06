@@ -55,6 +55,7 @@ M.register({
 		r = "<cmd>:source %<CR>",
 	},
 	U = "<c-r>",
+	S = ":%s/\\v",
 	s = "<cmd>:w<CR>",
 })
 
@@ -68,6 +69,8 @@ M.register({
 	["<s-Down>"] = "3j",
 	["<Home>"] = "^",
 	["<End>"] = "$",
+
+	S = ":s/\\v",
 }, { mode = "v" })
 
 M.register({
