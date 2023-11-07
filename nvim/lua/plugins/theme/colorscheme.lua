@@ -42,6 +42,7 @@ require("dracula").setup({
 		CursorLineSign = { bg = colors.selection },
 		CursorLineFold = { bg = colors.selection },
 		Search = { bg = colors.bright_yellow, fg = colors.bg, bold = true },
+		Comment = { fg = colors.comment, italic = true },
 
 		DiagnosticError = { link = "Error" },
 		DiagnosticVirtualTextError = { link = "Error" },
