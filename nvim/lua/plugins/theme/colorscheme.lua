@@ -118,6 +118,9 @@ require("dracula").setup({
 		TelescopePreviewLine = { bg = colors.selection, bold = true },
 		TelescopeSelection = { bg = colors.selection, fg = colors.bright_white, bold = true },
 		TelescopeMatching = { link = "TelescopeSelection" },
+
+		TodoBgFIX = { bg = colors.bright_red, fg = colors.bg, bold = true },
+		TodoFgFIX = { fg = colors.bright_red, bold = true },
 	},
 
 	italic_comments = true,

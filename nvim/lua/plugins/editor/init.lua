@@ -6,6 +6,7 @@ require("plugins.editor.illuminate")
 require("plugins.editor.indent")
 require("plugins.editor.surround")
 require("plugins.editor.syntax")
+require("plugins.editor.todo")
 
 -- LSP signs
 local signs = { "Error", "Warn", "Hint", "Info" }

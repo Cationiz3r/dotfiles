@@ -7,6 +7,7 @@ local telescope = require("telescope.builtin")
 local gitsigns = package.loaded.gitsigns
 local illuminate = require("illuminate")
 local snip = require("luasnip")
+local todo = require("todo-comments")
 local utils = require("core.utils")
 
 local function diagnostics(severity, next)
@@ -32,6 +33,7 @@ register({
 		e = diagnostics("Error"),
 		r = illuminate.goto_prev_reference,
 		s = function() snip.jump(-1) end,
+		t = todo.jump_prev,
 		w = diagnostics("Warn"),
 	},
 	["]"] = {
@@ -39,6 +41,7 @@ register({
 		e = diagnostics("Error", true),
 		r = illuminate.goto_next_reference,
 		s = function() snip.jump(1) end,
+		t = todo.jump_next,
 		w = diagnostics("Warn", true),
 	},
 
@@ -51,6 +54,7 @@ register({
 			q = telescope.quickfix,
 			r = telescope.lsp_references,
 			s = telescope.lsp_document_symbols,
+			t = "<cmd>TodoTelescope<CR>",
 			w = telescope.grep_string,
 		},
 

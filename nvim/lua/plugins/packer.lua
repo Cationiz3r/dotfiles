@@ -30,6 +30,7 @@ return require("packer").startup(function(use)
 	use { "Mofiqul/dracula.nvim", commit = "26d04c8" }
 	use "lukas-reineke/indent-blankline.nvim"
 	use { "kylechui/nvim-surround", tag = "*" }
+	use "folke/todo-comments.nvim"
 
 	-- Mason
 	use "williamboman/mason.nvim"
