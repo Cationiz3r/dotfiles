@@ -114,6 +114,7 @@ require("dracula").setup({
 		TelescopeResultsTitle = { link = "TelescopePromptTitle" },
 		TelescopePreviewBorder = { link = "TelescopePromptBorder" },
 		TelescopePreviewTitle = { link = "TelescopePromptTitle" },
+		TelescopePreviewLine = { bg = colors.selection, bold = true },
 		TelescopeSelection = { bg = colors.selection, fg = colors.bright_white, bold = true },
 		TelescopeMatching = { link = "TelescopeSelection" },
 	},

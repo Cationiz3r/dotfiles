@@ -46,7 +46,7 @@ register({
 		f = {
 			S = telescope.lsp_workspace_symbols,
 			d = telescope.live_grep,
-			f = "<cmd>NvimTreeFindFile<CR>",
+			f = telescope.find_files,
 			h = telescope.help_tags,
 			q = telescope.quickfix,
 			r = telescope.lsp_references,
