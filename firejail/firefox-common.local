@@ -1,4 +1,0 @@
-noblacklist ${HOME}/.config/firefox
-whitelist ${HOME}/.config/firefox
-noblacklist ${HOME}/downloads
-whitelist ${HOME}/downloads
