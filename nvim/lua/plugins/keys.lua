@@ -49,6 +49,7 @@ register({
 		f = {
 			S = telescope.lsp_workspace_symbols,
 			d = telescope.live_grep,
+			e = function() telescope.diagnostics({ no_sign = true }) end,
 			f = telescope.find_files,
 			h = telescope.help_tags,
 			q = telescope.quickfix,
@@ -79,7 +80,6 @@ register({
 
 		o = {
 			b = telescope.buffers,
-			f = "<cmd>Telescope find_files find_command=fd,-u,-tf<CR>",
 			g = {
 				b = telescope.git_branches,
 				c = telescope.git_commits,
@@ -113,11 +113,11 @@ register({
 -- Visual mode
 register({
 	S = ":s/\\v",
-}, { mode = "v" })
 
-register({
-	g = {
-		s = function() gitsigns.stage_hunk(utils.visual_range()) end,
-		r = function() gitsigns.reset_hunk(utils.visual_range()) end,
+	["<leader>"] = {
+		g = {
+			s = function() gitsigns.stage_hunk(utils.visual_range()) end,
+			r = function() gitsigns.reset_hunk(utils.visual_range()) end,
+		},
 	},
-}, { prefix = "<leader>", mode = "v" })
+}, { mode = "v" })
