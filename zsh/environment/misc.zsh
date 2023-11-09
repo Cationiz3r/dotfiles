@@ -1,8 +1,12 @@
 export EDITOR='nvim'
-export PAGER='less -FRix2'
-export BAT_PAGER="$PAGER"
-export LESSHISTFILE=- # No less history
-export SQLITE_HISTORY="$XDG_RUNTIME_DIR/sqlite3_hist"
+export PAGER='less'
+export BAT_PAGER='less -n'
+export MANPAGER='less -n'
+export LESS="-FRiNx2Ma20#2"
+local hist_dir="$XDG_RUNTIME_DIR/hist"
+mkdir -p "$hist_dir"
+export LESSHISTFILE="$hist_dir/less"
+export SQLITE_HISTORY="$hist_dir/sqlite"
 export GPG_TTY=$(tty)
 
 # For xinitrc
@@ -10,7 +14,7 @@ export PICOM_CONF="$HOME/.config/picom/picom.conf"
 
 # Local history only
 unset HISTFILE # No history
-HISTSIZE=200
+HISTSIZE=2048
 
 # Use pipenv in current dir as the project dir
 export PIPENV_VENV_IN_PROJECT=1

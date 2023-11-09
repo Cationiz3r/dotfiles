@@ -1,4 +1,3 @@
-alias less="$PAGER"
 alias bat='bat --tabs 2'
 alias time='command time -p'
 alias shred='shred -vu --random-source=/dev/urandom'
