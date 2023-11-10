@@ -42,6 +42,13 @@ require("lspconfig").jedi_language_server.setup {
 }
 require("lspconfig").rust_analyzer.setup {
 	capabilities = capabilities,
+	settings = {
+		['rust-analyzer'] = {
+			check = {
+				command = "clippy",
+			},
+		},
+	},
 }
 require("lspconfig").lemminx.setup {
 	capabilities = capabilities,
