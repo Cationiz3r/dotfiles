@@ -121,6 +121,25 @@ require("dracula").setup({
 
 		TodoBgFIX = { bg = colors.bright_red, fg = colors.bg, bold = true },
 		TodoFgFIX = { fg = colors.bright_red, bold = true },
+
+		lsp_markdown4 = { fg = colors.green },
+		markdownListMarker = { fg = colors.bright_white, bold = true },
+		markdownCode = { fg = colors.bright_white },
+		markdownItalic = { fg = colors.bright_white, italic = true },
+		rustModPath = { link = "@lsp.type.namespace.rust" },
+
+		markdownH1 = { fg = colors.bright_white, bold = true, underline = true },
+		markdownH2 = { link = "markdownH1" },
+		markdownH3 = { link = "markdownH1" },
+		markdownH4 = { link = "markdownH1" },
+		markdownH5 = { link = "markdownH1" },
+		markdownH6 = { link = "markdownH1" },
+		markdownH1Delimiter = { fg = colors.bright_white, bold = true, underline = true },
+		markdownH2Delimiter = { link = "markdownH1Delimiter" },
+		markdownH3Delimiter = { link = "markdownH2Delimiter" },
+		markdownH4Delimiter = { link = "markdownH1Delimiter" },
+		markdownH5Delimiter = { link = "markdownH1Delimiter" },
+		markdownH6Delimiter = { link = "markdownH1Delimiter" },
 	},
 
 	italic_comments = true,
