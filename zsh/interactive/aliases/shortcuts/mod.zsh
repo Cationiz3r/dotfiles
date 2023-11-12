@@ -1,5 +1,10 @@
+# Uppercase single letter aliases
+mod cargo
+mod git
+mod pacman
+
+# Generic
 alias dn='doas nvim'
-alias g='git'
 alias m='mpv --profile=music'
 alias n='nvim'
 alias py='python'
