@@ -1,5 +1,3 @@
-vim.opt.termguicolors = true
-
 local colors = {
 	bg = "#181818",
 	fg = "#dddddd",
