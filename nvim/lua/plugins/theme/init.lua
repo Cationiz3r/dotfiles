@@ -1,2 +1,2 @@
-require("plugins.theme.colorscheme")
-require("plugins.theme.lualine")
+require("plugins.theme.dracula")
+require("plugins.theme.line")
