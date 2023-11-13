@@ -176,5 +176,5 @@ local highlights = {
 
 return {
 	highlights = highlights,
-	pallete = palette,
+	palette = palette,
 }

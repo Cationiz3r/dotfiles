@@ -1,4 +1,4 @@
-local palette = require("plugins.theme.palette").pallete
+local palette = require("plugins.theme.palette").palette
 
 local normal = {
 	a = { bg = palette.fg_light, fg = palette.void, gui = "bold" },
