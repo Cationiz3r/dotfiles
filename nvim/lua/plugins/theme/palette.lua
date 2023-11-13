@@ -17,16 +17,17 @@ local palette = {
 	warn = "#ffff00",
 
 	-- The greys
-	g_0 = "#676767",
-	g_1 = "#757575",
-	g_2 = "#838383",
-	g_3 = "#919191",
-	g_4 = "#9e9e9e",
-	g_5 = "#acacac",
-	g_6 = "#bababa",
-	g_7 = "#c8c8c8",
-	g_8 = "#d6d6d6",
-	g_9 = "#f1f1f1",
+	g_0 = "#737373",
+	g_1 = "#808080",
+	g_2 = "#8c8c8c",
+	g_3 = "#999999",
+	g_4 = "#a6a6a6",
+	g_5 = "#b3b3b3",
+	g_6 = "#bfbfbf",
+	g_7 = "#cccccc",
+	g_8 = "#d9d9d9",
+	g_9 = "#e6e6e6",
+	g_10 = "#f2f2f2",
 }
 
 local highlights = {

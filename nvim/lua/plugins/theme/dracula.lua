@@ -13,7 +13,7 @@ require("dracula").setup({
     yellow = palette.g_2,
     green = palette.g_4,
     purple = palette.g_6,
-    cyan =  palette.g_8,
+    cyan = palette.g_8,
     pink = palette.g_10,
     bright_red = palette.error,
     bright_green = palette.g_1,
