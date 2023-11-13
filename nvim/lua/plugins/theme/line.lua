@@ -1,9 +1,9 @@
-local colors = require("plugins.theme.dracula").colors
+local palette = require("plugins.theme.palette").pallete
 
 local normal = {
-	a = { bg = colors.bright_white, fg = colors.black, gui = "bold" },
-	b = { bg = colors.selection, fg = colors.bright_white, gui = "bold" },
-	c = { bg = colors.bg, fg = colors.fg },
+	a = { bg = palette.fg_light, fg = palette.void, gui = "bold" },
+	b = { bg = palette.bg_light, fg = palette.fg_light, gui = "bold" },
+	c = { bg = palette.bg, fg = palette.fg },
 }
 
 return {
