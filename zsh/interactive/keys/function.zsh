@@ -33,6 +33,11 @@ resume_or_undo() {
 	fi
 }
 
+open_editor() {
+	BUFFER="$EDITOR"
+	zle accept-line
+}
+
 ## File explorers like navigation
 # Return to last dir, skip errors until current directory changes
 cd_back() {
@@ -84,6 +89,7 @@ for func in \
 	clear_history \
 	non_null_accept_line \
 	resume_or_undo \
+	open_editor \
 	cd_back \
 	cd_up \
 	cd_home \
@@ -103,6 +109,7 @@ bindkey '^K' clear_history
 bindkey '^Q' fast_exit
 bindkey '^D' fast_exit
 bindkey '^M' non_null_accept_line
+bindkey '^[^M' open_editor
 bindkey '^[1' cd_back
 bindkey '^[2' cd_up
 bindkey '^[3' cd_home
