@@ -13,7 +13,7 @@ local mode_icons = {
 require("lualine").setup {
 	options = {
 		icons_enabled = true,
-		theme = require("plugins.theme.lualine"),
+		theme = require("plugins.theme.line"),
 		component_separators = { left = '', right = ''},
 		section_separators   = { left = '', right = ''},
 		disabled_filetypes = {
