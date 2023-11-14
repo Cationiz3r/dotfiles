@@ -126,6 +126,7 @@ local highlights = {
 
 	[ "@text.diff.add.diff" ] = { fg = palette.fg_light, bold = true },
 	[ "@text.diff.delete.diff" ] = { fg = palette.error, bold = true },
+	[ "@text.title" ] = { fg = palette.fg_light, bold = true, underline = true },
 
 	TelescopeNormal = { bg = palette.menu },
 	TelescopePromptBorder = { bg = palette.menu, fg = palette.menu },
