@@ -1,5 +1,5 @@
 require("core")
-if os.getenv("NVIM_ENABLE_PLUGINS") ~= nil then
+if os.getenv("NVIM_ENABLE_PLUGINS") == "true" then
 	require("plugins")
 else
 	require("noplugs")
