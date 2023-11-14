@@ -55,7 +55,7 @@ register({
 			q = telescope.quickfix,
 			r = telescope.lsp_references,
 			s = telescope.lsp_document_symbols,
-			t = "<cmd>TodoTelescope<CR>",
+			t = "<cmd>TodoTelescope keywords=TODO,FIX,TEST,DEBUG<CR>",
 			w = telescope.grep_string,
 		},
 

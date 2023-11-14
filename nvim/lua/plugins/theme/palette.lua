@@ -150,6 +150,8 @@ local highlights = {
 
 	TodoBgFIX = { bg = palette.error, fg = palette.void, bold = true },
 	TodoFgFIX = { fg = palette.error, bold = true },
+	TodoBgTEST = { bg = palette.warn, fg = palette.void, bold = true },
+	TodoFgTEST = { fg = palette.warn },
 
 	lsp_markdown4 = { fg = palette.g_4 },
 	markdownListMarker = { fg = palette.fg_light, bold = true },

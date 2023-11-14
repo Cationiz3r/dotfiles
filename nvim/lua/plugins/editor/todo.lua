@@ -9,6 +9,9 @@ require("todo-comments").setup({
 		WARN = no_icon,
 		PERF = no_icon,
 		NOTE = no_icon,
-		TEST = no_icon,
+		TEST = {
+			icon = "",
+			alt = { "TESTING", "PASSED", "FAILED", "DEBUG" },
+		},
 	}
 })
