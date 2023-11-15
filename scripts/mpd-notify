@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DEFAULT_ICON="$(dirname "$0")/icons/music.png"
+
 get_cur() {
 	# Get current song's info
 	mpc current -f "%$1%"
@@ -13,7 +15,7 @@ get_mpd_art() {
 	# Get stderr output of readpicture, pipe any real pic into file
 	local out=$(mpc readpicture "$(get_cur file)" 2>&1 >"$art_file")
 	if [ "$out" = "No data" ]; then
-		echo none
+		echo "$DEFAULT_ICON"
 		return
 	fi
 

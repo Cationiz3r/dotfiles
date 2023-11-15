@@ -1,5 +1,14 @@
 #!/bin/sh
 
+ICON="$(dirname "$0")/icons/screenshot.png"
+
+notify() {
+	dunstify -I "$ICON" "$@"
+}
+clean_date() {
+	date '+%Y-%m-%d %-H:%M:%S'
+}
+
 # Get XDG picture dir
 . "$XDG_CONFIG_HOME/user-dirs.dirs"
 dir="$XDG_PICTURES_DIR/screenshots"
@@ -31,9 +40,15 @@ if ! [ -f "$file" ]; then
 fi
 
 # Send notification
-dunstify "$(basename "$file" .png)"
+notify 'Shot fired!' "On <b>$(clean_date)</b>"
 
 # Optimize saved file
 optipng "$file"
 chmod 400 "$file"
 echo "saved to: $file"
+
+# Post-optimisation notification
+notify 'Cleaned up!' "On <b>$(clean_date)</b>\nTo <tt>$file</tt>"
+
+# Copy filename to buffer
+printf '%s' "$file"|xclip
