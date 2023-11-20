@@ -124,8 +124,15 @@ local highlights = {
 	CmpItemMenu = { fg = palette.dimmed },
 	CmpItemMenuDefault = { link = "CmpItemMenu" },
 
-	[ "@text.diff.add.diff" ] = { fg = palette.fg_light, bold = true },
-	[ "@text.diff.delete.diff" ] = { fg = palette.error, bold = true },
+	DiffAdd = { fg = palette.fg_light, bold = true },
+	DiffDelete = { fg = palette.error, bold = true },
+	DiffChange = { link = "DiffDelete" },
+	diffNewFile = { bg = palette.g_2, fg = palette.void, bold = true },
+	diffOldFile = { link = "diffNewFile" },
+	diffAdded = { link = "DiffAdd" },
+	diffRemoved = { link = "DiffDelete" },
+	[ "@text.diff.add.diff" ] = { link = "DiffAdd" },
+	[ "@text.diff.delete.diff" ] = { link = "DiffDelete" },
 	[ "@text.title" ] = { fg = palette.fg_light, bold = true, underline = true },
 
 	TelescopeNormal = { bg = palette.menu },
