@@ -16,11 +16,28 @@ $(tput setaf 12)$1$(tput setaf 15) ❯ $2$(tput sgr0)"
 }
 
 mpv_yt() {
+	# Get all titles of video
+	local titles
+	local index=1
 	local url
 	for url in "$@"; do
-		_pretty_print 'play' "$url"
+		local title
+		title=$(
+			cat "$session_cache_dir/videos_json"|
+			jq -r ".[]|select(.url == \"$url\")|.title"
+		)
+		if [ $# -gt 1 ]; then
+			titles="$titles$index. $title\n"
+			index=$(( index + 1 ))
+		else
+			titles="$title"
+		fi
 	done
-	mpv --profile=youtube "$@"
+
+	dunstify -I "$XDG_CONFIG_HOME/ytfzf/icon.png" 'ytfzf/mpv' "$titles"
+	nohup mpv --profile=pseudo-gui --profile=youtube "$@" >/dev/null 2>&1 &
+	_pretty_print 'recommend' "$1"
+	ytfzf -cR "$1"
 }
 video_player() {
 	mpv_yt "$@"
@@ -59,13 +76,4 @@ download_thumbnails() {
 		-x"$threads" \
 		-d"$download_dir" \
 		-i-
-}
-
-custom_shortcut_binds=alt-x
-
-handle_keypress_alt_x() {
-	local url=$(cat "$ytfzf_selected_urls"|head -1)
-	_pretty_print 'recommend' "$url"
-	ytfzf -cR "$url"
-	return 3
 }
