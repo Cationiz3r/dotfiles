@@ -11,6 +11,9 @@ sum() { { tr '\n' +; echo 0 }|bc -l }
 # Pipe/pass argument for qrcode generation
 qr() { tput setaf 15; qrencode -tUTF8 "$@" }
 
+# Count number of lines for file matching expression
+lc() { fd -tf "$@" -X wc -l|sort -n }
+
 # Simple symmetric gpg encrypt/decrypt functions
 enc() {
 	gpg \
