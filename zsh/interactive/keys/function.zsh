@@ -26,16 +26,13 @@ non_null_accept_line() {
 
 resume_or_undo() {
 	if [ $#BUFFER -eq 0 ] && [ $(jobs|wc -l) -gt 0 ]; then
-		BUFFER=fg
-		zle accept-line
+		echo
+		tput sgr0
+		eval fg
+		zle redisplay
 	else
 		zle undo
 	fi
-}
-
-open_editor() {
-	BUFFER="$EDITOR"
-	zle accept-line
 }
 
 ## File explorers like navigation
@@ -109,7 +106,7 @@ bindkey '^K' clear_history
 bindkey '^Q' fast_exit
 bindkey '^D' fast_exit
 bindkey '^M' non_null_accept_line
-bindkey '^[^M' open_editor
+bindkey '^[^M' non_null_accept_line
 bindkey '^[1' cd_back
 bindkey '^[2' cd_up
 bindkey '^[3' cd_home
