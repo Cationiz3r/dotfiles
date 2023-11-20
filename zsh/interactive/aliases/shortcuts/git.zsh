@@ -67,7 +67,7 @@ aliases=(
 	[re]=' rebase'
 	[root]=' rev-parse --show-toplevel'
 	[rs]=' restore --staged'
-	[s]=' status -sb'
+	[s]=' status -sbu'
 	[ss]='s .'
 	[st]=' show --stat=$((COLUMNS - 8))'
 	[sw]=' show --color-words'
