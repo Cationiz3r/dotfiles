@@ -69,6 +69,14 @@ register({
 			u = gitsigns.undo_stage_hunk,
 		},
 
+		h = {
+			C = telescope.git_commits,
+			c = telescope.git_bcommits,
+			b = telescope.git_branches,
+			s = telescope.git_status,
+			z = telescope.git_stash,
+		},
+
 		l = {
 			D = vim.lsp.buf.declaration,
 			a = vim.lsp.buf.code_action,
@@ -78,15 +86,7 @@ register({
 			t = vim.lsp.buf.type_definition,
 		},
 
-		o = {
-			b = telescope.buffers,
-			g = {
-				b = telescope.git_branches,
-				c = telescope.git_commits,
-			},
-			p = "<cmd>Telescope project<CR>",
-			r = telescope.oldfiles,
-		},
+		o = telescope.oldfiles,
 
 		q = {
 			B = "<cmd>BufOnly!<CR>",
