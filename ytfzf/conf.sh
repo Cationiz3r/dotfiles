@@ -72,6 +72,7 @@ download_thumbnails() {
 		--console-log-level=warn \
 		--summary-interval=0 \
 		--auto-file-renaming=false \
+		--async-dns=false \
 		-s"$threads" \
 		-x"$threads" \
 		-d"$download_dir" \
