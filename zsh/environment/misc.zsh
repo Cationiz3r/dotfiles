@@ -2,7 +2,7 @@ export EDITOR='nvim'
 export PAGER='less'
 export BAT_PAGER='less -n'
 export MANPAGER='less -n'
-export LESS="-FRiNx2Ma20#2"
+export LESS="-FRiNx2Maj20#2"
 local hist_dir="$XDG_RUNTIME_DIR/hist"
 mkdir -p "$hist_dir"
 export LESSHISTFILE="$hist_dir/less"
