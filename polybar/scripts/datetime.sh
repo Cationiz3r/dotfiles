@@ -47,7 +47,7 @@ notify() {
 	local month="$2"
 	local year="$3"
 	local dow="$4"
-	local text=$(date '+%y%m%d_%H%M%S')
+	local text=$(date '+%y%m%d-%H%M%S')
 
 	printf '%s' "$text"|xclip
 	send_notification "$day" "$dow" "$month $year"
