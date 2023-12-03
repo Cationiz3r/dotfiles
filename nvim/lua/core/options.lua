@@ -14,7 +14,7 @@ vim.opt.fillchars = "vert: "
 vim.opt.cmdheight = 0 -- Hide bottom line
 vim.opt.splitbelow = true -- Split to bottom half
 vim.opt.splitright = true -- Split to right half
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 
 local tab_size = 2
 vim.opt.shiftwidth = tab_size -- indent on pressing tab
