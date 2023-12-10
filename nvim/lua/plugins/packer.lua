@@ -31,6 +31,7 @@ return require("packer").startup(function(use)
 	use "lukas-reineke/indent-blankline.nvim"
 	use { "kylechui/nvim-surround", tag = "*" }
 	use "folke/todo-comments.nvim"
+	use "linrongbin16/lsp-progress.nvim"
 
 	-- Mason
 	use "williamboman/mason.nvim"

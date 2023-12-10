@@ -68,6 +68,7 @@ require("lualine").setup {
 					hint = " ",
 				},
 			},
+			{ require('lsp-progress').progress },
 		},
 		lualine_y = {
 			{
