@@ -113,10 +113,12 @@ local highlights = {
 	NvimTreeGitDirty = { fg = palette.error, bold = true },
 	NvimTreeGitStaged = { fg = palette.fg_light, bold = true },
 
+	Title = { fg = palette.fg_light, bold = true, underline = true },
 	Float = { bg = palette.menu },
 	LspFloatWinNormal = { link = "Float" },
 	NormalFloat = { link = "Float" },
 	NvimFloat = { link = "Float" },
+	FloatBorder = { link = "TelescopePromptBorder" },
 
 	PmenuSel = { fg = palette.fg_light, bg = palette.bg_light, bold = true },
 
