@@ -28,7 +28,7 @@ require('lsp-progress').setup({
 				and vim.fn.strpart(message, 0, 17) .. "..."
 				or message
 			local escaped_msg = msg:gsub("%%", "%%%%")
-			table.insert(builder, "\"" .. escaped_msg .. "\"")
+			table.insert(builder, "[" .. escaped_msg .. "]")
 		end
 		return table.concat(builder, " ")
 	end,
