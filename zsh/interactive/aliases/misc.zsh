@@ -13,3 +13,6 @@ alias ffprobe='ffprobe -hide_banner'
 alias diff='diff --color=auto -uT --palette "hd=34;1:rs=95;1:de=91;2:ad=97;1"'
 alias grep='grep --color=auto'
 alias pactree='pactree -c'
+
+# Clear sqlite output
+alias sql3='sqlite3 -noheader -list'
